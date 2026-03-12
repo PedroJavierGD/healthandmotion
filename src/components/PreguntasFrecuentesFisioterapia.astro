@@ -1,0 +1,56 @@
+---
+const preguntas = [
+  {
+    pregunta: "¿Cómo sé si necesito fisioterapia?",
+    respuesta: "Si tienes dolor, limitación de movimiento, molestias tras una lesión o estás en proceso de recuperación después de una operación, una valoración de fisioterapia puede ayudarte a identificar el problema y plantear el tratamiento adecuado."
+  },
+  {
+    pregunta: "¿Cuánto dura una sesión de fisioterapia?",
+    respuesta: "La duración puede variar según el tratamiento, pero habitualmente trabajamos con sesiones de entre 45 y 60 minutos para poder valorar, tratar y hacer seguimiento con tiempo suficiente."
+  },
+  {
+    pregunta: "¿Necesito venir con pruebas médicas o diagnóstico previo?",
+    respuesta: "No es imprescindible, aunque si ya tienes resonancias, radiografías, informes o pruebas anteriores, traerlas puede ayudarnos a entender mejor tu caso y personalizar el tratamiento desde la primera sesión."
+  },
+  {
+    pregunta: "¿Cuántas sesiones voy a necesitar?",
+    respuesta: "Depende del tipo de lesión, del tiempo que lleve contigo y de tu respuesta al tratamiento. Tras la primera valoración te orientaremos sobre el número de sesiones recomendado y la frecuencia más adecuada."
+  },
+  {
+    pregunta: "¿Tratáis lesiones deportivas y dolor de espalda?",
+    respuesta: "Sí. Trabajamos tanto lesiones deportivas como dolor cervical, dorsal o lumbar, además de post-operatorios, problemas articulares y procesos de readaptación funcional."
+  }
+];
+---
+
+<section id="preguntas-frecuentes" class="py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 font-semibold tracking-wide uppercase text-sm rounded-full">
+        FAQ
+      </span>
+      <h2 class="mt-6 text-4xl sm:text-5xl font-heading font-bold text-gray-900">
+        Preguntas frecuentes
+      </h2>
+      <p class="mt-4 text-lg text-gray-600">
+        Resolvemos algunas de las dudas más habituales antes de reservar tu cita.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {preguntas.map((item, index) => (
+        <details class="group rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm" open={index === 0}>
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+            <span class="text-lg font-semibold text-gray-900">{item.pregunta}</span>
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-700 transition-transform duration-300 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+          <p class="mt-4 pr-10 text-gray-600">
+            {item.respuesta}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

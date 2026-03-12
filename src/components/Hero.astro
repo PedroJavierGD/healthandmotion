@@ -1,0 +1,132 @@
+---
+import { ArrowRight, BadgeCheck, Check } from '@lucide/astro';
+
+import Button from './ui/Button.astro';
+import Badge from './ui/Badge.astro';
+import LeadForm from './LeadForm.astro';
+
+interface Props {
+  badge?: string;
+  badgeColor?: 'primary' | 'blue';
+  title: string;
+  subtitle: string;
+  highlight?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryCta?: string;
+  secondaryCtaHref?: string;
+  stats?: { value: string; label: string }[];
+  features?: { text: string; checked?: boolean }[];
+  variant?: 'primary' | 'blue';
+}
+
+const { 
+  badge = "Centro Médico Multidisciplinar",
+  badgeColor = 'primary',
+  title,
+  subtitle,
+  highlight,
+  ctaText = "Pedir Cita Gratis",
+  ctaHref = "#contacto",
+  secondaryCta = "Ver Servicios",
+  secondaryCtaHref = "#servicios",
+  stats = [
+    { value: "5", label: "Especialidades" },
+    { value: "10+", label: "Profesionales" },
+    { value: "1000+", label: "Pacientes" }
+  ],
+  features = [
+    { text: "Sin esperas", checked: true },
+    { text: "Tratamiento personalizado", checked: true },
+    { text: "Resultados garantizados", checked: true }
+  ],
+  variant = 'primary'
+} = Astro.props;
+
+const gradient = variant === 'blue' 
+  ? 'from-blue-50 via-white to-cyan-50/30'
+  : 'from-primary-50 via-white to-accent-50/30';
+
+const primaryColor = variant === 'blue' ? 'blue' : 'primary';
+const bgPrimary = variant === 'blue' ? 'bg-blue-100' : 'bg-primary-100';
+const textPrimary = variant === 'blue' ? 'text-blue-600' : 'text-primary-600';
+---
+
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+  <div class={`absolute inset-0 bg-gradient-to-br ${gradient}`}></div>
+  <div class="absolute top-32 right-0 w-[500px] h-[500px] bg-primary-200/20 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-200/20 rounded-full blur-3xl"></div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="text-center lg:text-left">
+        <Badge color={badgeColor} pulse>
+          {badge}
+        </Badge>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-gray-900 leading-tight mt-6 mb-6">
+          {highlight ? (
+            <>
+              {title.split(highlight)[0]}
+              <span class={`text-${primaryColor}-600`}>{highlight}</span>
+              {title.split(highlight)[1]}
+            </>
+          ) : title}
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
+          {subtitle}
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <Button href={ctaHref} variant="primary" size="lg">
+            {ctaText}
+            <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
+          </Button>
+          <Button href={secondaryCtaHref} variant="secondary" size="lg">
+            {secondaryCta}
+          </Button>
+        </div>
+
+        {stats.length > 0 && (
+          <div class="mt-10 flex items-center justify-center lg:justify-start space-x-8">
+            {stats.map((stat, index) => (
+              <>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-primary-600">{stat.value}</div>
+                  <div class="text-sm text-gray-500">{stat.label}</div>
+                </div>
+                {index < stats.length - 1 && <div class="w-px h-12 bg-gray-300"></div>}
+              </>
+            ))}
+          </div>
+        )}
+
+        {features.length > 0 && (
+          <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            {features.map((feature) => (
+              <div class="flex items-center text-gray-600">
+                <Check class="mr-2 h-5 w-5 text-green-500" aria-hidden="true" />
+                <span class="text-sm font-medium">{feature.text}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div class="relative">
+        <LeadForm variant={variant} />
+        
+        <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 flex items-center space-x-3 animate-bounce" style="animation-duration: 3s;">
+          <div class={`w-12 h-12 ${bgPrimary} rounded-full flex items-center justify-center`}>
+            <BadgeCheck class={`h-6 w-6 ${textPrimary}`} aria-hidden="true" />
+          </div>
+          <div>
+            <div class="text-sm font-bold text-gray-900">Equipo Profesional</div>
+            <div class="text-xs text-gray-500">Certificados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,135 @@
+---
+import {
+  Apple,
+  Brain,
+  Check,
+  ChevronRight,
+  Dumbbell,
+  HeartPulse,
+  Sparkles,
+  Stethoscope,
+  Zap,
+} from "@lucide/astro";
+
+import Container from "./ui/Container.astro";
+import Heading from "./ui/Heading.astro";
+import Badge from "./ui/Badge.astro";
+import Card from "./ui/Card.astro";
+import Section from "./ui/Section.astro";
+
+const servicios = [
+  {
+    titulo: "Entrenamiento Personal",
+    descripcion:
+      "Planes personalizados adaptados a tus objetivos. Supervision profesional para maximizar resultados.",
+    icono: Dumbbell,
+    color: "from-primary-500 to-primary-700",
+    items: ["Planes adaptados a tu nivel", "Seguimiento personalizado"],
+    enlace: "#contacto",
+  },
+  {
+    titulo: "Estética",
+    descripcion:
+      "Tratamientos avanzados para cuidar tu imagen y potenciar tu confianza.",
+    icono: Sparkles,
+    color: "from-pink-400 to-rose-500",
+    items: ["Tratamientos faciales", "Tratamientos corporales"],
+    enlace: "#contacto",
+  },
+  {
+    titulo: "Fisioterapia",
+    descripcion:
+      "Recuperación de lesiones y tratamiento del dolor con técnicas avanzadas.",
+    icono: HeartPulse,
+    color: "from-blue-400 to-cyan-500",
+    items: ["Readaptación deportiva", "Tratamiento del dolor"],
+    enlace: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda",
+  },
+  {
+    titulo: "Nutrición",
+    descripcion:
+      "Asesoría alimentaria personalizada para mejorar tu salud y hábitos.",
+    icono: Apple,
+    color: "from-green-400 to-emerald-500",
+    items: ["Dietas personalizadas", "Intolerancias alimentarias"],
+    enlace: "#contacto",
+  },
+  {
+    titulo: "Psicología",
+    descripcion: "Acompañamiento profesional para tu salud mental y emocional.",
+    icono: Brain,
+    color: "from-violet-400 to-purple-500",
+    items: ["Terapia individual", "Gestión del estrés"],
+    enlace: "#contacto",
+  },
+  {
+    titulo: "Programa Integral",
+    descripcion:
+      "Combina varios servicios con descuento y alcanza tus objetivos más rápido.",
+    icono: Zap,
+    color: "from-primary-600 to-primary-800",
+    items: ["Descuento por volumen", "Coordinación entre especialistas"],
+    enlace: "#contacto",
+    especial: true,
+  },
+];
+---
+
+<Section id="servicios">
+  <Container>
+    <div class="text-center mb-16">
+      <Badge color="primary">Nuestros Servicios</Badge>
+      <Heading level={2} center class="mt-4">
+        Cuidamos todas las áreas de tu salud
+      </Heading>
+      <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+        Un enfoque integral para que logres tus objetivos de bienestar físico y
+        mental.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        servicios.map((servicio) => (
+          <Card hover>
+            <div
+              class={`h-48 bg-gradient-to-br ${servicio.especial ? "from-primary-600 to-primary-800" : servicio.color} flex items-center justify-center`}
+            >
+              <servicio.icono
+                class="h-20 w-20 text-white/80"
+                stroke-width={1.5}
+                aria-hidden="true"
+              />
+            </div>
+            <div class="p-6">
+              <Heading level={3}>{servicio.titulo}</Heading>
+              <p
+                class={`mt-2 mb-4 ${servicio.especial ? "text-white/80" : "text-gray-500"}`}
+              >
+                {servicio.descripcion}
+              </p>
+              <ul class="space-y-2 mb-4">
+                {servicio.items.map((item) => (
+                  <li class="flex items-center text-sm text-gray-600">
+                    <Check
+                      class={`mr-2 h-4 w-4 ${servicio.especial ? "text-white" : "text-primary-500"}`}
+                      aria-hidden="true"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={servicio.enlace}
+                class={`font-semibold inline-flex items-center ${servicio.especial ? "text-white hover:text-white/80" : "text-primary-600 hover:text-primary-700"}`}
+              >
+                Más información
+                <ChevronRight class="ml-1 h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+  </Container>
+</Section>

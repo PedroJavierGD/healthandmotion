@@ -1,0 +1,45 @@
+---
+import Input from './ui/Input.astro';
+import Select from './ui/Select.astro';
+import Button from './ui/Button.astro';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  options?: { value: string; label: string }[];
+  placeholder?: string;
+}
+
+const { 
+  title = "Reserva tu Cita", 
+  subtitle = "Primera consulta sin compromiso",
+  options = [
+    { value: 'entrenamiento', label: 'Entrenamiento Personal' },
+    { value: 'estetica', label: 'Estética' },
+    { value: 'fisioterapia', label: 'Fisioterapia' },
+    { value: 'nutricion', label: 'Nutrición' },
+    { value: 'psicologia', label: 'Psicología' },
+    { value: 'multiple', label: 'Varios / No sé' }
+  ],
+  placeholder = '¿Qué servicio te interesa?'
+} = Astro.props;
+---
+
+<div class="bg-white rounded-2xl shadow-2xl p-8">
+  <div class="text-center mb-6">
+    <h3 class="text-2xl font-heading font-bold text-gray-900">{title}</h3>
+    {subtitle && <p class="text-gray-500 mt-2">{subtitle}</p>}
+  </div>
+  
+  <form class="space-y-4">
+    <Input type="text" placeholder="Tu nombre" required />
+    <Input type="tel" placeholder="Tu teléfono" required />
+    <Select options={options} placeholder={placeholder} />
+    <Button type="submit" variant="accent" class="w-full">
+      Solicitar Cita
+    </Button>
+    <p class="text-xs text-gray-400 text-center">
+      Te llamaremos en menos de 24h para confirmar tu cita.
+    </p>
+  </form>
+</div>

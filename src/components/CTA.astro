@@ -1,0 +1,74 @@
+---
+import { Mail, Phone } from '@lucide/astro';
+---
+
+<section id="contacto" class="py-20 bg-gradient-to-r from-primary-600 to-primary-800">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mb-4">
+      ¿Listo para cuidar de ti?
+    </h2>
+    <p class="text-xl text-white/80 mb-8">
+      Reserva tu primera consulta gratuita y conoce nuestro centro. 
+      Sin compromiso, te asesoramos sin coste.
+    </p>
+
+    <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg mx-auto">
+      <form class="space-y-4">
+        <div>
+          <input 
+            type="text" 
+            placeholder="Tu nombre completo" 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition"
+            required
+          />
+        </div>
+        <div>
+          <input 
+            type="tel" 
+            placeholder="Tu teléfono" 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition"
+            required
+          />
+        </div>
+        <div>
+          <input 
+            type="email" 
+            placeholder="Tu email (opcional)" 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition"
+          />
+        </div>
+        <div>
+          <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition">
+            <option value="">¿Qué servicio te interesa?</option>
+            <option value="entrenamiento">Entrenamiento Personal</option>
+            <option value="estetica">Estética</option>
+            <option value="fisioterapia">Fisioterapia</option>
+            <option value="nutricion">Nutrición</option>
+            <option value="psicologia">Psicología</option>
+            <option value="multiple">Varios / No sé</option>
+          </select>
+        </div>
+        <button 
+          type="submit" 
+          class="w-full py-4 bg-accent-500 hover:bg-accent-600 text-white font-bold rounded-lg transition shadow-md hover:shadow-lg text-lg"
+        >
+          Solicitar Cita Gratis
+        </button>
+        <p class="text-xs text-gray-400 text-center">
+          Al pulsar, aceptas nuestra política de privacidad. Te llamaremos en menos de 24h.
+        </p>
+      </form>
+    </div>
+
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-white">
+      <div class="flex items-center">
+        <Phone class="mr-2 h-5 w-5" aria-hidden="true" />
+        <span>+34 722 66 49 82</span>
+      </div>
+      <div class="flex items-center">
+        <Mail class="mr-2 h-5 w-5" aria-hidden="true" />
+        <span>hola@healthandmotion.es</span>
+      </div>
+    </div>
+  </div>
+</section>

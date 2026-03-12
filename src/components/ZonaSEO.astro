@@ -1,0 +1,49 @@
+---
+const fisioterapeutas = [
+  {
+    nombre: "Patricia Moreno",
+    puesto: "Fisioterapeuta",
+    foto: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    nombre: "David Jiménez",
+    puesto: "Fisioterapeuta",
+    foto: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face"
+  },
+  {
+    nombre: "Andrea Castillo",
+    puesto: "Fisioterapeuta",
+    foto: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop&crop=face"
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-gray-900">
+        Nuestro equipo de fisioterapia
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        Profesionales especializados en ayudarte a recuperarte, aliviar el dolor y volver a moverte con confianza.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {fisioterapeutas.map((persona) => (
+        <div class="group text-center">
+          <div class="relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-50">
+            <img
+              src={persona.foto}
+              alt={persona.nombre}
+              class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="mt-3 text-base font-semibold text-gray-900">{persona.nombre}</h3>
+          <p class="mt-2 text-sm font-medium text-primary-700">{persona.puesto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

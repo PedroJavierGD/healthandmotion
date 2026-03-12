@@ -1,0 +1,51 @@
+---
+const testimonios = [
+  {
+    nombre: "María García",
+    servicio: "Entrenamiento + Nutrición",
+    iniciales: "M",
+    texto: "Gracias al programa integral he recuperado mi forma física y mis hábitos alimenticios. El equipo es excepcional."
+  },
+  {
+    nombre: "Javier Martínez",
+    servicio: "Fisioterapia",
+    iniciales: "J",
+    texto: "Tras mi lesión sportsiva, la fisioterapia fue clave. Me siento mejor que nunca. Totalmente recomendado."
+  },
+  {
+    nombre: "Carmen Ruiz",
+    servicio: "Estética + Psicología",
+    iniciales: "C",
+    texto: "El trato es cercano y profesional. He mejorado mi autoestima gracias a los tratamientos y el apoyo psicológico."
+  }
+];
+---
+
+<section id="testimonios" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Testimonios</span>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900">
+        Lo que dicen nuestros pacientes
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {testimonios.map((testimonio) => (
+        <div class="bg-gray-50 rounded-2xl p-6">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center text-primary-700 font-bold text-lg">
+              {testimonio.iniciales}
+            </div>
+            <div class="ml-4">
+              <div class="font-semibold text-gray-900">{testimonio.nombre}</div>
+              <div class="text-sm text-gray-500">{testimonio.servicio}</div>
+            </div>
+          </div>
+          <p class="text-gray-600">{testimonio.texto}</p>
+          <div class="mt-4 flex text-accent-500">★★★★★</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
