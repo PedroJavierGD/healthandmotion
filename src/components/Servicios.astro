@@ -7,8 +7,6 @@ import {
   Dumbbell,
   HeartPulse,
   Sparkles,
-  Stethoscope,
-  Zap,
 } from "@lucide/astro";
 
 import Container from "./ui/Container.astro";
@@ -86,16 +84,6 @@ const servicios = [
     items: ["Terapia individual", "Gestión del estrés"],
     enlace: "#contacto",
   },
-  {
-    titulo: "Programa Integral",
-    descripcion:
-      "Combina varios servicios con descuento y alcanza tus objetivos más rápido.",
-    icono: Zap,
-    color: "from-primary-600 to-ink-900",
-    items: ["Descuento por volumen", "Coordinación entre especialistas"],
-    enlace: "#contacto",
-    especial: true,
-  },
 ];
 ---
 
@@ -112,10 +100,23 @@ const servicios = [
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-6">
       {
-        servicios.map((servicio) => (
-          <Card hover>
+        servicios.map((servicio, index) => {
+          const esPenultimoEnFilaDeDos =
+            servicios.length % 3 === 2 && index === servicios.length - 2;
+          const esUltimoEnFilaDeDos =
+            servicios.length % 3 === 2 && index === servicios.length - 1;
+
+          return (
+          <Card
+            hover
+            class:list={[
+              "lg:col-span-2",
+              esPenultimoEnFilaDeDos && "lg:col-start-2",
+              esUltimoEnFilaDeDos && "lg:col-start-4",
+            ]}
+          >
             {servicio.imagen ? (
               <div class="relative h-48 overflow-hidden">
                 <img
@@ -164,7 +165,8 @@ const servicios = [
               </a>
             </div>
           </Card>
-        ))
+          );
+        })
       }
     </div>
   </Container>
