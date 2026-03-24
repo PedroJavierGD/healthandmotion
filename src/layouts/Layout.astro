@@ -1,4 +1,6 @@
 ---
+import favicon from "../assets/images/favicon-health-and-motion.webp";
+
 const { title } = Astro.props;
 const whatsappHref =
   "https://wa.me/34722664982?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n.";
@@ -9,7 +11,7 @@ const whatsappHref =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/webp" href={favicon.src} />
     <meta name="description" content="Centro médico multidisciplinar especializado en entrenamiento personal, estética, fisioterapia, nutrición y psicología. Tu bienestar integral en un solo lugar." />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">

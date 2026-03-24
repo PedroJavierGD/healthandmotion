@@ -1,5 +1,6 @@
 ---
 import { Mail, MapPin, Phone } from '@lucide/astro';
+import logo from '../assets/images/logotipo-health-and-motion.webp';
 
 const servicios = [
   { label: "Entrenamiento Personal", href: "#" },
@@ -20,7 +21,13 @@ const horario = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-4 gap-8">
       <div>
-        <span class="text-2xl font-heading font-bold">Health<span class="text-accent-500">&</span>Motion</span>
+        <a href="/" class="inline-flex items-center" aria-label="Health and Motion">
+          <img
+            src={logo.src}
+            alt="Health and Motion"
+            class="h-12 w-auto sm:h-14"
+          />
+        </a>
         <p class="mt-4 text-gray-400 text-sm">
           Tu centro médico multidisciplinar para entrenamiento, estética, fisioterapia, nutrición y psicología.
         </p>
