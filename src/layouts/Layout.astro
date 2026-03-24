@@ -2,8 +2,6 @@
 import favicon from "../assets/images/favicon-health-and-motion.webp";
 
 const { title } = Astro.props;
-const whatsappHref =
-  "https://wa.me/34722664982?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n.";
 ---
 
 <!doctype html>
@@ -20,84 +18,11 @@ const whatsappHref =
   </head>
   <body class="font-body text-gray-800 antialiased">
     <slot />
-    <a
-      id="whatsapp-cta"
-      href={whatsappHref}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Pide más información por WhatsApp"
-      class="whatsapp-cta fixed bottom-5 right-4 z-50 flex h-16 w-16 items-center justify-center overflow-hidden rounded-full text-white shadow-xl transition sm:bottom-8 sm:right-6 sm:h-auto sm:w-auto sm:max-w-[calc(100vw-3rem)] sm:justify-start"
-    >
-      <span class="whatsapp-cta__icon" aria-hidden="true">
-        <img src="/assets/images/whatsapp-icon.svg" alt="" class="h-full w-full" />
-      </span>
-      <span class="whatsapp-cta__label">¡Pide más información por WhatsApp!</span>
-    </a>
-    <script is:inline src="/scripts/whatsapp-cta.js"></script>
   </body>
 </html>
 
 <style is:global>
   html {
     scroll-behavior: smooth;
-  }
-
-  .whatsapp-cta {
-    background:
-      radial-gradient(circle at 30% 30%, #a6bc9f 0%, #7f9d77 58%, #5d5550 100%);
-    box-shadow: 0 18px 40px rgba(44, 42, 40, 0.22);
-    will-change: transform;
-  }
-
-  .whatsapp-cta:hover {
-    transform: translateY(-2px) scale(1.02);
-  }
-
-  .whatsapp-cta__icon {
-    display: flex;
-    height: 2rem;
-    width: 2rem;
-    flex: none;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .whatsapp-cta__label {
-    max-width: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateX(0.25rem);
-    transition: max-width 250ms ease, opacity 200ms ease, transform 200ms ease;
-    white-space: nowrap;
-  }
-
-  .whatsapp-cta:hover .whatsapp-cta__label,
-  .whatsapp-cta.is-visible .whatsapp-cta__label {
-    max-width: 22rem;
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  @media (min-width: 640px) {
-    .whatsapp-cta {
-      gap: 0.875rem;
-      min-height: 4rem;
-      padding: 0.75rem 1.125rem 0.75rem 0.875rem;
-    }
-
-    .whatsapp-cta__icon {
-      height: 2.125rem;
-      width: 2.125rem;
-    }
-  }
-
-  @media (max-width: 639px) {
-    .whatsapp-cta {
-      padding: 0;
-    }
-
-    .whatsapp-cta__label {
-      display: none;
-    }
   }
 </style>
