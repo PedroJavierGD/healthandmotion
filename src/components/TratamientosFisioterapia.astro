@@ -6,7 +6,7 @@ const tratamientos = [
     titulo: "Readaptación Deportiva",
     descripcion: "Recuperación de lesiones deportivas con programas personalizados para volver a tu actividad.",
     icono: Dumbbell,
-    color: "from-blue-500 to-blue-700",
+    color: "from-primary-500 to-primary-700",
     items: ["Esguinces y desgarros", "Tendinitis"],
     enlace: "#contacto"
   },
@@ -14,7 +14,7 @@ const tratamientos = [
     titulo: "Fisioterapia Traumatológica",
     descripcion: "Tratamiento de lesiones traumatológicas y procesos post-quirúrgicos.",
     icono: Stethoscope,
-    color: "from-cyan-400 to-cyan-600",
+    color: "from-accent-400 to-accent-600",
     items: ["Post-operatorios", "Fracturas"],
     enlace: "#contacto"
   },
@@ -22,7 +22,7 @@ const tratamientos = [
     titulo: "Tratamiento del Dolor",
     descripcion: "Técnicas avanzadas para eliminar o reducir el dolor crónico.",
     icono: HeartPulse,
-    color: "from-indigo-400 to-indigo-600",
+    color: "from-ink-600 to-ink-800",
     items: ["Dolor de espalda", "Cervicalgias y lumbalgias"],
     enlace: "#contacto"
   },
@@ -30,7 +30,7 @@ const tratamientos = [
     titulo: "Fisioterapia Respiratoria",
     descripcion: "Tratamientos para enfermedades respiratorias y mejora de la capacidad pulmonar.",
     icono: Activity,
-    color: "from-teal-400 to-teal-600",
+    color: "from-primary-400 to-primary-600",
     items: ["Asma", "EPOC"],
     enlace: "#contacto"
   },
@@ -38,7 +38,7 @@ const tratamientos = [
     titulo: "Terapia Manual",
     descripcion: "Técnicas de masaje y movilización para restaurar la función.",
     icono: Hand,
-    color: "from-sky-400 to-sky-600",
+    color: "from-accent-300 to-accent-500",
     items: ["Masaje terapéutico", "Osteopatía"],
     enlace: "#contacto"
   },
@@ -46,7 +46,7 @@ const tratamientos = [
     titulo: "Electroterapia",
     descripcion: "Tratamientos con tecnología avanzada para acelerar la recuperación.",
     icono: Zap,
-    color: "from-violet-400 to-violet-600",
+    color: "from-ink-500 to-ink-700",
     items: ["Ultrasonidos", "Laserterapia"],
     enlace: "#contacto"
   }
@@ -56,7 +56,7 @@ const tratamientos = [
 <section id="tratamientos" class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <span class="text-blue-600 font-semibold tracking-wide uppercase text-sm">Tratamientos</span>
+      <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Tratamientos</span>
       <h2 class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900">
         Servicios de fisioterapia
       </h2>
@@ -77,12 +77,12 @@ const tratamientos = [
             <ul class="space-y-2 mb-4">
               {tratamiento.items.map((item) => (
                 <li class="flex items-center text-sm text-gray-600">
-                  <Check class="mr-2 h-4 w-4 text-blue-500" aria-hidden="true" />
+                  <Check class="mr-2 h-4 w-4 text-primary-500" aria-hidden="true" />
                   {item}
                 </li>
               ))}
             </ul>
-            <a href={tratamiento.enlace} class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
+            <a href={tratamiento.enlace} class="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center">
               Más información
               <ChevronRight class="ml-1 h-4 w-4" aria-hidden="true" />
             </a>

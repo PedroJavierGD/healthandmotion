@@ -53,7 +53,7 @@ const servicios = [
       "Tratamientos avanzados para cuidar tu imagen y potenciar tu confianza.",
     icono: Sparkles,
     imagen: buscarImagenServicio(["estetica"]),
-    color: "from-pink-400 to-rose-500",
+    color: "from-accent-400 to-accent-600",
     items: ["Tratamientos faciales", "Tratamientos corporales"],
     enlace: "#contacto",
   },
@@ -63,7 +63,7 @@ const servicios = [
       "Recuperación de lesiones y tratamiento del dolor con técnicas avanzadas.",
     icono: HeartPulse,
     imagen: buscarImagenServicio(["fisioterapia"]),
-    color: "from-blue-400 to-cyan-500",
+    color: "from-primary-400 to-primary-600",
     items: ["Readaptación deportiva", "Tratamiento del dolor"],
     enlace: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda",
   },
@@ -73,7 +73,7 @@ const servicios = [
       "Asesoría alimentaria personalizada para mejorar tu salud y hábitos.",
     icono: Apple,
     imagen: buscarImagenServicio(["nutricionista"]),
-    color: "from-green-400 to-emerald-500",
+    color: "from-primary-400 to-primary-600",
     items: ["Dietas personalizadas", "Intolerancias alimentarias"],
     enlace: "#contacto",
   },
@@ -82,7 +82,7 @@ const servicios = [
     descripcion: "Acompañamiento profesional para tu salud mental y emocional.",
     icono: Brain,
     imagen: buscarImagenServicio(["psicologa"]),
-    color: "from-violet-400 to-purple-500",
+    color: "from-accent-400 to-accent-600",
     items: ["Terapia individual", "Gestión del estrés"],
     enlace: "#contacto",
   },
@@ -91,7 +91,7 @@ const servicios = [
     descripcion:
       "Combina varios servicios con descuento y alcanza tus objetivos más rápido.",
     icono: Zap,
-    color: "from-primary-600 to-primary-800",
+    color: "from-primary-600 to-ink-900",
     items: ["Descuento por volumen", "Coordinación entre especialistas"],
     enlace: "#contacto",
     especial: true,
@@ -128,7 +128,7 @@ const servicios = [
               </div>
             ) : (
               <div
-                class={`h-48 bg-gradient-to-br ${servicio.especial ? "from-primary-600 to-primary-800" : servicio.color} flex items-center justify-center`}
+                class={`h-48 bg-gradient-to-br ${servicio.especial ? "from-primary-600 to-ink-900" : servicio.color} flex items-center justify-center`}
               >
                 <servicio.icono
                   class="h-20 w-20 text-white/80"
