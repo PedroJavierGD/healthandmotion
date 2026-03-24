@@ -1,23 +1,98 @@
 ---
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
+
 const testimonios = [
   {
-    nombre: "María García",
-    servicio: "Entrenamiento + Nutrición",
-    iniciales: "M",
-    texto: "Gracias al programa integral he recuperado mi forma física y mis hábitos alimenticios. El equipo es excepcional."
-  },
-  {
-    nombre: "Javier Martínez",
-    servicio: "Fisioterapia",
+    nombre: "Jose M. Jiménez",
+    servicio: "Centro multidisciplinar",
     iniciales: "J",
-    texto: "Tras mi lesión sportsiva, la fisioterapia fue clave. Me siento mejor que nunca. Totalmente recomendado."
+    tiempo: "Hace 4 semanas",
+    texto: "Fantástico equipo!"
   },
   {
-    nombre: "Carmen Ruiz",
-    servicio: "Estética + Psicología",
+    nombre: "Ajtorka Lopez",
+    servicio: "Centro multidisciplinar",
+    iniciales: "A",
+    tiempo: "Hace 4 semanas",
+    texto: "Llevo varios años yendo a este centro y siempre repito, buenos profesionales y trato muy amable con los pacientes"
+  },
+  {
+    nombre: "Cristina López Hernández",
+    servicio: "Entrenamiento personal",
     iniciales: "C",
-    texto: "El trato es cercano y profesional. He mejorado mi autoestima gracias a los tratamientos y el apoyo psicológico."
+    tiempo: "Hace 5 semanas",
+    texto: "Llevo dos meses en Health&Motion y estoy contentísima. Manu es un gran profesional. Entrenamientos bien estructurados y adaptados a mis necesidades. Se nota la mejora desde que empecé. Lo recomiendo!!!"
+  },
+  {
+    nombre: "Clemente Saelices Delgado",
+    servicio: "Entrenamiento personal",
+    iniciales: "C",
+    tiempo: "Hace 5 semanas",
+    texto: "Las dos sesiones de entrenamiento con Manu constituyen unos de los mejores momentos semanales en los que los ejercicios planteados me ayudan física y emocionalmente en mi día a día. Las actividades se ajustan a nuestras necesidades y se van intensificando de acuerdo a nuestra forma física. Todo ello en un ambiente distendido con mis otros magníficos compañeros de grupo y bajo supervisión individualizada. Lo recomiendo."
+  },
+  {
+    nombre: "Luz Maria",
+    servicio: "Fisioterapia",
+    iniciales: "L",
+    tiempo: "Hace 5 semanas",
+    texto: "Conozco a Lorena desde hace 5 años y es una gran profesional, yo que padezco de problemas de espalda cada vez que me da un brote acudo a su centro sin pensármelo desde la primera sección ya noto mejoría salgo como nueva y súper relajada no sabría describirlo pero si tuviera que ponerle nombre sería \"aliviada\", su profesionalidad tanto como el trato como persona es inmejorable, tanto ella como su equipo lleno de profesionales hacen que nuestra vida sea más llevadera para las personas con problemas yo acudo a fisioterapia pero su centro está completo de muchas especialidades. Recomendable 100%"
+  },
+  {
+    nombre: "Helena Hornero",
+    servicio: "Entrenamiento personal",
+    iniciales: "H",
+    tiempo: "Hace 5 semanas",
+    texto: "Llevo unas cuantas semanas entrenando con Fabi y es maravillosa. Me encanta lo pendiente que está, lo bien que explica y lo personalizados que hace los entrenos para su grupo. Dentro de un mismo grupo de 4 personas se adapta a las necesidades de cada uno. Además, como persona es genial. Súper cercana, cañera y encantadora. ¡Mil gracias por todo, Fabi!"
+  },
+  {
+    nombre: "Raquel Gonzalez",
+    servicio: "Fisioterapia",
+    iniciales: "R",
+    tiempo: "Hace 5 semanas",
+    texto: "Vine hace muchos años por problemas de espalda y por primera vez en mi vida me explicaron el por qué de mis continuas contracturas y la necesidad de un mantenimiento. He conseguido mantener a raya mis dolores de espalda y he ganado en salud. Son unos excepcionales profesionales y siempre se los recomiendo a mi entorno."
+  },
+  {
+    nombre: "Blanca Neri",
+    servicio: "Fisioterapia a domicilio",
+    iniciales: "B",
+    tiempo: "Hace 5 semanas",
+    texto: "Mi marido necesita que vengan a domicilio. Y está yendo muy bien. Leyre una gran profesional."
+  },
+  {
+    nombre: "Angela Cruz Narvaez",
+    servicio: "Fisioterapia",
+    iniciales: "A",
+    tiempo: "Hace 5 semanas",
+    texto: "Llevo años tratándome con Lorena, y no cambio de fisioterapeuta. El espacio de tratamiento es un sitio limpio, amplio y agradable; y Lorena es inmejorable. Muy recomendable."
+  },
+  {
+    nombre: "maria jose Villoria montaño",
+    servicio: "Fisioterapia",
+    iniciales: "M",
+    tiempo: "Hace 5 semanas",
+    texto: "Estupendo centro de fisioterapia, desde que me doy mis secciones con Lorena la fisio del centro estoy muchísimo mejor con solo una sección noto mucha mejoría, me siento muy cómoda y me ayuda en toda mis dudas para mi rutina diaria, buenísima profesional Lorena gracias por todo, hasta la próxima q seguro volveré......"
+  },
+  {
+    nombre: "laura dominguez",
+    servicio: "Fisioterapia",
+    iniciales: "L",
+    tiempo: "Hace 5 semanas",
+    texto: "Buenas. Yo tuve una contractura en el cuello muy fuerte la cual me impedía levantar el brazo y gracias a Dios por encontrar a mí fisioterapeuta Lorena que tiene unas manos de oro, me que quitó el dolor y ya podía levantar la mano..... gracias por ser tan profesional, tan amable y cercana .... gracias de corazón"
+  },
+  {
+    nombre: "Natalia Cáceres",
+    servicio: "Fisioterapia",
+    iniciales: "N",
+    tiempo: "Hace 6 semanas",
+    texto: "Hola soy camarera y deportista!!!, por mi trabajo y deportes, he vivido muchas lesiones de todo tipo, de hombro, de escápulas, lumbares, cervicales y la última una fascitis plantar. Siempre he acudido a mi físio de confianza Lorena. Ella lleva tratándome hace muchos años tenía veinti pocos y voy para casi los 40. Siempre el mismo trato y profesionalidad, mis lesiones siempre son tratadas desde el conocimiento absoluto y trato inmejorable, acompañado de explicaciones (de qué se trata, lo que me pasa) hasta ejercicios con los cuales puedo mejorar en casa. Seguiré acudiendo a mí centro de confianza, Health & motion con mi fisioterapeuta de confianza. Ni que decir de familiares y amigos que he recomendado y han salido encantadísimos. Por qué cuando algo funciona por que cambiarlo? Solo me queda decir mil gracias siempre por vuestra profesionalidad y trato."
   }
+];
+
+const clonesPorLado = 3;
+const testimoniosCarrusel = [
+  ...testimonios.slice(-clonesPorLado),
+  ...testimonios,
+  ...testimonios.slice(0, clonesPorLado)
 ];
 ---
 
@@ -30,22 +105,270 @@ const testimonios = [
       </h2>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      {testimonios.map((testimonio) => (
-        <div class="bg-gray-50 rounded-2xl p-6">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center text-primary-700 font-bold text-lg">
-              {testimonio.iniciales}
-            </div>
-            <div class="ml-4">
-              <div class="font-semibold text-gray-900">{testimonio.nombre}</div>
-              <div class="text-sm text-gray-500">{testimonio.servicio}</div>
-            </div>
-          </div>
-          <p class="text-gray-600">{testimonio.texto}</p>
-          <div class="mt-4 flex text-accent-500">★★★★★</div>
+    <div class="relative">
+      <button
+        type="button"
+        class="carousel-button carousel-button-prev absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-lg transition hover:border-primary-200 hover:text-primary-700 lg:flex"
+        aria-label="Ver reseñas anteriores"
+        data-carousel-prev
+      >
+        <ChevronLeft class="h-5 w-5" aria-hidden="true" />
+      </button>
+
+      <div class="overflow-hidden" data-carousel-viewport>
+        <div class="carousel-track flex" data-carousel-track>
+          {testimoniosCarrusel.map((testimonio) => (
+            <article class="carousel-slide shrink-0">
+              <div class="h-full rounded-2xl bg-gray-50 p-6">
+                <div class="mb-4 flex items-center">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-200 text-lg font-bold text-primary-700">
+                    {testimonio.iniciales}
+                  </div>
+                  <div class="ml-4">
+                    <div class="font-semibold text-gray-900">{testimonio.nombre}</div>
+                    <div class="text-sm text-gray-500">{testimonio.servicio}</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 text-sm">
+                  <div class="flex text-accent-500">★★★★★</div>
+                  <div class="text-gray-500">{testimonio.tiempo}</div>
+                </div>
+                <p class="review-text mt-4 text-gray-600" data-review-text>
+                  {testimonio.texto}
+                </p>
+                <button
+                  type="button"
+                  class="review-toggle mt-3 hidden text-sm font-semibold text-primary-700 transition hover:text-primary-800"
+                  data-review-toggle
+                  aria-expanded="false"
+                >
+                  Leer más
+                </button>
+              </div>
+            </article>
+          ))}
         </div>
-      ))}
+      </div>
+
+      <button
+        type="button"
+        class="carousel-button carousel-button-next absolute right-0 top-1/2 z-10 hidden translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-lg transition hover:border-primary-200 hover:text-primary-700 lg:flex"
+        aria-label="Ver reseñas siguientes"
+        data-carousel-next
+      >
+        <ChevronRight class="h-5 w-5" aria-hidden="true" />
+      </button>
+
+      <div class="mt-8 flex items-center justify-center gap-4 lg:hidden">
+        <button
+          type="button"
+          class="carousel-button inline-flex items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:border-primary-200 hover:text-primary-700"
+          aria-label="Ver reseñas anteriores"
+          data-carousel-prev
+        >
+          <ChevronLeft class="h-5 w-5" aria-hidden="true" />
+        </button>
+
+        <button
+          type="button"
+          class="carousel-button inline-flex items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:border-primary-200 hover:text-primary-700"
+          aria-label="Ver reseñas siguientes"
+          data-carousel-next
+        >
+          <ChevronRight class="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
     </div>
   </div>
 </section>
+
+<script is:inline define:vars={{ clonesPorLado, totalTestimonios: testimonios.length }}>
+  (() => {
+    const section = document.querySelector("#testimonios");
+    if (!section) return;
+
+    const track = section.querySelector("[data-carousel-track]");
+    const viewport = section.querySelector("[data-carousel-viewport]");
+    const prevButtons = section.querySelectorAll("[data-carousel-prev]");
+    const nextButtons = section.querySelectorAll("[data-carousel-next]");
+
+    if (!track || !viewport || !prevButtons.length || !nextButtons.length) return;
+
+    const transitionMs = 500;
+    const autoplayMs = 1500;
+    let currentIndex = clonesPorLado;
+    let autoplayId;
+    let resumeTimeoutId;
+    let isTransitioning = false;
+    const reviewTexts = Array.from(section.querySelectorAll("[data-review-text]"));
+    const reviewToggles = Array.from(section.querySelectorAll("[data-review-toggle]"));
+
+    const getSlidesPerView = () => {
+      if (window.innerWidth >= 1280) return 3;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
+    };
+
+    const getGap = () => {
+      const styles = window.getComputedStyle(track);
+      return Number.parseFloat(styles.columnGap || styles.gap || "0");
+    };
+
+    const updatePosition = (withTransition = true) => {
+      const firstSlide = track.children[0];
+      if (!firstSlide) return;
+
+      const slideWidth = firstSlide.getBoundingClientRect().width;
+      const step = slideWidth + getGap();
+      track.style.transition = withTransition ? `transform ${transitionMs}ms ease` : "none";
+      track.style.transform = `translate3d(-${currentIndex * step}px, 0, 0)`;
+    };
+
+    const syncInfiniteLoop = () => {
+      if (currentIndex >= totalTestimonios + clonesPorLado) {
+        currentIndex = clonesPorLado;
+        updatePosition(false);
+      } else if (currentIndex < clonesPorLado) {
+        currentIndex = totalTestimonios + currentIndex;
+        updatePosition(false);
+      }
+    };
+
+    const moveTo = (direction) => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex += direction;
+      updatePosition(true);
+    };
+
+    const stopAutoplay = () => {
+      window.clearInterval(autoplayId);
+      window.clearTimeout(resumeTimeoutId);
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      autoplayId = window.setInterval(() => moveTo(1), autoplayMs);
+    };
+
+    const pauseAndResumeAutoplay = () => {
+      stopAutoplay();
+      resumeTimeoutId = window.setTimeout(() => startAutoplay(), autoplayMs * 2);
+    };
+
+    const syncReviewButtons = () => {
+      reviewTexts.forEach((text, index) => {
+        const button = reviewToggles[index];
+        if (!button) return;
+
+        const isExpanded = text.classList.contains("is-expanded");
+        if (isExpanded) {
+          button.classList.remove("hidden");
+          button.textContent = "Leer menos";
+          return;
+        }
+
+        const hasOverflow = text.scrollHeight > text.clientHeight + 1;
+        button.classList.toggle("hidden", !hasOverflow);
+        button.textContent = "Leer más";
+        button.setAttribute("aria-expanded", "false");
+      });
+    };
+
+    prevButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        moveTo(-1);
+        pauseAndResumeAutoplay();
+      });
+    });
+
+    nextButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        moveTo(1);
+        pauseAndResumeAutoplay();
+      });
+    });
+
+    reviewToggles.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const text = reviewTexts[index];
+        if (!text) return;
+
+        const willExpand = !text.classList.contains("is-expanded");
+        text.classList.toggle("is-expanded", willExpand);
+        button.textContent = willExpand ? "Leer menos" : "Leer más";
+        button.setAttribute("aria-expanded", String(willExpand));
+      });
+    });
+
+    track.addEventListener("transitionend", () => {
+      isTransitioning = false;
+      syncInfiniteLoop();
+    });
+
+    viewport.addEventListener("mouseenter", stopAutoplay);
+    viewport.addEventListener("mouseleave", startAutoplay);
+    viewport.addEventListener("focusin", stopAutoplay);
+    viewport.addEventListener("focusout", startAutoplay);
+
+    window.addEventListener("resize", () => {
+      const slidesPerView = getSlidesPerView();
+      section.style.setProperty("--slides-per-view", String(slidesPerView));
+      updatePosition(false);
+      syncReviewButtons();
+    });
+
+    section.style.setProperty("--slides-per-view", String(getSlidesPerView()));
+    updatePosition(false);
+    syncReviewButtons();
+    startAutoplay();
+  })();
+</script>
+
+<style>
+  #testimonios {
+    --carousel-gap: 1.5rem;
+    --slides-per-view: 1;
+  }
+
+  .carousel-track {
+    gap: var(--carousel-gap);
+    will-change: transform;
+  }
+
+  .carousel-slide {
+    width: calc(
+      (100% - (var(--carousel-gap) * (var(--slides-per-view) - 1))) /
+        var(--slides-per-view)
+    );
+  }
+
+  .carousel-button {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .review-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+  }
+
+  .review-text.is-expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  @media (min-width: 768px) {
+    #testimonios {
+      --slides-per-view: 2;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    #testimonios {
+      --slides-per-view: 3;
+    }
+  }
+</style>
