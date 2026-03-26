@@ -1,5 +1,40 @@
 ---
-import { Activity, ClipboardList, Clock3, ShieldCheck } from "@lucide/astro";
+import { BadgeCheck, ClipboardList, Clock3, Cpu, Users } from "@lucide/astro";
+
+const ventajas = [
+  {
+    titulo: "Fisioterapeutas Profesionales",
+    descripcion: "Fisioterapeutas colegiados con formación continua.",
+    icono: BadgeCheck,
+    posicion: "lg:col-span-2",
+  },
+  {
+    titulo: "Tratamiento a Medida",
+    descripcion:
+      "Valoramos tu caso de forma individual para entender qué te pasa y qué tratamiento encaja mejor contigo.",
+    icono: ClipboardList,
+    posicion: "lg:col-span-2",
+  },
+  {
+    titulo: "Cercanía y Seguimiento",
+    descripcion:
+      "Queremos que te sientas acompañado durante el proceso, con una atención cercana y un seguimiento orientado a tu recuperación.",
+    icono: Users,
+    posicion: "lg:col-span-2",
+  },
+  {
+    titulo: "Sin listas de esperas",
+    descripcion: "Cita en 24/48 horas.",
+    icono: Clock3,
+    posicion: "lg:col-span-2 lg:col-start-2",
+  },
+  {
+    titulo: "Fisioterapia Avanzada",
+    descripcion: "Equipamiento de última generación.",
+    icono: Cpu,
+    posicion: "lg:col-span-2",
+  },
+];
 ---
 
 <section class="py-20 bg-gray-50">
@@ -16,56 +51,28 @@ import { Activity, ClipboardList, Clock3, ShieldCheck } from "@lucide/astro";
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="text-center p-6">
-        <div
-          class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
-          <ShieldCheck class="h-8 w-8 text-primary-600" aria-hidden="true" />
-        </div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">
-          Profesionales Cualificados
-        </h3>
-        <p class="text-gray-500">
-          Fisioterapeutas colegiados con formación continua
-        </p>
-      </div>
-
-      <div class="text-center p-6">
-        <div
-          class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
-          <ClipboardList class="h-8 w-8 text-primary-600" aria-hidden="true" />
-        </div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">
-          Tratamiento Personalizado
-        </h3>
-        <p class="text-gray-500">Plan de recuperación adaptado a tu caso</p>
-      </div>
-
-      <div class="text-center p-6">
-        <div
-          class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
-          <Clock3 class="h-8 w-8 text-primary-600" aria-hidden="true" />
-        </div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">
-          Sin Listas de Espera
-        </h3>
-        <p class="text-gray-500">Primera cita en 24-48 horas</p>
-      </div>
-
-      <div class="text-center p-6">
-        <div
-          class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4"
-        >
-          <Activity class="h-8 w-8 text-primary-600" aria-hidden="true" />
-        </div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">
-          Instalaciones Modernas
-        </h3>
-        <p class="text-gray-500">Equipamiento de última generación</p>
-      </div>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-6">
+      {
+        ventajas.map((ventaja) => (
+          <article
+            class:list={[
+              "rounded-3xl border border-primary-100 bg-white p-7 text-center shadow-[0_18px_45px_rgba(47,60,46,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(47,60,46,0.1)]",
+              ventaja.posicion,
+            ]}
+          >
+            <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100">
+              <ventaja.icono
+                class="h-8 w-8 text-primary-600"
+                aria-hidden="true"
+              />
+            </div>
+            <h3 class="mb-3 text-lg font-semibold text-gray-900">
+              {ventaja.titulo}
+            </h3>
+            <p class="text-sm leading-6 text-gray-500">{ventaja.descripcion}</p>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
