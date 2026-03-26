@@ -1,0 +1,79 @@
+---
+import { ArrowRight, CalendarDays, HeartPulse, NotebookPen } from "@lucide/astro";
+
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const temas = [
+  {
+    titulo: "Fisioterapia y recuperación",
+    descripcion: "Consejos para aliviar dolor, prevenir recaídas y entender mejor tu proceso de recuperación.",
+    icono: HeartPulse
+  },
+  {
+    titulo: "Entrenamiento y salud",
+    descripcion: "Artículos prácticos para mejorar fuerza, movilidad y rendimiento con enfoque profesional.",
+    icono: NotebookPen
+  },
+  {
+    titulo: "Bienestar integral",
+    descripcion: "Contenido sobre nutrición, psicología y hábitos que impactan en tu salud del día a día.",
+    icono: CalendarDays
+  }
+];
+---
+
+<Layout
+  title="Blog | Health & Motion"
+  description="Blog de Health & Motion con contenidos sobre fisioterapia, entrenamiento personal y bienestar integral."
+>
+  <Header />
+
+  <main>
+    <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(159,179,154,0.24),_transparent_34%),linear-gradient(135deg,_#f5f7f4_0%,_#ffffff_50%,_#fff1f1_100%)] pt-32 pb-20 lg:pt-40 lg:pb-24">
+      <div class="absolute -left-20 top-20 h-72 w-72 rounded-full bg-primary-200/40 blur-3xl"></div>
+      <div class="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-accent-200/30 blur-3xl"></div>
+
+      <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <div class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/90 px-4 py-2 text-sm font-semibold text-primary-700 shadow-sm">
+          <NotebookPen class="h-4 w-4" aria-hidden="true" />
+          Blog Health & Motion
+        </div>
+
+        <h1 class="mt-6 text-4xl font-extrabold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
+          Contenido útil para cuidarte mejor dentro y fuera de la clínica
+        </h1>
+
+        <p class="mt-6 text-lg text-gray-600 sm:text-xl">
+          Estamos preparando artículos con recomendaciones claras sobre fisioterapia, entrenamiento personal y bienestar integral.
+        </p>
+
+        <div class="mt-10 flex justify-center">
+          <a href="/#contacto" class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl">
+            Pedir información
+            <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 md:grid-cols-3">
+          {temas.map((tema) => (
+            <article class="rounded-3xl border border-gray-100 bg-gray-50 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+                <tema.icono class="h-7 w-7" aria-hidden="true" />
+              </div>
+              <h2 class="mt-6 text-2xl font-bold text-gray-900">{tema.titulo}</h2>
+              <p class="mt-4 text-gray-600">{tema.descripcion}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,14 +1,7 @@
 ---
 import { Mail, MapPin, Phone } from "@lucide/astro";
 import logo from "../assets/images/logotipo-health-and-motion.webp";
-
-const servicios = [
-  { label: "Fisioterapia", href: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda" },
-  { label: "Entrenamiento Personal", href: "/entrenamiento-personal-en-sanlucar" },
-  { label: "Nutrición", href: "/#servicios" },
-  { label: "Psicología", href: "/#servicios" },
-  { label: "Estética", href: "/#servicios" },
-];
+import { serviceNavItems as servicios } from "../data/navigation";
 
 const horario = [
   "Lunes - Viernes: 7:00 - 22:00",
