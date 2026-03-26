@@ -36,26 +36,6 @@ const obtenerSrcImagen = (imagen) => (typeof imagen === "string" ? imagen : imag
 
 const servicios = [
   {
-    titulo: "Entrenamiento Personal",
-    descripcion:
-      "Planes personalizados adaptados a tus objetivos. Supervision profesional para maximizar resultados.",
-    icono: Dumbbell,
-    imagen: buscarImagenServicio(["entrenamiento personal"]),
-    color: "from-primary-500 to-primary-700",
-    items: ["Planes adaptados a tu nivel", "Seguimiento personalizado"],
-    enlace: "#contacto",
-  },
-  {
-    titulo: "Estética",
-    descripcion:
-      "Tratamientos avanzados para cuidar tu imagen y potenciar tu confianza.",
-    icono: Sparkles,
-    imagen: buscarImagenServicio(["estetica"]),
-    color: "from-accent-400 to-accent-600",
-    items: ["Tratamientos faciales", "Tratamientos corporales"],
-    enlace: "#contacto",
-  },
-  {
     titulo: "Fisioterapia",
     descripcion:
       "Recuperación de lesiones y tratamiento del dolor con técnicas avanzadas.",
@@ -64,6 +44,16 @@ const servicios = [
     color: "from-primary-400 to-primary-600",
     items: ["Readaptación deportiva", "Tratamiento del dolor"],
     enlace: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda",
+  },
+  {
+    titulo: "Entrenamiento Personal",
+    descripcion:
+      "Planes personalizados adaptados a tus objetivos. Supervision profesional para maximizar resultados.",
+    icono: Dumbbell,
+    imagen: buscarImagenServicio(["entrenamiento personal"]),
+    color: "from-primary-500 to-primary-700",
+    items: ["Planes adaptados a tu nivel", "Seguimiento personalizado"],
+    enlace: "#contacto",
   },
   {
     titulo: "Nutrición",
@@ -82,6 +72,16 @@ const servicios = [
     imagen: buscarImagenServicio(["psicologa"]),
     color: "from-accent-400 to-accent-600",
     items: ["Terapia individual", "Gestión del estrés"],
+    enlace: "#contacto",
+  },
+  {
+    titulo: "Estética",
+    descripcion:
+      "Tratamientos avanzados para cuidar tu imagen y potenciar tu confianza.",
+    icono: Sparkles,
+    imagen: buscarImagenServicio(["estetica"]),
+    color: "from-accent-400 to-accent-600",
+    items: ["Tratamientos faciales", "Tratamientos corporales"],
     enlace: "#contacto",
   },
 ];
