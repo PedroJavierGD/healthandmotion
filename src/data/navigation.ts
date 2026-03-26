@@ -6,7 +6,6 @@ export interface NavChildItem {
 export interface NavItem {
   label: string;
   href: string;
-  children?: NavChildItem[];
 }
 
 export const serviceNavItems: NavChildItem[] = [
@@ -18,9 +17,7 @@ export const serviceNavItems: NavChildItem[] = [
 ];
 
 export const mainNavItems: NavItem[] = [
-  { label: "Inicio", href: "/" },
-  { label: "Servicios", href: "/#servicios", children: serviceNavItems },
-  { label: "Conócenos", href: "/#nosotros" },
-  { label: "Contacto", href: "/#contacto" },
+  ...serviceNavItems,
+  { label: "Equipo", href: "/#nosotros" },
   { label: "Blog", href: "/blog" }
 ];
