@@ -10,8 +10,8 @@ export interface NavItem {
 }
 
 export const serviceNavItems: NavChildItem[] = [
-  { label: "Entrenamiento personal", href: "/entrenamiento-personal-en-sanlucar" },
   { label: "Fisioterapia", href: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda" },
+  { label: "Entrenamiento personal", href: "/entrenamiento-personal-en-sanlucar" },
   { label: "Nutrición", href: "/#servicios" },
   { label: "Psicología", href: "/#servicios" },
   { label: "Estética", href: "/#servicios" }
