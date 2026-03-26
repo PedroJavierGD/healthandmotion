@@ -2,20 +2,31 @@
 import { ChevronDown, Phone } from '@lucide/astro';
 import logo from '../assets/images/logotipo-health-and-motion.webp';
 
-const serviciosItems = [
+interface NavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}
+
+const defaultServiciosItems = [
   { label: "Fisioterapia", href: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda" },
-  { label: "Entrenamiento Personal", href: "/#servicios" },
+  { label: "Entrenamiento Personal", href: "/entrenamiento-personal-en-sanlucar" },
   { label: "Nutrición", href: "/#servicios" },
   { label: "Psicología", href: "/#servicios" },
   { label: "Estética", href: "/#servicios" }
 ];
 
-const navItems = [
-  { label: "Servicios", href: "/#servicios", children: serviciosItems },
+const defaultNavItems: NavItem[] = [
+  { label: "Servicios", href: "/#servicios", children: defaultServiciosItems },
   { label: "Nosotros", href: "/#nosotros" },
   { label: "Testimonios", href: "/#testimonios" },
   { label: "Contacto", href: "/#contacto" }
 ];
+
+const {
+  navItems = defaultNavItems,
+  ctaHref = "#contacto"
+} = Astro.props;
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
@@ -69,7 +80,7 @@ const navItems = [
           <Phone class="mr-2 h-5 w-5" aria-hidden="true" />
           +34 722 66 49 82
         </a>
-        <a href="#contacto" class="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2.5 rounded-lg font-semibold transition shadow-md hover:shadow-lg">
+        <a href={ctaHref} class="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2.5 rounded-lg font-semibold transition shadow-md hover:shadow-lg">
           Pedir Cita
         </a>
       </div>

@@ -1,0 +1,465 @@
+---
+import {
+  ArrowRight,
+  BadgeCheck,
+  CalendarDays,
+  Check,
+  CircleHelp,
+  Clock3,
+  Dumbbell,
+  HeartHandshake,
+  MapPin,
+  Phone,
+  Sparkles,
+  Target,
+  Users
+} from "@lucide/astro";
+
+import entrenamientoImage from "../assets/images/entrenamiento personal en sanlucar de barrameda.webp";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const programas = [
+  {
+    nombre: "Taller de embarazo",
+    precio: "75€ mensuales",
+    duracion: "1 hora y media",
+    frecuencia: "2 días en semana",
+    descripcion:
+      "Entrenamiento adaptado al embarazo para mejorar movilidad, fuerza, control postural y preparación física de cara al parto."
+  },
+  {
+    nombre: "Taller post parto",
+    precio: "75€ mensuales",
+    duracion: "1 hora y media",
+    frecuencia: "2 días en semana",
+    descripcion:
+      "Trabajo guiado para recuperar suelo pélvico, abdomen, postura y condición física tras el embarazo con supervisión profesional."
+  },
+  {
+    nombre: "Escuela de espalda",
+    precio: "75€ mensuales",
+    duracion: "1 hora y media",
+    frecuencia: "2 días en semana",
+    descripcion:
+      "Sesiones enfocadas en prevenir y aliviar dolor de espalda, mejorar la movilidad y reforzar la musculatura que protege tu columna."
+  },
+  {
+    nombre: "Grupo de rehabilitación",
+    precio: "166€ bono de 20 sesiones",
+    duracion: "Sesiones supervisadas",
+    frecuencia: "2 días en semana",
+    descripcion:
+      "Programa de readaptación para personas que necesitan recuperar función, fuerza y confianza después de una lesión o proceso clínico."
+  }
+];
+
+const razones = [
+  "Valoramos tu caso y te orientamos al grupo adecuado",
+  "Entrenamiento adaptado a patología, etapa vital u objetivo",
+  "Acompañamiento por profesionales de la clínica",
+  "Seguimiento cercano en grupos reducidos"
+];
+
+const proceso = [
+  {
+    titulo: "Cuéntanos tu caso",
+    texto: "Déjanos tus datos y dinos qué taller o grupo te interesa."
+  },
+  {
+    titulo: "Te llamamos",
+    texto: "Resolvemos dudas, precios y disponibilidad sin compromiso."
+  },
+  {
+    titulo: "Te incorporas",
+    texto: "Te asignamos el grupo que mejor encaja contigo y empezamos."
+  }
+];
+
+const faq = [
+  {
+    pregunta: "¿Cuál es el precio de cada programa?",
+    respuesta:
+      "Taller de embarazo, taller post parto y escuela de espalda cuestan 75€ al mes. El grupo de rehabilitación funciona con bono de 20 sesiones por 166€."
+  },
+  {
+    pregunta: "¿Cuántos días se entrena?",
+    respuesta:
+      "Todos los programas indicados trabajan dos días por semana. Los talleres mensuales duran 1 hora y media por sesión."
+  },
+  {
+    pregunta: "¿Puedo preguntar antes de apuntarme?",
+    respuesta:
+      "Sí. Esta página está pensada precisamente para que nos pidas información, disponibilidad o precio antes de decidir."
+  },
+  {
+    pregunta: "¿Qué programa me conviene si tengo dolor o vengo de lesión?",
+    respuesta:
+      "Si hay una lesión, limitación funcional o un proceso de recuperación, lo habitual es valorar si encajas mejor en escuela de espalda o en grupo de rehabilitación."
+  }
+];
+
+const navItems = [
+  {
+    label: "Servicios",
+    href: "#programas",
+    children: [
+      { label: "Fisioterapia", href: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda" },
+      { label: "Entrenamiento Personal", href: "/entrenamiento-personal-en-sanlucar" },
+      { label: "Nutrición", href: "/#servicios" },
+      { label: "Psicología", href: "/#servicios" },
+      { label: "Estética", href: "/#servicios" }
+    ]
+  },
+  { label: "Ventajas", href: "#ventajas" },
+  { label: "Proceso", href: "#proceso" },
+  { label: "Contacto", href: "#contacto" }
+];
+---
+
+<Layout
+  title="Entrenamiento Personal en Sanlúcar | Health & Motion"
+  description="Entrenamiento personal en Sanlúcar de Barrameda con talleres de embarazo, post parto, escuela de espalda y grupo de rehabilitación. Pide precio o información."
+>
+  <Header navItems={navItems} ctaHref="#contacto" />
+
+  <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(159,179,154,0.24),_transparent_34%),linear-gradient(135deg,_#f5f7f4_0%,_#ffffff_48%,_#fff1f1_100%)] pt-32 pb-20 lg:pt-40 lg:pb-24">
+    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent"></div>
+    <div class="absolute -left-16 top-28 h-64 w-64 rounded-full bg-primary-200/30 blur-3xl"></div>
+    <div class="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-accent-200/30 blur-3xl"></div>
+
+    <div class="relative mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/90 px-4 py-2 text-sm font-semibold text-primary-700 shadow-sm">
+          <Sparkles class="h-4 w-4" aria-hidden="true" />
+          Entrenamiento guiado en clínica en Sanlúcar
+        </div>
+
+        <h1 class="mt-6 max-w-3xl text-4xl font-extrabold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
+          Entrenamiento personal para mejorar tu salud, recuperarte y volver a sentirte bien
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl">
+          Diseñamos grupos específicos dentro de la clínica para embarazo, post parto, espalda y rehabilitación. Déjanos tus datos y te informamos del grupo ideal para ti, horarios y precio.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#contacto" class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl">
+            Quiero precio e información
+            <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
+          </a>
+          <a href="#programas" class="inline-flex items-center justify-center rounded-xl border-2 border-primary-200 bg-white px-8 py-4 text-lg font-semibold text-primary-700 transition hover:border-primary-300 hover:bg-primary-50">
+            Ver programas
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
+            <div class="text-3xl font-extrabold text-primary-700">4</div>
+            <div class="mt-1 text-sm text-gray-500">Programas específicos</div>
+          </div>
+          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
+            <div class="text-3xl font-extrabold text-primary-700">2</div>
+            <div class="mt-1 text-sm text-gray-500">Días por semana</div>
+          </div>
+          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
+            <div class="text-3xl font-extrabold text-primary-700">1</div>
+            <div class="mt-1 text-sm text-gray-500">Equipo para orientarte</div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-4 text-sm font-medium text-gray-600">
+          {razones.map((razon) => (
+            <div class="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm">
+              <Check class="h-4 w-4 text-primary-600" aria-hidden="true" />
+              {razon}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-2xl shadow-primary-100/60">
+          <div class="relative h-72">
+            <img
+              src={entrenamientoImage.src}
+              alt="Entrenamiento personal en Health and Motion"
+              class="h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-900/60 via-transparent to-transparent"></div>
+            <div class="absolute left-6 bottom-6 rounded-2xl bg-white/92 px-5 py-4 shadow-lg backdrop-blur">
+              <div class="text-sm font-semibold text-primary-700">Health & Motion</div>
+              <div class="mt-1 text-2xl font-bold text-gray-900">Entrena con objetivo clínico</div>
+            </div>
+          </div>
+
+          <div id="contacto" class="p-8">
+            <div class="mb-6">
+              <h2 class="text-2xl font-bold text-gray-900">Pide información sin compromiso</h2>
+              <p class="mt-2 text-gray-500">
+                Te llamamos para explicarte el programa, resolver dudas y decirte disponibilidad.
+              </p>
+            </div>
+
+            <form class="space-y-4">
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-400 focus:ring-2 focus:ring-primary-100"
+                required
+              />
+              <input
+                type="tel"
+                placeholder="Tu teléfono"
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-400 focus:ring-2 focus:ring-primary-100"
+                required
+              />
+              <select class="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-400 focus:ring-2 focus:ring-primary-100">
+                <option value="">¿Qué programa te interesa?</option>
+                {programas.map((programa) => (
+                  <option value={programa.nombre.toLowerCase().replaceAll(" ", "-")}>
+                    {programa.nombre}
+                  </option>
+                ))}
+                <option value="asesoramiento">No lo tengo claro, quiero asesoramiento</option>
+              </select>
+              <button
+                type="submit"
+                class="w-full rounded-xl bg-accent-500 py-4 text-lg font-bold text-white shadow-md transition hover:bg-accent-600 hover:shadow-lg"
+              >
+                Solicitar información
+              </button>
+              <p class="text-center text-xs text-gray-400">
+                Te responderemos para indicarte precio, horario y grupo adecuado.
+              </p>
+            </form>
+
+            <div class="mt-6 grid gap-3 text-sm text-gray-600 sm:grid-cols-2">
+              <div class="flex items-center gap-2 rounded-xl bg-primary-50 px-4 py-3">
+                <Phone class="h-4 w-4 text-primary-600" aria-hidden="true" />
+                722 66 49 82
+              </div>
+              <div class="flex items-center gap-2 rounded-xl bg-primary-50 px-4 py-3">
+                <MapPin class="h-4 w-4 text-primary-600" aria-hidden="true" />
+                Sanlúcar de Barrameda
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -left-6 top-12 hidden rounded-2xl bg-accent-500 px-5 py-4 text-white shadow-xl lg:block">
+          <div class="flex items-center gap-3">
+            <BadgeCheck class="h-6 w-6" aria-hidden="true" />
+            <div>
+              <div class="text-sm font-semibold">Orientación personalizada</div>
+              <div class="text-xs text-white/80">Te ayudamos a elegir grupo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programas" class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="inline-flex rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-700">
+          Programas de entrenamiento
+        </div>
+        <h2 class="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl">
+          Cada necesidad tiene su propia sección dentro de la clínica
+        </h2>
+        <p class="mt-4 text-lg text-gray-500">
+          No ofrecemos un entrenamiento genérico. Organizamos grupos concretos para etapas y necesidades distintas, con el objetivo de mejorar salud, funcionalidad y adherencia.
+        </p>
+      </div>
+
+      <div class="mt-14 grid gap-8 lg:grid-cols-2">
+        {programas.map((programa, index) => (
+          <article
+            id={programa.nombre.toLowerCase().replaceAll(" ", "-")}
+            class:list={[
+              "rounded-[2rem] border p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl",
+              index === 3
+                ? "border-accent-200 bg-gradient-to-br from-accent-50 to-white"
+                : "border-primary-100 bg-gradient-to-br from-white to-primary-50/70"
+            ]}
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <div class="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 shadow-sm">
+                  {programa.nombre}
+                </div>
+                <h3 class="mt-5 text-2xl font-bold text-gray-900">{programa.precio}</h3>
+              </div>
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-600 text-white shadow-md">
+                {index === 0 && <HeartHandshake class="h-7 w-7" aria-hidden="true" />}
+                {index === 1 && <Users class="h-7 w-7" aria-hidden="true" />}
+                {index === 2 && <Target class="h-7 w-7" aria-hidden="true" />}
+                {index === 3 && <Dumbbell class="h-7 w-7" aria-hidden="true" />}
+              </div>
+            </div>
+
+            <p class="mt-5 text-base leading-7 text-gray-600">
+              {programa.descripcion}
+            </p>
+
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm">
+                <Clock3 class="h-5 w-5 text-primary-600" aria-hidden="true" />
+                <div>
+                  <div class="text-xs uppercase tracking-wide text-gray-400">Duración</div>
+                  <div class="font-semibold text-gray-900">{programa.duracion}</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm">
+                <CalendarDays class="h-5 w-5 text-primary-600" aria-hidden="true" />
+                <div>
+                  <div class="text-xs uppercase tracking-wide text-gray-400">Frecuencia</div>
+                  <div class="font-semibold text-gray-900">{programa.frecuencia}</div>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="#contacto"
+              class="mt-6 inline-flex items-center text-base font-semibold text-accent-600 transition hover:text-accent-700"
+            >
+              Quiero información sobre este programa
+              <ArrowRight class="ml-2 h-4 w-4" aria-hidden="true" />
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="ventajas" class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div>
+          <div class="inline-flex rounded-full bg-accent-100 px-4 py-2 text-sm font-semibold text-accent-700">
+            Por qué elegirnos
+          </div>
+          <h2 class="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl">
+            Un enfoque de clínica, no una sala de entrenamiento sin más
+          </h2>
+          <p class="mt-4 text-lg text-gray-500">
+            El visitante que llega con dolor, embarazo, post parto o una lesión no quiere solo hacer ejercicio: quiere seguridad, adaptación y saber que está en el lugar correcto. Esa es la propuesta de esta landing.
+          </p>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="rounded-3xl bg-white p-6 shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+              <HeartHandshake class="h-6 w-6" aria-hidden="true" />
+            </div>
+            <h3 class="mt-4 text-xl font-bold text-gray-900">Acompañamiento real</h3>
+            <p class="mt-2 text-gray-500">
+              Resolvemos tus dudas antes de empezar y te orientamos según tu momento y necesidad.
+            </p>
+          </div>
+          <div class="rounded-3xl bg-white p-6 shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+              <Users class="h-6 w-6" aria-hidden="true" />
+            </div>
+            <h3 class="mt-4 text-xl font-bold text-gray-900">Grupos específicos</h3>
+            <p class="mt-2 text-gray-500">
+              Cada sección tiene su lógica propia para que el trabajo sea útil, asumible y progresivo.
+            </p>
+          </div>
+          <div class="rounded-3xl bg-white p-6 shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+              <Target class="h-6 w-6" aria-hidden="true" />
+            </div>
+            <h3 class="mt-4 text-xl font-bold text-gray-900">Objetivo claro</h3>
+            <p class="mt-2 text-gray-500">
+              Mejorar dolor, recuperar función, prepararte para el parto o volver a entrenar con confianza.
+            </p>
+          </div>
+          <div class="rounded-3xl bg-white p-6 shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+              <BadgeCheck class="h-6 w-6" aria-hidden="true" />
+            </div>
+            <h3 class="mt-4 text-xl font-bold text-gray-900">Más conversión</h3>
+            <p class="mt-2 text-gray-500">
+              La página presenta precio, frecuencia y propuesta concreta para facilitar el contacto de quien ya está interesado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" class="bg-primary-900 py-20 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-primary-100">
+          Proceso de contacto
+        </div>
+        <h2 class="mt-4 text-3xl font-bold sm:text-4xl">
+          Hacemos fácil pedir información
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {proceso.map((paso, index) => (
+          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+            <div class="text-sm font-semibold uppercase tracking-[0.2em] text-primary-200">
+              Paso {index + 1}
+            </div>
+            <h3 class="mt-4 text-2xl font-bold">{paso.titulo}</h3>
+            <p class="mt-3 text-white/75">{paso.texto}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="inline-flex rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-700">
+          Preguntas frecuentes
+        </div>
+        <h2 class="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl">
+          Resolvemos las dudas más habituales
+        </h2>
+      </div>
+
+      <div class="mt-12 space-y-4">
+        {faq.map((item) => (
+          <details class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-gray-900">
+              <span>{item.pregunta}</span>
+              <CircleHelp class="h-5 w-5 shrink-0 text-primary-600" aria-hidden="true" />
+            </summary>
+            <p class="mt-4 leading-7 text-gray-600">{item.respuesta}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-r from-primary-600 to-ink-900 py-20">
+    <div class="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white sm:text-4xl">
+        Si estás valorando entrenar con nosotros, este es el momento de preguntar
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-white/80">
+        Pide información sobre el taller o grupo que más encaja contigo y te diremos precio, disponibilidad y cómo empezar.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+        <a href="#contacto" class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white transition hover:bg-accent-600">
+          Solicitar información
+        </a>
+        <a href="tel:+34722664982" class="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-lg font-semibold text-white backdrop-blur transition hover:bg-white/15">
+          Llamar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

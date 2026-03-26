@@ -1,0 +1,93 @@
+---
+import { Clock3, Mail, MapPin, Phone } from "@lucide/astro";
+
+const negocioGoogleMaps =
+  "Health%20%26%20Motion%20%7C%20Cl%C3%ADnica%20de%20Fisioterapia%20y%20Entrenamiento%20Personal";
+
+const datosContacto = [
+  {
+    icono: MapPin,
+    titulo: "Dirección",
+    contenido: "Av. Cabo Noval, 45, 11540 Sanlúcar de Barrameda, Cádiz",
+    href: `https://www.google.com/maps/search/?api=1&query=${negocioGoogleMaps}`
+  },
+  {
+    icono: Phone,
+    titulo: "Teléfono",
+    contenido: "+34 722 66 49 82",
+    href: "tel:+34722664982"
+  },
+  {
+    icono: Mail,
+    titulo: "Email",
+    contenido: "centros.healthmotion@gmail.com",
+    href: "mailto:centros.healthmotion@gmail.com"
+  },
+  {
+    icono: Clock3,
+    titulo: "Horario",
+    contenido: "Lunes a viernes de 7:00 a 22:00. Sábados y domingos cerrado."
+  }
+];
+
+const mapaSrc =
+  `https://www.google.com/maps?q=${negocioGoogleMaps}&output=embed`;
+---
+
+<section id="ubicacion" class="bg-gray-50 py-24">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8">
+    <div>
+      <span class="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-primary-700">
+        Dónde Nos Puedes Encontrar
+      </span>
+      <h2 class="mt-6 text-4xl font-heading font-bold text-gray-900 sm:text-5xl">
+        Ven a vernos a
+        <span class="text-primary-600"> Health & Motion</span>
+      </h2>
+      <p class="mt-4 max-w-2xl text-lg text-gray-600">
+        Estamos en Sanlúcar de Barrameda. Si quieres pedir cita, resolver dudas o venir directamente al centro, aquí tienes toda la información.
+      </p>
+
+      <div class="mt-10 space-y-4">
+        {datosContacto.map((dato) => (
+          <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+                <dato.icono class="h-6 w-6" aria-hidden="true" />
+              </div>
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
+                  {dato.titulo}
+                </p>
+                {dato.href ? (
+                  <a
+                    href={dato.href}
+                    class="mt-1 block text-base font-medium text-gray-700 transition hover:text-primary-700"
+                    target={dato.href.startsWith("http") ? "_blank" : undefined}
+                    rel={dato.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
+                    {dato.contenido}
+                  </a>
+                ) : (
+                  <p class="mt-1 text-base font-medium text-gray-700">{dato.contenido}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="overflow-hidden rounded-[2rem] border border-gray-200 bg-white p-3 shadow-xl">
+      <iframe
+        src={mapaSrc}
+        class="h-[420px] w-full rounded-[1.5rem] md:h-full md:min-h-[620px]"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación de Health & Motion | Clínica de Fisioterapia y Entrenamiento Personal en Google Maps"
+      ></iframe>
+    </div>
+  </div>
+</section>
