@@ -4,7 +4,8 @@ import WhatsAppButton from "../components/WhatsAppButton.astro";
 
 const {
   title,
-  description = "Centro médico multidisciplinar especializado en entrenamiento personal, estética, fisioterapia, nutrición y psicología. Tu bienestar integral en un solo lugar."
+  description = "Centro médico multidisciplinar especializado en entrenamiento personal, estética, fisioterapia, nutrición y psicología. Tu bienestar integral en un solo lugar.",
+  whatsappMessage,
 } = Astro.props;
 ---
 
@@ -22,7 +23,7 @@ const {
   </head>
   <body class="font-body text-gray-800 antialiased">
     <slot />
-    <WhatsAppButton />
+    <WhatsAppButton message={whatsappMessage} />
   </body>
 </html>
 
