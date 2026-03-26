@@ -5,6 +5,10 @@ import Button from './ui/Button.astro';
 import Badge from './ui/Badge.astro';
 import LeadForm from './LeadForm.astro';
 
+interface HeroImage {
+  src: string;
+}
+
 interface Props {
   badge?: string;
   badgeColor?: 'primary' | 'blue';
@@ -13,6 +17,10 @@ interface Props {
   titleTag?: 'h1' | 'p';
   subtitle: string;
   highlight?: string;
+  image?: HeroImage | string;
+  imageAlt?: string;
+  imageBadgeTitle?: string;
+  imageBadgeSubtitle?: string;
   ctaText?: string;
   ctaHref?: string;
   secondaryCta?: string;
@@ -30,6 +38,10 @@ const {
   titleTag = 'h1',
   subtitle,
   highlight,
+  image,
+  imageAlt = title,
+  imageBadgeTitle = "Equipo Profesional",
+  imageBadgeSubtitle = "Certificados",
   ctaText = "Pedir Cita Gratis",
   ctaHref = "#contacto",
   secondaryCta = "Ver Servicios",
@@ -56,6 +68,7 @@ const bgPrimary = variant === 'blue' ? 'bg-accent-100' : 'bg-primary-100';
 const textPrimary = variant === 'blue' ? 'text-accent-600' : 'text-primary-600';
 const BadgeTag = badgeTag;
 const TitleTag = titleTag;
+const imageSrc = typeof image === 'string' ? image : image?.src;
 ---
 
 <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
@@ -123,15 +136,26 @@ const TitleTag = titleTag;
       </div>
 
       <div class="relative">
-        <LeadForm variant={variant} />
+        {imageSrc ? (
+          <div class="overflow-hidden rounded-[2rem] border border-white/60 bg-white shadow-2xl">
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              class="h-full w-full object-cover"
+              loading="eager"
+            />
+          </div>
+        ) : (
+          <LeadForm variant={variant} />
+        )}
         
         <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 flex items-center space-x-3 animate-bounce" style="animation-duration: 3s;">
           <div class={`w-12 h-12 ${bgPrimary} rounded-full flex items-center justify-center`}>
             <BadgeCheck class={`h-6 w-6 ${textPrimary}`} aria-hidden="true" />
           </div>
           <div>
-            <div class="text-sm font-bold text-gray-900">Equipo Profesional</div>
-            <div class="text-xs text-gray-500">Certificados</div>
+            <div class="text-sm font-bold text-gray-900">{imageBadgeTitle}</div>
+            <div class="text-xs text-gray-500">{imageBadgeSubtitle}</div>
           </div>
         </div>
       </div>
