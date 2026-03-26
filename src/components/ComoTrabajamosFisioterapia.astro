@@ -1,0 +1,73 @@
+---
+const pasos = [
+  {
+    numero: "1.",
+    titulo: "Valoramos tu caso",
+    descripcion: "Escuchamos qué te ocurre y cómo te está afectando.",
+  },
+  {
+    numero: "2.",
+    titulo: "Analizamos tus molestias",
+    descripcion: "Estudiamos tu situación para orientar bien el tratamiento.",
+  },
+  {
+    numero: "3.",
+    titulo: "Adaptamos la sesión a ti",
+    descripcion: "Cada tratamiento se ajusta a tus necesidades reales.",
+  },
+  {
+    numero: "4.",
+    titulo: "Buscamos una recuperación funcional",
+    descripcion:
+      "Queremos ayudarte a sentirte mejor y volver a tu rutina con seguridad.",
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.22em] text-primary-600"
+      >
+        CÓMO TRABAJAMOS
+      </p>
+      <h2
+        class="mt-4 text-3xl font-heading font-bold text-gray-900 sm:text-4xl"
+      >
+        Un tratamiento adaptado a ti desde la primera sesión
+      </h2>
+      <p class="mt-4 text-lg text-gray-500">
+        Valoramos tu caso, tratamos tus molestias y te acompañamos en el proceso
+        para ayudarte a recuperar movilidad, bienestar y confianza.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {
+        pasos.map((paso) => (
+          <article class="rounded-3xl border border-accent-100 bg-gradient-to-br from-white to-accent-50 p-7 shadow-[0_20px_50px_rgba(93,18,22,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(93,18,22,0.14)]">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-500 text-lg font-bold text-white">
+              {paso.numero}
+            </div>
+            <h3 class="text-xl font-heading font-bold text-gray-900">
+              {paso.titulo}
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-gray-500">
+              {paso.descripcion}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href="#contacto"
+        class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl"
+      >
+        Solicitar Cita
+      </a>
+    </div>
+  </div>
+</section>
