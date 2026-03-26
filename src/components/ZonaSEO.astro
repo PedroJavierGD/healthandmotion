@@ -1,20 +1,45 @@
 ---
+const fotosLocales = import.meta.glob("../assets/images/*Health&Motion.webp", {
+  eager: true,
+  import: "default",
+});
+
+const normalizarTexto = (texto) =>
+  texto
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase();
+
+const buscarFotoEquipo = (terminos) => {
+  const terminosNormalizados = terminos.map(normalizarTexto);
+
+  return Object.entries(fotosLocales).find(([ruta]) => {
+    const rutaNormalizada = normalizarTexto(ruta);
+    return terminosNormalizados.every((termino) =>
+      rutaNormalizada.includes(termino),
+    );
+  })?.[1];
+};
+
+const obtenerSrcFoto = (foto) =>
+  typeof foto === "string" ? foto : (foto?.src ?? "");
+
 const fisioterapeutas = [
   {
-    nombre: "Patricia Moreno",
+    nombre: "Lorena",
     puesto: "Fisioterapeuta",
-    foto: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=face"
+    foto: buscarFotoEquipo(["lorena", "fisioterapeuta"]),
   },
   {
-    nombre: "David Jiménez",
+    nombre: "Leire",
     puesto: "Fisioterapeuta",
-    foto: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face"
+    foto: buscarFotoEquipo(["leire", "fisioterapeuta"]),
   },
   {
-    nombre: "Andrea Castillo",
+    nombre: "Jose",
     puesto: "Fisioterapeuta",
-    foto: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop&crop=face"
-  }
+    foto: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face",
+  },
 ];
 ---
 
@@ -34,7 +59,7 @@ const fisioterapeutas = [
         <div class="group text-center">
           <div class="relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-50">
             <img
-              src={persona.foto}
+              src={obtenerSrcFoto(persona.foto)}
               alt={persona.nombre}
               class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
