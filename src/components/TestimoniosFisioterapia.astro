@@ -4,48 +4,61 @@ const testimonios = [
     nombre: "Antonio M.",
     servicio: "Lesión deportiva",
     iniciales: "A",
-    texto: "Tras romperme el ligamento cruzado, la rehabilitación fue impeccable. Volví a jugar al fútbol en 6 meses."
+    texto:
+      "Tras romperme el ligamento cruzado, la rehabilitación fue impeccable. Volví a jugar al fútbol en 6 meses.",
   },
   {
     nombre: "Rosa L.",
     servicio: "Dolor de espalda",
     iniciales: "R",
-    texto: "Sufría de dolor de espalda crónico. Después de las sesiones con el fisioterapeuta, tengo una calidad de vida mucho mejor."
+    texto:
+      "Sufría de dolor de espalda crónico. Después de las sesiones con el fisioterapeuta, tengo una calidad de vida mucho mejor.",
   },
   {
     nombre: "Pedro S.",
     servicio: "Post-operatorio",
     iniciales: "P",
-    texto: "Me operaron del hombro y la recuperación fue rápida gracias al tratamiento de fisioterapia. Muy profesionales."
-  }
+    texto:
+      "Me operaron del hombro y la recuperación fue rápida gracias al tratamiento de fisioterapia. Muy profesionales.",
+  },
 ];
 ---
 
 <section class="py-20 bg-primary-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Testimonios</span>
-      <h2 class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900">
-        Lo que dicen nuestros pacientes
+      <span
+        class="text-primary-600 font-semibold tracking-wide uppercase text-sm"
+        >La confianza de nuestros pacientes</span
+      >
+      <h2
+        class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900"
+      >
+        Pacientes que ya han confiado en nuestra clínica de fisioterapia en
+        Sanlúcar de Barrameda
       </h2>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
-      {testimonios.map((testimonio) => (
-        <div class="bg-white rounded-2xl p-6 shadow-md">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center text-primary-700 font-bold text-lg">
-              {testimonio.iniciales}
+      {
+        testimonios.map((testimonio) => (
+          <div class="bg-white rounded-2xl p-6 shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center text-primary-700 font-bold text-lg">
+                {testimonio.iniciales}
+              </div>
+              <div class="ml-4">
+                <div class="font-semibold text-gray-900">
+                  {testimonio.nombre}
+                </div>
+                <div class="text-sm text-gray-500">{testimonio.servicio}</div>
+              </div>
             </div>
-            <div class="ml-4">
-              <div class="font-semibold text-gray-900">{testimonio.nombre}</div>
-              <div class="text-sm text-gray-500">{testimonio.servicio}</div>
-            </div>
+            <p class="text-gray-600">"{testimonio.texto}"</p>
+            <div class="mt-4 flex text-yellow-400">★★★★★</div>
           </div>
-          <p class="text-gray-600">"{testimonio.texto}"</p>
-          <div class="mt-4 flex text-yellow-400">★★★★★</div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
