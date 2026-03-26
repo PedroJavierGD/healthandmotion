@@ -11,7 +11,7 @@ const whatsappHref = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
     class="whatsapp-toast max-w-[220px] rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-ink-800 shadow-[0_16px_38px_rgba(44,42,40,0.16)] ring-1 ring-black/5"
     data-whatsapp-toast
   >
-    Pide tu cita hoy por WhatsApp!
+    ¡Pide tu cita por WhatsApp ahora!
   </div>
 
   <a
@@ -21,6 +21,7 @@ const whatsappHref = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
     aria-label="Hablar por WhatsApp para pedir cita o pedir más información"
     title="Hablar por WhatsApp para pedir cita o pedir más información"
     class="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/60 bg-[#25D366] text-white shadow-[0_18px_40px_rgba(37,211,102,0.28)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5b] hover:shadow-[0_22px_48px_rgba(37,211,102,0.34)] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 sm:h-16 sm:w-16"
+    data-whatsapp-trigger
   >
     <svg
       viewBox="0 0 16 16"
@@ -37,13 +38,43 @@ const whatsappHref = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 <script is:inline>
   const whatsappWidget = document.querySelector("[data-whatsapp-widget]");
   const whatsappToast = document.querySelector("[data-whatsapp-toast]");
+  const whatsappTrigger = document.querySelector("[data-whatsapp-trigger]");
 
-  if (whatsappWidget instanceof HTMLElement && whatsappToast instanceof HTMLElement) {
-    let hasShownToast = false;
+  if (
+    whatsappWidget instanceof HTMLElement &&
+    whatsappToast instanceof HTMLElement &&
+    whatsappTrigger instanceof HTMLElement
+  ) {
+    let hasShownScrollToast = false;
     let isTicking = false;
+    let hideToastTimeoutId;
+
+    const showToast = () => {
+      whatsappToast.classList.add("is-visible");
+    };
+
+    const hideToast = () => {
+      whatsappToast.classList.remove("is-visible");
+    };
+
+    const clearHideToastTimeout = () => {
+      if (typeof hideToastTimeoutId === "number") {
+        window.clearTimeout(hideToastTimeoutId);
+        hideToastTimeoutId = undefined;
+      }
+    };
+
+    const showToastTemporarily = () => {
+      showToast();
+      clearHideToastTimeout();
+      hideToastTimeoutId = window.setTimeout(() => {
+        hideToast();
+        hideToastTimeoutId = undefined;
+      }, 5000);
+    };
 
     const revealToast = () => {
-      if (hasShownToast) {
+      if (hasShownScrollToast) {
         return;
       }
 
@@ -57,8 +88,8 @@ const whatsappHref = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
       const scrollProgress = window.scrollY / documentHeight;
 
       if (scrollProgress >= 0.35) {
-        hasShownToast = true;
-        whatsappToast.classList.add("is-visible");
+        hasShownScrollToast = true;
+        showToastTemporarily();
         window.removeEventListener("scroll", onScroll);
       }
     };
@@ -76,6 +107,20 @@ const whatsappHref = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    whatsappTrigger.addEventListener("mouseenter", () => {
+      clearHideToastTimeout();
+      showToast();
+    });
+    whatsappTrigger.addEventListener("mouseleave", () => {
+      hideToast();
+    });
+    whatsappTrigger.addEventListener("focus", () => {
+      clearHideToastTimeout();
+      showToast();
+    });
+    whatsappTrigger.addEventListener("blur", () => {
+      hideToast();
+    });
     revealToast();
   }
 </script>
