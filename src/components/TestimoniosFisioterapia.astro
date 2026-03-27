@@ -201,10 +201,14 @@ const obtenerIniciales = (nombre) =>
 <section id="testimonios-fisioterapia" class="py-20 bg-primary-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">
+      <span
+        class="text-primary-600 font-semibold tracking-wide uppercase text-sm"
+      >
         La confianza de nuestros pacientes
       </span>
-      <h2 class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900">
+      <h2
+        class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900"
+      >
         Pacientes que ya han confiado en nuestra clínica de fisioterapia en
         Sanlúcar de Barrameda
       </h2>
@@ -228,36 +232,44 @@ const obtenerIniciales = (nombre) =>
 
       <div class="overflow-hidden" data-carousel-viewport>
         <div class="carousel-track flex" data-carousel-track>
-          {testimoniosCarrusel.map((testimonio) => (
-            <article class="carousel-slide shrink-0">
-              <div class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-md">
-                <div class="mb-4 flex items-center">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-200 text-lg font-bold text-primary-700">
-                    {obtenerIniciales(testimonio.nombre)}
+          {
+            testimoniosCarrusel.map((testimonio) => (
+              <article class="carousel-slide shrink-0">
+                <div class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-md">
+                  <div class="mb-4 flex items-center">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-200 text-lg font-bold text-primary-700">
+                      {obtenerIniciales(testimonio.nombre)}
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="font-semibold text-gray-900">
+                        {testimonio.nombre}
+                      </h3>
+                    </div>
                   </div>
-                  <div class="ml-4">
-                    <h3 class="font-semibold text-gray-900">
-                      {testimonio.nombre}
-                    </h3>
+                  <p
+                    class="review-text flex-1 whitespace-pre-line text-gray-600"
+                    data-review-text
+                  >
+                    "{testimonio.texto}"
+                  </p>
+                  <button
+                    type="button"
+                    class="review-toggle mt-3 hidden text-sm font-semibold text-primary-700 transition hover:text-primary-800"
+                    data-review-toggle
+                    aria-expanded="false"
+                  >
+                    Leer más
+                  </button>
+                  <div class="mt-5 flex text-yellow-400">
+                    {Array.from(
+                      { length: testimonio.estrellas },
+                      () => "★",
+                    ).join("")}
                   </div>
                 </div>
-                <p class="review-text flex-1 whitespace-pre-line text-gray-600" data-review-text>
-                  "{testimonio.texto}"
-                </p>
-                <button
-                  type="button"
-                  class="review-toggle mt-3 hidden text-sm font-semibold text-primary-700 transition hover:text-primary-800"
-                  data-review-toggle
-                  aria-expanded="false"
-                >
-                  Leer más
-                </button>
-                <div class="mt-5 flex text-yellow-400">
-                  {Array.from({ length: testimonio.estrellas }, () => "★").join("")}
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))
+          }
         </div>
       </div>
 
@@ -291,23 +303,13 @@ const obtenerIniciales = (nombre) =>
       </div>
     </div>
 
-    <div class="mx-auto mt-14 max-w-3xl text-center">
-      <p class="text-lg text-gray-600">
-        Si tú también estás buscando una clínica de fisioterapia en Sanlúcar
-        donde te atiendan con cercanía y criterio, estaremos encantados de
-        ayudarte.
-      </p>
-      <a
-        href="#contacto"
-        class="mt-6 inline-flex items-center justify-center rounded-xl bg-primary-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-primary-700 hover:shadow-xl"
-      >
-        Solicitar Cita
-      </a>
-    </div>
   </div>
 </section>
 
-<script is:inline define:vars={{ clonesPorLado, totalTestimonios: testimonios.length }}>
+<script
+  is:inline
+  define:vars={{ clonesPorLado, totalTestimonios: testimonios.length }}
+>
   (() => {
     const section = document.querySelector("#testimonios-fisioterapia");
     if (!section) return;
@@ -317,7 +319,8 @@ const obtenerIniciales = (nombre) =>
     const prevButtons = section.querySelectorAll("[data-carousel-prev]");
     const nextButtons = section.querySelectorAll("[data-carousel-next]");
 
-    if (!track || !viewport || !prevButtons.length || !nextButtons.length) return;
+    if (!track || !viewport || !prevButtons.length || !nextButtons.length)
+      return;
 
     const transitionMs = 500;
     const autoplayMs = 2000;
@@ -325,8 +328,12 @@ const obtenerIniciales = (nombre) =>
     let autoplayId;
     let resumeTimeoutId;
     let isTransitioning = false;
-    const reviewTexts = Array.from(section.querySelectorAll("[data-review-text]"));
-    const reviewToggles = Array.from(section.querySelectorAll("[data-review-toggle]"));
+    const reviewTexts = Array.from(
+      section.querySelectorAll("[data-review-text]"),
+    );
+    const reviewToggles = Array.from(
+      section.querySelectorAll("[data-review-toggle]"),
+    );
 
     const getSlidesPerView = () => {
       if (window.innerWidth >= 1280) return 3;
@@ -345,7 +352,9 @@ const obtenerIniciales = (nombre) =>
 
       const slideWidth = firstSlide.getBoundingClientRect().width;
       const step = slideWidth + getGap();
-      track.style.transition = withTransition ? `transform ${transitionMs}ms ease` : "none";
+      track.style.transition = withTransition
+        ? `transform ${transitionMs}ms ease`
+        : "none";
       track.style.transform = `translate3d(-${currentIndex * step}px, 0, 0)`;
     };
 
@@ -378,7 +387,10 @@ const obtenerIniciales = (nombre) =>
 
     const pauseAndResumeAutoplay = () => {
       stopAutoplay();
-      resumeTimeoutId = window.setTimeout(() => startAutoplay(), autoplayMs * 2);
+      resumeTimeoutId = window.setTimeout(
+        () => startAutoplay(),
+        autoplayMs * 2,
+      );
     };
 
     const syncReviewButtons = () => {
@@ -437,7 +449,10 @@ const obtenerIniciales = (nombre) =>
     viewport.addEventListener("focusout", startAutoplay);
 
     window.addEventListener("resize", () => {
-      section.style.setProperty("--slides-per-view", String(getSlidesPerView()));
+      section.style.setProperty(
+        "--slides-per-view",
+        String(getSlidesPerView()),
+      );
       updatePosition(false);
       syncReviewButtons();
     });
