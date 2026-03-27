@@ -1,10 +1,8 @@
 ---
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
+
 const testimonios = [
-  {
-    nombre: "Jose M. Jiménez",
-    estrellas: 5,
-    texto: "Fantástico equipo!",
-  },
+  { nombre: "Jose M. Jiménez", estrellas: 5, texto: "Fantástico equipo!" },
   {
     nombre: "Ajtorka Lopez",
     estrellas: 5,
@@ -15,7 +13,7 @@ const testimonios = [
     nombre: "Luz Maria",
     estrellas: 5,
     texto:
-      "Conozco a Lorena desde hace 5 años y es una gran profesional, yo que padezco de problemas de espalda cada vez que me da un brote acudo a su centro sin pensármelo desde la primera sección ya noto mejoría salgo como nueva y súper relajada no sabría describirlo pero si tuviera que ponerle nombre sería \"aliviada\", su profesionalidad tanto como el trato como persona es inmejorable, tanto ella como su equipo lleno de profesionales hacen que nuestra vida sea más llevadera para las personas con problemas yo acudo a fisioterapia pero su centro está completo de muchas especialidades. Recomendable 100%",
+      'Conozco a Lorena desde hace 5 años y es una gran profesional, yo que padezco de problemas de espalda cada vez que me da un brote acudo a su centro sin pensármelo desde la primera sección ya noto mejoría salgo como nueva y súper relajada no sabría describirlo pero si tuviera que ponerle nombre sería "aliviada", su profesionalidad tanto como el trato como persona es inmejorable, tanto ella como su equipo lleno de profesionales hacen que nuestra vida sea más llevadera para las personas con problemas yo acudo a fisioterapia pero su centro está completo de muchas especialidades. Recomendable 100%',
   },
   {
     nombre: "Iola FRANCO HERNANDEZ",
@@ -184,6 +182,13 @@ const testimonios = [
   },
 ];
 
+const clonesPorLado = 3;
+const testimoniosCarrusel = [
+  ...testimonios.slice(-clonesPorLado),
+  ...testimonios,
+  ...testimonios.slice(0, clonesPorLado),
+];
+
 const obtenerIniciales = (nombre) =>
   nombre
     .split(" ")
@@ -193,7 +198,7 @@ const obtenerIniciales = (nombre) =>
     .join("");
 ---
 
-<section class="py-20 bg-primary-50">
+<section id="testimonios-fisioterapia" class="py-20 bg-primary-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">
@@ -211,25 +216,269 @@ const obtenerIniciales = (nombre) =>
       </p>
     </div>
 
-    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-      {testimonios.map((testimonio) => (
-        <article class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-md">
-          <div class="mb-4 flex items-center">
-            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-200 text-lg font-bold text-primary-700">
-              {obtenerIniciales(testimonio.nombre)}
-            </div>
-            <div class="ml-4">
-              <h3 class="font-semibold text-gray-900">{testimonio.nombre}</h3>
-            </div>
-          </div>
-          <p class="flex-1 whitespace-pre-line text-gray-600">
-            "{testimonio.texto}"
-          </p>
-          <div class="mt-5 flex text-yellow-400">
-            {Array.from({ length: testimonio.estrellas }, () => "★").join("")}
-          </div>
-        </article>
-      ))}
+    <div class="relative">
+      <button
+        type="button"
+        class="carousel-button carousel-button-prev absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-lg transition hover:border-primary-200 hover:text-primary-700 lg:flex"
+        aria-label="Ver reseñas anteriores"
+        data-carousel-prev
+      >
+        <ChevronLeft class="h-5 w-5" aria-hidden="true" />
+      </button>
+
+      <div class="overflow-hidden" data-carousel-viewport>
+        <div class="carousel-track flex" data-carousel-track>
+          {testimoniosCarrusel.map((testimonio) => (
+            <article class="carousel-slide shrink-0">
+              <div class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-md">
+                <div class="mb-4 flex items-center">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-200 text-lg font-bold text-primary-700">
+                    {obtenerIniciales(testimonio.nombre)}
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="font-semibold text-gray-900">
+                      {testimonio.nombre}
+                    </h3>
+                  </div>
+                </div>
+                <p class="review-text flex-1 whitespace-pre-line text-gray-600" data-review-text>
+                  "{testimonio.texto}"
+                </p>
+                <button
+                  type="button"
+                  class="review-toggle mt-3 hidden text-sm font-semibold text-primary-700 transition hover:text-primary-800"
+                  data-review-toggle
+                  aria-expanded="false"
+                >
+                  Leer más
+                </button>
+                <div class="mt-5 flex text-yellow-400">
+                  {Array.from({ length: testimonio.estrellas }, () => "★").join("")}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="carousel-button carousel-button-next absolute right-0 top-1/2 z-10 hidden translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-lg transition hover:border-primary-200 hover:text-primary-700 lg:flex"
+        aria-label="Ver reseñas siguientes"
+        data-carousel-next
+      >
+        <ChevronRight class="h-5 w-5" aria-hidden="true" />
+      </button>
+
+      <div class="mt-8 flex items-center justify-center gap-4 lg:hidden">
+        <button
+          type="button"
+          class="carousel-button inline-flex items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:border-primary-200 hover:text-primary-700"
+          aria-label="Ver reseñas anteriores"
+          data-carousel-prev
+        >
+          <ChevronLeft class="h-5 w-5" aria-hidden="true" />
+        </button>
+
+        <button
+          type="button"
+          class="carousel-button inline-flex items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:border-primary-200 hover:text-primary-700"
+          aria-label="Ver reseñas siguientes"
+          data-carousel-next
+        >
+          <ChevronRight class="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
     </div>
   </div>
 </section>
+
+<script is:inline define:vars={{ clonesPorLado, totalTestimonios: testimonios.length }}>
+  (() => {
+    const section = document.querySelector("#testimonios-fisioterapia");
+    if (!section) return;
+
+    const track = section.querySelector("[data-carousel-track]");
+    const viewport = section.querySelector("[data-carousel-viewport]");
+    const prevButtons = section.querySelectorAll("[data-carousel-prev]");
+    const nextButtons = section.querySelectorAll("[data-carousel-next]");
+
+    if (!track || !viewport || !prevButtons.length || !nextButtons.length) return;
+
+    const transitionMs = 500;
+    const autoplayMs = 2000;
+    let currentIndex = clonesPorLado;
+    let autoplayId;
+    let resumeTimeoutId;
+    let isTransitioning = false;
+    const reviewTexts = Array.from(section.querySelectorAll("[data-review-text]"));
+    const reviewToggles = Array.from(section.querySelectorAll("[data-review-toggle]"));
+
+    const getSlidesPerView = () => {
+      if (window.innerWidth >= 1280) return 3;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
+    };
+
+    const getGap = () => {
+      const styles = window.getComputedStyle(track);
+      return Number.parseFloat(styles.columnGap || styles.gap || "0");
+    };
+
+    const updatePosition = (withTransition = true) => {
+      const firstSlide = track.children[0];
+      if (!firstSlide) return;
+
+      const slideWidth = firstSlide.getBoundingClientRect().width;
+      const step = slideWidth + getGap();
+      track.style.transition = withTransition ? `transform ${transitionMs}ms ease` : "none";
+      track.style.transform = `translate3d(-${currentIndex * step}px, 0, 0)`;
+    };
+
+    const syncInfiniteLoop = () => {
+      if (currentIndex >= totalTestimonios + clonesPorLado) {
+        currentIndex = clonesPorLado;
+        updatePosition(false);
+      } else if (currentIndex < clonesPorLado) {
+        currentIndex = totalTestimonios + currentIndex;
+        updatePosition(false);
+      }
+    };
+
+    const moveTo = (direction) => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex += direction;
+      updatePosition(true);
+    };
+
+    const stopAutoplay = () => {
+      window.clearInterval(autoplayId);
+      window.clearTimeout(resumeTimeoutId);
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      autoplayId = window.setInterval(() => moveTo(1), autoplayMs);
+    };
+
+    const pauseAndResumeAutoplay = () => {
+      stopAutoplay();
+      resumeTimeoutId = window.setTimeout(() => startAutoplay(), autoplayMs * 2);
+    };
+
+    const syncReviewButtons = () => {
+      reviewTexts.forEach((text, index) => {
+        const button = reviewToggles[index];
+        if (!button) return;
+
+        const isExpanded = text.classList.contains("is-expanded");
+        if (isExpanded) {
+          button.classList.remove("hidden");
+          button.textContent = "Leer menos";
+          return;
+        }
+
+        const hasOverflow = text.scrollHeight > text.clientHeight + 1;
+        button.classList.toggle("hidden", !hasOverflow);
+        button.textContent = "Leer más";
+        button.setAttribute("aria-expanded", "false");
+      });
+    };
+
+    prevButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        moveTo(-1);
+        pauseAndResumeAutoplay();
+      });
+    });
+
+    nextButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        moveTo(1);
+        pauseAndResumeAutoplay();
+      });
+    });
+
+    reviewToggles.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const text = reviewTexts[index];
+        if (!text) return;
+
+        const willExpand = !text.classList.contains("is-expanded");
+        text.classList.toggle("is-expanded", willExpand);
+        button.textContent = willExpand ? "Leer menos" : "Leer más";
+        button.setAttribute("aria-expanded", String(willExpand));
+      });
+    });
+
+    track.addEventListener("transitionend", () => {
+      isTransitioning = false;
+      syncInfiniteLoop();
+    });
+
+    viewport.addEventListener("mouseenter", stopAutoplay);
+    viewport.addEventListener("mouseleave", startAutoplay);
+    viewport.addEventListener("focusin", stopAutoplay);
+    viewport.addEventListener("focusout", startAutoplay);
+
+    window.addEventListener("resize", () => {
+      section.style.setProperty("--slides-per-view", String(getSlidesPerView()));
+      updatePosition(false);
+      syncReviewButtons();
+    });
+
+    section.style.setProperty("--slides-per-view", String(getSlidesPerView()));
+    updatePosition(false);
+    syncReviewButtons();
+    startAutoplay();
+  })();
+</script>
+
+<style>
+  #testimonios-fisioterapia {
+    --carousel-gap: 1.5rem;
+    --slides-per-view: 1;
+  }
+
+  #testimonios-fisioterapia .carousel-track {
+    gap: var(--carousel-gap);
+    will-change: transform;
+  }
+
+  #testimonios-fisioterapia .carousel-slide {
+    width: calc(
+      (100% - (var(--carousel-gap) * (var(--slides-per-view) - 1))) /
+        var(--slides-per-view)
+    );
+  }
+
+  #testimonios-fisioterapia .carousel-button {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  #testimonios-fisioterapia .review-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+  }
+
+  #testimonios-fisioterapia .review-text.is-expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  @media (min-width: 768px) {
+    #testimonios-fisioterapia {
+      --slides-per-view: 2;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    #testimonios-fisioterapia {
+      --slides-per-view: 3;
+    }
+  }
+</style>
