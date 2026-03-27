@@ -1,64 +1,235 @@
 ---
 const testimonios = [
   {
-    nombre: "Antonio M.",
-    servicio: "Lesión deportiva",
-    iniciales: "A",
-    texto:
-      "Tras romperme el ligamento cruzado, la rehabilitación fue impeccable. Volví a jugar al fútbol en 6 meses.",
+    nombre: "Jose M. Jiménez",
+    estrellas: 5,
+    texto: "Fantástico equipo!",
   },
   {
-    nombre: "Rosa L.",
-    servicio: "Dolor de espalda",
-    iniciales: "R",
+    nombre: "Ajtorka Lopez",
+    estrellas: 5,
     texto:
-      "Sufría de dolor de espalda crónico. Después de las sesiones con el fisioterapeuta, tengo una calidad de vida mucho mejor.",
+      "Llevo varios años yendo a este centro y siempre repito, buenos profesionales y trato muy amable con los pacientes",
   },
   {
-    nombre: "Pedro S.",
-    servicio: "Post-operatorio",
-    iniciales: "P",
+    nombre: "Luz Maria",
+    estrellas: 5,
     texto:
-      "Me operaron del hombro y la recuperación fue rápida gracias al tratamiento de fisioterapia. Muy profesionales.",
+      "Conozco a Lorena desde hace 5 años y es una gran profesional, yo que padezco de problemas de espalda cada vez que me da un brote acudo a su centro sin pensármelo desde la primera sección ya noto mejoría salgo como nueva y súper relajada no sabría describirlo pero si tuviera que ponerle nombre sería \"aliviada\", su profesionalidad tanto como el trato como persona es inmejorable, tanto ella como su equipo lleno de profesionales hacen que nuestra vida sea más llevadera para las personas con problemas yo acudo a fisioterapia pero su centro está completo de muchas especialidades. Recomendable 100%",
+  },
+  {
+    nombre: "Iola FRANCO HERNANDEZ",
+    estrellas: 5,
+    texto:
+      "E estado dos meses para fortalecer la espalda y la verdad que son unos profesionales, manu eres genial como todos tus compis, seguir así",
+  },
+  {
+    nombre: "Jose Manuel",
+    estrellas: 5,
+    texto: "Todo muy , muy amable la fisio y todos muy bien explicado",
+  },
+  {
+    nombre: "Raquel Gonzalez",
+    estrellas: 5,
+    texto:
+      "Vine hace muchos años por problemas de espalda y por primera vez en mi vida me explicaron el por qué de mis continuas contracturas y la necesidad de un mantenimiento. He conseguido mantener a raya mis dolores de espalda y he ganado en salud. Son unos excepcionales profesionales y siempre se los recomiendo a mi entorno.",
+  },
+  {
+    nombre: "Blanca Neri",
+    estrellas: 5,
+    texto:
+      "Mi marido necesita que vengan a domicilio. Y está yendo muy bien. Leyre una gran profesional.",
+  },
+  {
+    nombre: "Angela Cruz Narvaez",
+    estrellas: 5,
+    texto:
+      "Llevo años tratándome con Lorena, y no cambio de fisioterapeuta. El espacio de tratamiento es un sitio limpio, amplio y agradable; y Lorena es inmejorable. Muy recomendable.",
+  },
+  {
+    nombre: "maria jose Villoria montaño",
+    estrellas: 5,
+    texto:
+      "Estupendo centro de fisioterapia, desde que me doy mis secciones con Lorena la fisio del centro estoy muchísimo mejor con solo una sección noto mucha mejoría, me siento muy cómoda y me ayuda en toda mis dudas para mi rutina diaria, buenísima profesional Lorena gracias por todo, hasta la próxima q seguro volveré......",
+  },
+  {
+    nombre: "Carmen Aroca",
+    estrellas: 5,
+    texto:
+      "Quiero compartir mi experiencia en Health & Motion, porque ha sido realmente positiva. Tanto Lorena (fisio) como Fabi (entrenadora) han demostrado desde el primer momento un trato cercano, amable y muy profesional. Se nota que se implican de verdad en cada caso y que escuchan con atención las necesidades de cada paciente.\n\nEn mi situación particular, conviviendo con lupus, era fundamental encontrar un enfoque adaptado y respetuoso con mis limitaciones, y ellas han sabido hacerlo a la perfección.\n\nLorena trabaja la fisioterapia con mucho cuidado y conocimiento, siempre explicando cada paso y adaptando el tratamiento a cómo me encuentro en cada sesión. Por su parte, Fabi diseña entrenamientos personalizados, ajustando intensidad y ejercicios según mi estado, lo que me ha permitido ganar fuerza y confianza sin poner en riesgo mi salud.\n\nDestaco no solo su profesionalidad, sino también la calidad humana: hacen que te sientas acompañada en todo el proceso. Sin duda, recomiendo este centro a cualquier persona que busque un trato individualizado y un equipo que realmente se preocupe por su bienestar.",
+  },
+  {
+    nombre: "laura dominguez",
+    estrellas: 5,
+    texto:
+      "Buenas\nYo tuve una contractura en el cuello muy fuerte la cual me impedía levantar el brazo y gracias a Dios por encontrar a mí fisioterapeuta Lorena que tiene unas manos de oro, me que quitó el dolor y ya podía levantar la mano..... gracias por ser tan profesional, tan amable y cercana .... gracias de corazón",
+  },
+  {
+    nombre: "Natalia Cáceres",
+    estrellas: 5,
+    texto:
+      "Hola soy camarera y deportista!!!, por mi trabajo y deportes,he vivido muchas lesiones de todo tipo,de hombro, de escápulas, lumbares,cervicales y la última una fascitis plantar. Siempre he acudido a mí físio de confianza Lorena. Ella lleva tratándome hace muchos años tenía veinti pocos y voy para casi los 40. Siempre el mismo trato y profesionalidad,mis lesiones siempre son tratadas desde el conocimiento absoluto y trato inmejorable,acompañado de explicaciones(de qué se trata, lo que me pasa)hasta ejercicios con los cuales puedo mejorar en casa.\nSeguiré acudiendo a mí centro de confianza,Health & motion con mi fisioterapeuta de confianza.Ni que decir de familiares y amigos que he recomendado y han salido encantadísimos\nPor qué cuándo algo funciona por que cambiarlo? Solo me queda decir mil gracias siempre por vuestra profesionalidad y trato👍💯",
+  },
+  {
+    nombre: "Sergio Montado",
+    estrellas: 5,
+    texto:
+      "Excelente trato,vamos al fisio y además de su profesionalidad,las sesiones son divertidas animas",
+  },
+  {
+    nombre: "Ana Maria Rodriguez",
+    estrellas: 5,
+    texto:
+      "Excelente trato, profesionalidad,facil entrada para silla de ruedas",
+  },
+  {
+    nombre: "ROCÍO VILLORIA MONTAÑO",
+    estrellas: 5,
+    texto:
+      "Súper encantada con el equipo, personal muy profesional y sobre todo Lorena que es quien me trata desde hace varios años. Muy recomendable 😊😊",
+  },
+  {
+    nombre: "Cristina Ruiz Torres",
+    estrellas: 5,
+    texto:
+      "Llevo meses tratándome con la fisio Lorena y Leyre y he mejorado mucho en mis problemas con la espalda y el cuello. Recomiendo los tratamientos de fisioterapia tanto por el trato profesional como por los consejos que me han dado. Además tienen un precio muy competitivo.",
+  },
+  {
+    nombre: "Angela Hogenboom",
+    estrellas: 5,
+    texto: "Súper profesional y muy buen trato.",
+  },
+  {
+    nombre: "Rosario RAPOSO ROMERO",
+    estrellas: 5,
+    texto:
+      "Fui para una contractura cervical y lumbar y me encantó lo profesional que es Lorena. También muy puntual muy buen trato y muy agradable en definitiva que repito siempre que me hace falta",
+  },
+  {
+    nombre: "Maria Dolores",
+    estrellas: 5,
+    texto:
+      "Todo muy bien. Llevo mas de tres años asistida por Lorena en fisioterapia. El trato es inmejorable, me siento comprendida y muy comoda. Seguiré asistiendo mientras lo necesite.",
+  },
+  {
+    nombre: "INMACULADA GRAO",
+    estrellas: 5,
+    texto:
+      "Mi fisio favorita Lorena, la que me quita todos mis nudos tanto musculares como emocionales. Mejor clínica de fisioterapia imposible. Hablo de Lorena porque es con quien siempre me trato pero todos los fisios son inmejorables. Mis cinco estrellas van para ti. Yo vuelvo a repetir sin dudarlo una y otra vez.",
+  },
+  {
+    nombre: "Maria De Los Reyes Vilaseco",
+    estrellas: 5,
+    texto:
+      "Lorena es, sin duda, la mejor fisio de la zona. Trato inmejorable y resultados reales desde la primera sesión. Entré con mucho dolor y salí como nueva; se nota que sabe perfectamente lo que hace. Se ha convertido en mi profesional de confianza para cualquier molestia. ¡Cinco estrellas bien merecidas!",
+  },
+  {
+    nombre: "Lourdes Romero",
+    estrellas: 5,
+    texto: "Muy buena fisioterapeuta, amable 😉, buena gente etc",
+  },
+  {
+    nombre: "Laura Cervantes Sánchez",
+    estrellas: 5,
+    texto:
+      "Muy buenos profesionales y buen ambiente! Yo voy para fisio, aunque tiene muchos más servicios. Lorena un diez, que me deja el cuerpo nuevo cada vez que voy 😅",
+  },
+  {
+    nombre: "Patricia morales ibañez",
+    estrellas: 5,
+    texto:
+      "Trato maravillos de manos de Lorena....que me está dejando la espalda estupenda con escasas sesiones! Gracias!!",
+  },
+  {
+    nombre: "Carlos David De Los Ríos Galvis",
+    estrellas: 5,
+    texto:
+      "Me ha encantado la experiencia. El trato con la fisioterapeuta Leire fue excepcional. Volveré sin duda",
+  },
+  {
+    nombre: "Yuranied Duran",
+    estrellas: 5,
+    texto:
+      "He asistido por una contractura en el cuello y gracias a Dios y a las manos de mi fisioterapeuta cada día me encuentro mejor.\nY sólo puedo decir que el personal de allí es super encantador.\nLas citas las dan super rápido.\nLa fisioterapeuta que me atiende que se llama Leire, es super profesional, encantadora, trabajadora, respetuosa y muy atenta.\nLo recomiendo 100%. Muchas Gracias",
+  },
+  {
+    nombre: "Marta Buzón Valencia",
+    estrellas: 5,
+    texto:
+      "Llevo como dos meses tratándome con Lorena mis problemas de espalda y la verdad que súper bien. Lorena es fantástica, muy profesional, además de encantadora. Voy notando la mejoría a medida que pasa el tiempo.\nAcudir a mis sesiones con Lorena puede que se haya convertido en mi momento favorito de la semana!!! Me voy súper descargada y relajada.\nMil graciasssss!!!!!!",
+  },
+  {
+    nombre: "Francisco Javier lazo garcia",
+    estrellas: 5,
+    texto:
+      "Llevo varios años y estoy trabajando gracias a ellos por q tengo la espalda fatal",
+  },
+  {
+    nombre: "Luchi Nieves",
+    estrellas: 5,
+    texto:
+      "Vine con toda la espalda sobrecargada, lumbares dorsales y cervicales y me voy muchísimo mejor! Descargada y relajada! Lorena eres fantástica!😍",
+  },
+  {
+    nombre: "Jose Manuel Avila",
+    estrellas: 5,
+    texto:
+      "Llevo varios meses tratándome un problema de espalda, el cual evoluciona favorablemente. Además, tanto la atención como la profesionalidad son más que sobresalientes.",
+  },
+  {
+    nombre: "Iza Garcia",
+    estrellas: 5,
+    texto:
+      "Me han atendido estupendamente. Lorena es una gran profesional además de ser muy simpática y amable.",
   },
 ];
+
+const obtenerIniciales = (nombre) =>
+  nombre
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((parte) => parte[0]?.toUpperCase() ?? "")
+    .join("");
 ---
 
 <section class="py-20 bg-primary-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <span
-        class="text-primary-600 font-semibold tracking-wide uppercase text-sm"
-        >La confianza de nuestros pacientes</span
-      >
-      <h2
-        class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900"
-      >
+      <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">
+        La confianza de nuestros pacientes
+      </span>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900">
         Pacientes que ya han confiado en nuestra clínica de fisioterapia en
         Sanlúcar de Barrameda
       </h2>
+      <p class="mt-4 mx-auto max-w-3xl text-lg text-gray-500">
+        La confianza no se promete, se gana. Estas opiniones reflejan la
+        experiencia de personas que ya han pasado por nuestra clínica y han
+        confiado en nosotros para tratar sus molestias, lesiones y procesos de
+        recuperación.
+      </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      {
-        testimonios.map((testimonio) => (
-          <div class="bg-white rounded-2xl p-6 shadow-md">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center text-primary-700 font-bold text-lg">
-                {testimonio.iniciales}
-              </div>
-              <div class="ml-4">
-                <div class="font-semibold text-gray-900">
-                  {testimonio.nombre}
-                </div>
-                <div class="text-sm text-gray-500">{testimonio.servicio}</div>
-              </div>
+    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      {testimonios.map((testimonio) => (
+        <article class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-md">
+          <div class="mb-4 flex items-center">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-200 text-lg font-bold text-primary-700">
+              {obtenerIniciales(testimonio.nombre)}
             </div>
-            <p class="text-gray-600">"{testimonio.texto}"</p>
-            <div class="mt-4 flex text-yellow-400">★★★★★</div>
+            <div class="ml-4">
+              <h3 class="font-semibold text-gray-900">{testimonio.nombre}</h3>
+            </div>
           </div>
-        ))
-      }
+          <p class="flex-1 whitespace-pre-line text-gray-600">
+            "{testimonio.texto}"
+          </p>
+          <div class="mt-5 flex text-yellow-400">
+            {Array.from({ length: testimonio.estrellas }, () => "★").join("")}
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>
