@@ -26,7 +26,10 @@ const tratamientos = [
       "Tratamiento enfocado en mejorar la función respiratoria, aliviar síntomas y ayudarte a respirar con mayor comodidad y eficacia.",
     icono: Activity,
     color: "from-accent-300 to-accent-500",
-    items: ["Mejora de la capacidad pulmonar", "Tratamiento adaptado a cada caso"],
+    items: [
+      "Mejora de la capacidad pulmonar",
+      "Tratamiento adaptado a cada caso",
+    ],
     enlace: "#contacto",
   },
   {
@@ -101,7 +104,8 @@ const tratamientos = [
       <h2
         class="text-primary-600 font-semibold tracking-wide uppercase text-sm"
       >
-        Fisioterapia para distintos tipos de molestias y lesiones
+        Tratamientos de fisioterapia para distintos tipos de molestias y
+        lesiones
       </h2>
       <p class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900">
         Tratamos problemas frecuentes y específicos los cuales afectan mucho en
@@ -130,9 +134,9 @@ const tratamientos = [
               />
             </div>
             <div class="p-6">
-              <h3 class="text-xl font-heading font-bold text-gray-900 mb-2">
+              <p class="text-xl font-heading font-bold text-gray-900 mb-2">
                 {tratamiento.titulo}
-              </h3>
+              </p>
               <p class="text-gray-500 mb-4">{tratamiento.descripcion}</p>
               <ul class="space-y-2 mb-4">
                 {tratamiento.items.map((item) => (
