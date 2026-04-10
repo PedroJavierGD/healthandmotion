@@ -4,6 +4,7 @@ import { ArrowRight, BadgeCheck, Check } from '@lucide/astro';
 import Button from './ui/Button.astro';
 import Badge from './ui/Badge.astro';
 import LeadForm from './LeadForm.astro';
+import type { Props as ButtonProps } from './ui/Button.astro';
 
 interface HeroImage {
   src: string;
@@ -25,8 +26,10 @@ interface Props {
   imageBadgeSubtitle?: string;
   ctaText?: string;
   ctaHref?: string;
+  showPrimaryCta?: boolean;
   secondaryCta?: string;
   secondaryCtaHref?: string;
+  secondaryCtaVariant?: ButtonProps['variant'];
   stats?: { value: string; label: string }[];
   features?: { text: string; checked?: boolean }[];
   variant?: 'primary' | 'blue';
@@ -48,8 +51,10 @@ const {
   imageBadgeSubtitle = "Certificados",
   ctaText = "Pedir Cita Gratis",
   ctaHref = "#contacto",
+  showPrimaryCta = true,
   secondaryCta = "Ver Servicios",
   secondaryCtaHref = "#servicios",
+  secondaryCtaVariant = 'secondary',
   stats = [
     { value: "5", label: "Especialidades" },
     { value: "10+", label: "Profesionales" },
@@ -108,11 +113,13 @@ const imageSrc = typeof image === 'string' ? image : image?.src;
         />
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <Button href={ctaHref} variant="primary" size="lg">
-            {ctaText}
-            <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
-          </Button>
-          <Button href={secondaryCtaHref} variant="secondary" size="lg">
+          {showPrimaryCta && (
+            <Button href={ctaHref} variant="primary" size="lg">
+              {ctaText}
+              <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
+            </Button>
+          )}
+          <Button href={secondaryCtaHref} variant={secondaryCtaVariant} size="lg">
             {secondaryCta}
           </Button>
         </div>
