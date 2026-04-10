@@ -1,0 +1,35 @@
+---
+import { ventajasEntrenamiento } from "../../data/entrenamientoPersonal";
+
+import VentajaEntrenamientoCard from "./VentajaEntrenamientoCard.astro";
+---
+
+<section id="ventajas" class="bg-gray-50 py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div>
+        <div
+          class="inline-flex rounded-full bg-accent-100 px-4 py-2 text-sm font-semibold text-accent-700"
+        >
+          Por qué elegirnos
+        </div>
+        <h2 class="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl">
+          Un enfoque de clínica, no una sala de entrenamiento sin más
+        </h2>
+        <p class="mt-4 text-lg text-gray-500">
+          El visitante que llega con dolor, embarazo, post parto o una lesión no
+          quiere solo hacer ejercicio: quiere seguridad, adaptación y saber que
+          está en el lugar correcto. Esa es la propuesta de esta landing.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {
+          ventajasEntrenamiento.map((ventaja) => (
+            <VentajaEntrenamientoCard ventaja={ventaja} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

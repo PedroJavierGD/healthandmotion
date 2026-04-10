@@ -1,0 +1,35 @@
+---
+import {
+  BadgeCheck,
+  HeartHandshake,
+  Target,
+  Users,
+} from "@lucide/astro";
+
+import type { VentajaEntrenamiento } from "../../data/entrenamientoPersonal";
+
+interface Props {
+  ventaja: VentajaEntrenamiento;
+}
+
+const { ventaja } = Astro.props;
+
+const iconMap = {
+  "heart-handshake": HeartHandshake,
+  users: Users,
+  target: Target,
+  "badge-check": BadgeCheck,
+};
+
+const Icon = iconMap[ventaja.icon];
+---
+
+<div class="rounded-3xl bg-white p-6 shadow-md">
+  <div
+    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 text-primary-700"
+  >
+    <Icon class="h-6 w-6" aria-hidden="true" />
+  </div>
+  <h3 class="mt-4 text-xl font-bold text-gray-900">{ventaja.titulo}</h3>
+  <p class="mt-2 text-gray-500">{ventaja.texto}</p>
+</div>

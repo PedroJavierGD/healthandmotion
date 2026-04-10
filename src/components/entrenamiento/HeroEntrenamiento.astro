@@ -1,0 +1,97 @@
+---
+import { ArrowRight, Check, Sparkles } from "@lucide/astro";
+
+import {
+  estadisticasHeroEntrenamiento,
+  razonesEntrenamiento,
+} from "../../data/entrenamientoPersonal";
+
+import HeroEntrenamientoLeadCard from "./HeroEntrenamientoLeadCard.astro";
+---
+
+<section
+  class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(159,179,154,0.24),_transparent_34%),linear-gradient(135deg,_#f5f7f4_0%,_#ffffff_48%,_#fff1f1_100%)] pt-32 pb-20 lg:pt-40 lg:pb-24"
+>
+  <div
+    class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent"
+  >
+  </div>
+  <div
+    class="absolute -left-16 top-28 h-64 w-64 rounded-full bg-primary-200/30 blur-3xl"
+  >
+  </div>
+  <div
+    class="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-accent-200/30 blur-3xl"
+  >
+  </div>
+
+  <div
+    class="relative mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8"
+  >
+    <div>
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/90 px-4 py-2 text-sm font-semibold text-primary-700 shadow-sm"
+      >
+        <Sparkles class="h-4 w-4" aria-hidden="true" />
+        Entrenamiento guiado en clínica en Sanlúcar
+      </div>
+
+      <h1
+        class="mt-6 max-w-3xl text-4xl font-extrabold leading-tight text-gray-900 sm:text-5xl lg:text-6xl"
+      >
+        Entrenamiento personal para mejorar tu salud, recuperarte y volver a
+        sentirte bien
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl">
+        Diseñamos grupos específicos dentro de la clínica para embarazo, post
+        parto, espalda y rehabilitación. Déjanos tus datos y te informamos del
+        grupo ideal para ti, horarios y precio.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+        <a
+          href="#contacto"
+          class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl"
+        >
+          Quiero precio e información
+          <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
+        </a>
+        <a
+          href="#programas"
+          class="inline-flex items-center justify-center rounded-xl border-2 border-primary-200 bg-white px-8 py-4 text-lg font-semibold text-primary-700 transition hover:border-primary-300 hover:bg-primary-50"
+        >
+          Ver programas
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        {
+          estadisticasHeroEntrenamiento.map((stat) => (
+            <div
+              class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40"
+            >
+              <div class="text-3xl font-extrabold text-primary-700">
+                {stat.value}
+              </div>
+              <div class="mt-1 text-sm text-gray-500">{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-4 text-sm font-medium text-gray-600">
+        {
+          razonesEntrenamiento.map((razon) => (
+            <div class="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm">
+              <Check class="h-4 w-4 text-primary-600" aria-hidden="true" />
+              {razon}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <HeroEntrenamientoLeadCard />
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import { pasosProcesoEntrenamiento } from "../../data/entrenamientoPersonal";
+
+import PasoEntrenamientoCard from "./PasoEntrenamientoCard.astro";
+---
+
+<section id="proceso" class="bg-primary-900 py-20 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <div
+        class="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-primary-100"
+      >
+        Proceso de contacto
+      </div>
+      <h2 class="mt-4 text-3xl font-bold sm:text-4xl">
+        Hacemos fácil pedir información
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {
+        pasosProcesoEntrenamiento.map((paso, index) => (
+          <PasoEntrenamientoCard paso={paso} index={index} />
+        ))
+      }
+    </div>
+  </div>
+</section>

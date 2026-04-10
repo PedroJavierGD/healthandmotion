@@ -1,0 +1,63 @@
+---
+import { MapPin, Phone } from "@lucide/astro";
+
+import Input from "../ui/Input.astro";
+import Select from "../ui/Select.astro";
+
+import { opcionesProgramaEntrenamiento } from "../../data/entrenamientoPersonal";
+---
+
+<div id="contacto" class="p-8">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900">
+      Pide información sin compromiso
+    </h2>
+    <p class="mt-2 text-gray-500">
+      Te llamamos para explicarte el programa, resolver dudas y decirte
+      disponibilidad.
+    </p>
+  </div>
+
+  <form class="space-y-4">
+    <Input
+      type="text"
+      name="nombre"
+      placeholder="Tu nombre"
+      class="rounded-xl border-gray-200 focus:border-primary-400 focus:ring-primary-100"
+      required
+    />
+    <Input
+      type="tel"
+      name="telefono"
+      placeholder="Tu teléfono"
+      class="rounded-xl border-gray-200 focus:border-primary-400 focus:ring-primary-100"
+      required
+    />
+    <Select
+      name="programa"
+      options={opcionesProgramaEntrenamiento}
+      placeholder="¿Qué programa te interesa?"
+      class="rounded-xl border-gray-200 focus:border-primary-400 focus:ring-primary-100"
+    />
+    <button
+      type="submit"
+      class="w-full rounded-xl bg-accent-500 py-4 text-lg font-bold text-white shadow-md transition hover:bg-accent-600 hover:shadow-lg"
+    >
+      Solicitar información
+    </button>
+    <p class="text-center text-xs text-gray-400">
+      Te responderemos para indicarte precio, horario y grupo adecuado.
+    </p>
+  </form>
+
+  <div class="mt-6 grid gap-3 text-sm text-gray-600 sm:grid-cols-2">
+    <div class="flex items-center gap-2 rounded-xl bg-primary-50 px-4 py-3">
+      <Phone class="h-4 w-4 text-primary-600" aria-hidden="true" />
+      722 66 49 82
+    </div>
+    <div class="flex items-center gap-2 rounded-xl bg-primary-50 px-4 py-3">
+      <MapPin class="h-4 w-4 text-primary-600" aria-hidden="true" />
+      Sanlúcar de Barrameda
+    </div>
+  </div>
+</div>
