@@ -21,7 +21,7 @@ const {
     { value: 'psicologia', label: 'Psicología' },
     { value: 'multiple', label: 'Varios / No sé' }
   ],
-  placeholder = '¿Qué servicio te interesa?'
+  placeholder = '¿En qué servicio estás interesado?'
 } = Astro.props;
 ---
 
@@ -32,9 +32,9 @@ const {
   </div>
   
   <form class="space-y-4">
-    <Input type="text" placeholder="Tu nombre" required />
-    <Input type="tel" placeholder="Tu teléfono" required />
-    <Select options={options} placeholder={placeholder} />
+    <Input type="text" name="nombre" placeholder="Tu nombre" required />
+    <Input type="tel" name="telefono" placeholder="Tu teléfono" required />
+    <Select name="servicio" options={options} placeholder={placeholder} required />
     <Button type="submit" variant="accent" class="w-full">
       Solicitar Cita
     </Button>
