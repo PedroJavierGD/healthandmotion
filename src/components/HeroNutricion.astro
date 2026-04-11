@@ -1,0 +1,31 @@
+---
+import Hero from "./Hero.astro";
+import imagenNutricion from "../assets/images/nutricionista en sanlucar de barrameda.webp";
+---
+
+<Hero
+  variant="blue"
+  badge="Nutricionista en Sanlúcar de Barrameda"
+  badgeTag="h1"
+  badgeColor="green"
+  accentColor="primary"
+  title="Mejora tu alimentación sin dietas imposibles"
+  titleTag="p"
+  highlight="sin dietas imposibles"
+  subtitle="Si quieres perder peso, ganar salud, rendir mejor o aprender a comer de forma más equilibrada, en Health & Motion te ayudamos con un plan nutricional realista, personalizado y sostenible."
+  subtitleHtml="Si quieres perder peso, ganar salud, rendir mejor o aprender a comer de forma más equilibrada, en Health & Motion te ayudamos con una <strong>nutricionista en Sanlúcar de Barrameda</strong> y un plan nutricional realista, personalizado y sostenible."
+  image={imagenNutricion}
+  imageAlt="Consulta de nutrición en Health and Motion"
+  imageBadgeTitle="Nutrición personalizada"
+  imageBadgeSubtitle="Presencial y online"
+  ctaText="Pedir Cita por WhatsApp"
+  ctaHref="https://wa.me/34722664982?text=%C2%A1Hola%20Health%26Motion%21%20Vengo%20de%20la%20parte%20de%20nutrici%C3%B3n%20de%20vuestra%20web%20y%20me%20gustar%C3%ADa%20pedir%20una%20cita%20%3A%29"
+  secondaryCta="Ver consultas"
+  secondaryCtaHref="#consultas"
+  stats={[]}
+  features={[
+    { text: "Planes adaptados a ti", checked: true },
+    { text: "Educación nutricional práctica", checked: true },
+    { text: "Seguimiento cercano y realista", checked: true },
+  ]}
+/>

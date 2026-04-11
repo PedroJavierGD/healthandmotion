@@ -1,0 +1,89 @@
+---
+import { Apple, ClipboardList, HeartPulse, Users } from "@lucide/astro";
+import imagenNutricion from "../assets/images/nutricionista en sanlucar de barrameda.webp";
+
+const pilares = [
+  {
+    titulo: "Valoración completa",
+    descripcion:
+      "Analizamos tus hábitos, horarios, objetivos y contexto para entender de verdad qué necesitas.",
+    icono: ClipboardList,
+  },
+  {
+    titulo: "Alimentación realista",
+    descripcion:
+      "Nada de planes imposibles. Buscamos una estrategia que encaje con tu vida y puedas mantener.",
+    icono: Apple,
+  },
+  {
+    titulo: "Salud y bienestar",
+    descripcion:
+      "Trabajamos la alimentación para ayudarte a sentirte mejor, tener más energía y mejorar tu relación con la comida.",
+    icono: HeartPulse,
+  },
+  {
+    titulo: "Seguimiento cercano",
+    descripcion:
+      "Te acompañamos en el proceso para ajustar el plan, resolver dudas y mantener el foco en tus avances.",
+    icono: Users,
+  },
+];
+---
+
+<section id="nutricionista" class="bg-white py-24">
+  <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+    <div class="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-gray-50 shadow-xl">
+      <img
+        src={imagenNutricion.src}
+        alt="Nutricionista de Health and Motion en Sanlúcar de Barrameda"
+        class="h-full w-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+        <div class="inline-flex rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-primary-700 shadow-sm">
+          Nutrición clínica, deportiva y hábitos
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-center">
+      <span class="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-primary-700">
+        Conoce a nuestra nutricionista
+      </span>
+      <h2 class="mt-6 text-4xl font-heading font-bold text-gray-900 sm:text-5xl">
+        Un servicio de nutrición
+        <span class="text-primary-600"> adaptado a tu cuerpo, tu rutina y tus objetivos</span>
+      </h2>
+      <p class="mt-5 text-lg leading-8 text-gray-600">
+        Nuestro enfoque nutricional va más allá de darte una dieta. Queremos
+        ayudarte a entender qué necesita tu cuerpo, cómo mejorar tus hábitos y
+        qué cambios te van a aportar resultados reales a medio y largo plazo.
+      </p>
+      <p class="mt-4 text-lg leading-8 text-gray-600">
+        Trabajamos con planes personalizados, pautas claras y seguimiento
+        cercano para que puedas perder peso, mejorar tu composición corporal,
+        cuidar tu salud digestiva o simplemente aprender a comer mejor sin
+        obsesionarte.
+      </p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        {
+          pilares.map((pilar) => (
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-5 shadow-sm">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+                <pilar.icono class="h-6 w-6" aria-hidden="true" />
+              </div>
+              <p class="mt-4 text-lg font-semibold text-gray-900">
+                {pilar.titulo}
+              </p>
+              <p class="mt-2 text-sm leading-6 text-gray-600">
+                {pilar.descripcion}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

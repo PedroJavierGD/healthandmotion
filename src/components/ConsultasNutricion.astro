@@ -1,0 +1,122 @@
+---
+import {
+  Activity,
+  Apple,
+  Check,
+  ChevronRight,
+  Dumbbell,
+  HeartPulse,
+  Laptop,
+  Users,
+} from "@lucide/astro";
+
+const consultas = [
+  {
+    titulo: "Pérdida de peso",
+    descripcion:
+      "Te ayudamos a bajar grasa y mejorar hábitos con una estrategia realista, sin recurrir a dietas restrictivas imposibles de mantener.",
+    icono: Apple,
+    color: "from-primary-500 to-primary-700",
+    items: ["Plan personalizado", "Cambios sostenibles"],
+  },
+  {
+    titulo: "Nutrición deportiva",
+    descripcion:
+      "Mejora tu rendimiento, recuperación y composición corporal con una alimentación adaptada a tu entrenamiento.",
+    icono: Dumbbell,
+    color: "from-accent-300 to-accent-500",
+    items: ["Más energía", "Mejor recuperación"],
+  },
+  {
+    titulo: "Nutrición clínica y digestiva",
+    descripcion:
+      "Abordamos molestias digestivas, intolerancias, inflamación o necesidades específicas desde una pauta individualizada.",
+    icono: HeartPulse,
+    color: "from-ink-500 to-ink-700",
+    items: ["Mejora digestiva", "Pauta adaptada a tu caso"],
+  },
+  {
+    titulo: "Educación alimentaria",
+    descripcion:
+      "Aprende a organizar tus comidas, mejorar elecciones y relacionarte mejor con la alimentación en tu día a día.",
+    icono: Activity,
+    color: "from-primary-400 to-primary-600",
+    items: ["Hábitos claros", "Más autonomía"],
+  },
+  {
+    titulo: "Nutrición familiar y etapas vitales",
+    descripcion:
+      "Consultas orientadas a embarazo, postparto, cambios hormonales o necesidades nutricionales en distintas etapas.",
+    icono: Users,
+    color: "from-accent-400 to-accent-600",
+    items: ["Acompañamiento específico", "Adaptado a tu momento"],
+  },
+  {
+    titulo: "Consultas online",
+    descripcion:
+      "Haz tu seguimiento nutricional por videollamada si necesitas más flexibilidad o prefieres no desplazarte.",
+    icono: Laptop,
+    color: "from-ink-600 to-ink-800",
+    items: ["Mayor comodidad", "Seguimiento profesional"],
+  },
+];
+---
+
+<section id="consultas" class="bg-gray-50 py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-primary-600 font-semibold tracking-wide uppercase text-sm">
+        Tipos de consultas de nutrición
+      </h2>
+      <p class="mt-2 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+        Trabajamos objetivos y necesidades nutricionales diferentes
+      </p>
+      <p class="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
+        Adaptamos el enfoque a tu caso para que la alimentación se convierta en
+        una herramienta real de salud, rendimiento y bienestar.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        consultas.map((consulta) => (
+          <article class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <div
+              class={`flex h-48 items-center justify-center bg-gradient-to-br ${consulta.color}`}
+            >
+              <consulta.icono
+                class="h-20 w-20 text-white/80"
+                stroke-width={1.5}
+                aria-hidden="true"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-xl font-heading font-bold text-gray-900">
+                {consulta.titulo}
+              </p>
+              <p class="mt-3 text-gray-600">{consulta.descripcion}</p>
+              <ul class="mt-5 space-y-2">
+                {consulta.items.map((item) => (
+                  <li class="flex items-center text-sm text-gray-600">
+                    <Check
+                      class="mr-2 h-4 w-4 text-primary-500"
+                      aria-hidden="true"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contacto"
+                class="mt-5 inline-flex items-center font-semibold text-primary-600 transition hover:text-primary-700"
+              >
+                Pedir cita
+                <ChevronRight class="ml-1 h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
