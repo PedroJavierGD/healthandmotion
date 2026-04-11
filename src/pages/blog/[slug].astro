@@ -1,0 +1,241 @@
+---
+import {
+  ArrowLeft,
+  ArrowRight,
+  CalendarDays,
+  CheckCircle2,
+  Clock3,
+} from "@lucide/astro";
+
+import BlogCard from "../../components/blog/BlogCard.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+import {
+  formatBlogDate,
+  getSortedBlogPosts,
+  type BlogPost,
+} from "../../data/blogPosts";
+
+export function getStaticPaths() {
+  return getSortedBlogPosts().map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const coverSrc =
+  typeof post.coverImage === "string" ? post.coverImage : post.coverImage.src;
+
+const relatedPosts = getSortedBlogPosts()
+  .filter((item) => item.slug !== post.slug)
+  .slice(0, 3);
+---
+
+<Layout
+  title={`${post.title} | Blog Health & Motion`}
+  description={post.excerpt}
+  whatsappMessage={`¡Hola Health&Motion! He leído vuestro artículo de ${post.category.toLowerCase()} y me gustaría recibir información :)`}
+>
+  <Header />
+
+  <main>
+    <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(159,179,154,0.24),_transparent_34%),linear-gradient(135deg,_#f5f7f4_0%,_#ffffff_50%,_#fff1f1_100%)] pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <div class="absolute -left-20 top-24 h-72 w-72 rounded-full bg-primary-200/35 blur-3xl"></div>
+      <div class="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-accent-200/25 blur-3xl"></div>
+
+      <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/90 px-4 py-2 text-sm font-semibold text-primary-700 shadow-sm transition hover:border-primary-300 hover:bg-white"
+        >
+          <ArrowLeft class="h-4 w-4" aria-hidden="true" />
+          Volver al blog
+        </a>
+
+        <div class="mt-8">
+          <span class="inline-flex rounded-full bg-white/90 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-primary-700 shadow-sm">
+            {post.category}
+          </span>
+          <h1 class="mt-6 max-w-4xl text-4xl font-extrabold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
+            {post.title}
+          </h1>
+          <p class="mt-6 max-w-3xl text-lg text-gray-600 sm:text-xl">
+            {post.excerpt}
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-5 text-sm text-gray-500">
+            <span class="inline-flex items-center gap-2">
+              <CalendarDays class="h-4 w-4 text-primary-600" aria-hidden="true" />
+              {formatBlogDate(post.publishedAt)}
+            </span>
+            <span class="inline-flex items-center gap-2">
+              <Clock3 class="h-4 w-4 text-primary-600" aria-hidden="true" />
+              {post.readTime} de lectura
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white pb-20">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="-mt-10 overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-2xl">
+          <img
+            src={coverSrc}
+            alt={post.coverAlt}
+            class="h-[320px] w-full object-cover md:h-[460px]"
+            loading="eager"
+          />
+        </div>
+
+        <div class="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <article class="min-w-0">
+            <div class="space-y-8">
+              <p class="text-lg leading-8 text-gray-700">{post.intro}</p>
+
+              <div class="rounded-[2rem] border border-primary-100 bg-primary-50 p-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary-700">
+                  Ideas clave
+                </p>
+                <ul class="mt-5 space-y-4">
+                  {post.highlights.map((highlight) => (
+                    <li class="flex items-start gap-3 text-gray-700">
+                      <CheckCircle2
+                        class="mt-1 h-5 w-5 shrink-0 text-primary-600"
+                        aria-hidden="true"
+                      />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {post.sections.map((section) => (
+                <section class="space-y-4">
+                  <h2 class="text-3xl font-heading font-bold text-gray-900">
+                    {section.title}
+                  </h2>
+                  {section.paragraphs.map((paragraph) => (
+                    <p class="text-lg leading-8 text-gray-700">{paragraph}</p>
+                  ))}
+                  {section.bullets && (
+                    <ul class="space-y-3 rounded-[2rem] border border-gray-100 bg-gray-50 p-6">
+                      {section.bullets.map((bullet) => (
+                        <li class="flex items-start gap-3 text-gray-700">
+                          <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-500"></span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              ))}
+
+              <section class="rounded-[2rem] bg-gradient-to-r from-primary-600 to-ink-900 p-8 text-white shadow-xl">
+                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-white/80">
+                  ¿Quieres dar el siguiente paso?
+                </p>
+                <h2 class="mt-4 text-3xl font-heading font-bold">
+                  Podemos ayudarte desde {post.category.toLowerCase()}
+                </h2>
+                <p class="mt-4 text-lg text-white/80">
+                  Si este tema encaja con lo que te preocupa ahora mismo, puedes
+                  escribirnos y te orientamos sobre el servicio que mejor te viene.
+                </p>
+                <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                  <a
+                    href={post.ctaHref}
+                    class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-primary-700 transition hover:bg-primary-50"
+                  >
+                    {post.ctaLabel}
+                  </a>
+                  <a
+                    href={post.secondaryCtaHref}
+                    class="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+                    target={post.secondaryCtaHref.startsWith("http") ? "_blank" : undefined}
+                    rel={post.secondaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
+                    {post.secondaryCtaLabel}
+                    <ArrowRight class="ml-2 h-4 w-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <aside class="lg:sticky lg:top-28 lg:self-start">
+            <div class="rounded-[2rem] border border-gray-100 bg-gray-50 p-6 shadow-sm">
+              <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary-700">
+                Servicio relacionado
+              </p>
+              <p class="mt-3 text-2xl font-heading font-bold text-gray-900">
+                {post.category}
+              </p>
+              <p class="mt-3 text-gray-600">
+                Si quieres trabajar este tema con ayuda profesional, aquí puedes
+                ir directamente al servicio correspondiente.
+              </p>
+              <div class="mt-6 flex flex-col gap-3">
+                <a
+                  href={post.ctaHref}
+                  class="inline-flex items-center justify-center rounded-xl bg-primary-600 px-5 py-3 font-semibold text-white shadow-md transition hover:bg-primary-700 hover:shadow-lg"
+                >
+                  {post.ctaLabel}
+                </a>
+                <a
+                  href={post.secondaryCtaHref}
+                  class="inline-flex items-center justify-center rounded-xl border border-primary-200 bg-white px-5 py-3 font-semibold text-primary-700 transition hover:border-primary-300 hover:bg-primary-50"
+                  target={post.secondaryCtaHref.startsWith("http") ? "_blank" : undefined}
+                  rel={post.secondaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                >
+                  {post.secondaryCtaLabel}
+                </a>
+                <a
+                  href="/blog"
+                  class="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-3 font-semibold text-gray-700 transition hover:border-gray-300 hover:bg-gray-100"
+                >
+                  Volver al blog
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary-700">
+              Sigue leyendo
+            </p>
+            <h2 class="mt-3 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+              Otros artículos del blog
+            </h2>
+          </div>
+          <a
+            href="/blog"
+            class="inline-flex items-center font-semibold text-primary-700 transition hover:text-primary-800"
+          >
+            Ver todos
+            <ArrowRight class="ml-2 h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+
+        <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {relatedPosts.map((relatedPost) => <BlogCard post={relatedPost} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

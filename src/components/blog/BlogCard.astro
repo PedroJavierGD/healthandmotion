@@ -1,0 +1,70 @@
+---
+import { ArrowRight, CalendarDays, Clock3 } from "@lucide/astro";
+
+import { formatBlogDate, type BlogPost } from "../../data/blogPosts";
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const coverSrc =
+  typeof post.coverImage === "string" ? post.coverImage : post.coverImage.src;
+---
+
+<article class="group overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+  <a href={`/blog/${post.slug}`} class="block">
+    <div class="relative h-64 overflow-hidden">
+      <img
+        src={coverSrc}
+        alt={post.coverAlt}
+        class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+      <div class="absolute left-5 top-5">
+        <span class="inline-flex rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary-700 shadow-sm">
+          {post.category}
+        </span>
+      </div>
+    </div>
+  </a>
+
+  <div class="p-6">
+    <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+      <span class="inline-flex items-center gap-2">
+        <CalendarDays class="h-4 w-4 text-primary-600" aria-hidden="true" />
+        {formatBlogDate(post.publishedAt)}
+      </span>
+      <span class="inline-flex items-center gap-2">
+        <Clock3 class="h-4 w-4 text-primary-600" aria-hidden="true" />
+        {post.readTime}
+      </span>
+    </div>
+
+    <h2 class="mt-4 text-2xl font-heading font-bold text-gray-900">
+      <a href={`/blog/${post.slug}`} class="transition hover:text-primary-700">
+        {post.title}
+      </a>
+    </h2>
+
+    <p class="mt-4 text-gray-600">{post.excerpt}</p>
+
+    <div class="mt-6 flex items-center gap-3">
+      <a
+        href={`/blog/${post.slug}`}
+        class="inline-flex items-center justify-center rounded-xl bg-primary-600 px-5 py-3 font-semibold text-white shadow-md transition hover:bg-primary-700 hover:shadow-lg"
+      >
+        Leer artículo
+        <ArrowRight class="ml-2 h-4 w-4" aria-hidden="true" />
+      </a>
+      <a
+        href={post.ctaHref}
+        class="inline-flex items-center justify-center rounded-xl border border-primary-200 bg-primary-50 px-5 py-3 font-semibold text-primary-700 transition hover:border-primary-300 hover:bg-primary-100"
+      >
+        Ver servicio
+      </a>
+    </div>
+  </div>
+</article>

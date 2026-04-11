@@ -1,32 +1,26 @@
 ---
-import { ArrowRight, CalendarDays, HeartPulse, NotebookPen } from "@lucide/astro";
+import {
+  ArrowRight,
+  CalendarDays,
+  Clock3,
+  NotebookPen,
+  Sparkles,
+} from "@lucide/astro";
 
+import BlogCard from "../components/blog/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { getSortedBlogPosts } from "../data/blogPosts";
 
-const temas = [
-  {
-    titulo: "Fisioterapia y recuperación",
-    descripcion: "Consejos para aliviar dolor, prevenir recaídas y entender mejor tu proceso de recuperación.",
-    icono: HeartPulse
-  },
-  {
-    titulo: "Entrenamiento y salud",
-    descripcion: "Artículos prácticos para mejorar fuerza, movilidad y rendimiento con enfoque profesional.",
-    icono: NotebookPen
-  },
-  {
-    titulo: "Bienestar integral",
-    descripcion: "Contenido sobre nutrición, psicología y hábitos que impactan en tu salud del día a día.",
-    icono: CalendarDays
-  }
-];
+const posts = getSortedBlogPosts();
+const latestPost = posts[0];
+const categorias = [...new Set(posts.map((post) => post.category))];
 ---
 
 <Layout
   title="Blog | Health & Motion"
-  description="Blog de Health & Motion con contenidos sobre fisioterapia, entrenamiento personal y bienestar integral."
+  description="Blog de Health & Motion con artículos sobre fisioterapia, entrenamiento personal, nutrición, psicología, estética y bienestar integral."
 >
   <Header />
 
@@ -42,34 +36,69 @@ const temas = [
         </div>
 
         <h1 class="mt-6 text-4xl font-extrabold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
-          Contenido útil para cuidarte mejor dentro y fuera de la clínica
+          Artículos prácticos para cuidar mejor tu salud, tu cuerpo y tu bienestar
         </h1>
 
         <p class="mt-6 text-lg text-gray-600 sm:text-xl">
-          Estamos preparando artículos con recomendaciones claras sobre fisioterapia, entrenamiento personal y bienestar integral.
+          Hemos preparado contenidos útiles sobre fisioterapia, entrenamiento,
+          nutrición, psicología, estética y salud integral. Los verás ordenados
+          del más reciente al más antiguo.
         </p>
 
         <div class="mt-10 flex justify-center">
-          <a href="/#contacto" class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl">
-            Pedir información
+          <a href={`/blog/${latestPost.slug}`} class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl">
+            Leer el último artículo
             <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
           </a>
+        </div>
+
+        <div class="mt-12 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
+            <div class="text-3xl font-extrabold text-primary-700">{posts.length}</div>
+            <div class="mt-1 text-sm text-gray-500">Artículos publicados</div>
+          </div>
+          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
+            <div class="text-3xl font-extrabold text-primary-700">{categorias.length}</div>
+            <div class="mt-1 text-sm text-gray-500">Áreas tratadas</div>
+          </div>
+          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
+            <div class="text-3xl font-extrabold text-primary-700">Actualizado</div>
+            <div class="mt-1 text-sm text-gray-500">Con los posts más recientes arriba</div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="bg-white py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-8 md:grid-cols-3">
-          {temas.map((tema) => (
-            <article class="rounded-3xl border border-gray-100 bg-gray-50 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
-                <tema.icono class="h-7 w-7" aria-hidden="true" />
-              </div>
-              <h2 class="mt-6 text-2xl font-bold text-gray-900">{tema.titulo}</h2>
-              <p class="mt-4 text-gray-600">{tema.descripcion}</p>
-            </article>
-          ))}
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-700">
+              <Sparkles class="h-4 w-4" aria-hidden="true" />
+              Artículos del blog
+            </div>
+            <h2 class="mt-4 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+              Publicados de 3 en 3 y ordenados por fecha
+            </h2>
+            <p class="mt-4 max-w-3xl text-lg text-gray-600">
+              Cada artículo incluye una imagen, contenido práctico y acceso
+              directo al servicio relacionado para que puedas seguir profundizando.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 text-sm text-gray-500">
+            <span class="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2">
+              <CalendarDays class="h-4 w-4 text-primary-600" aria-hidden="true" />
+              Más reciente primero
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2">
+              <Clock3 class="h-4 w-4 text-primary-600" aria-hidden="true" />
+              Lectura rápida y útil
+            </span>
+          </div>
+        </div>
+
+        <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {posts.map((post) => <BlogCard post={post} />)}
         </div>
       </div>
     </section>
