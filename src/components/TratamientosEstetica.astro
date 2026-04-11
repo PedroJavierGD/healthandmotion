@@ -1,0 +1,121 @@
+---
+import {
+  Check,
+  ChevronRight,
+  Heart,
+  Shield,
+  Sparkles,
+  Sun,
+  Waves,
+} from "@lucide/astro";
+
+const tratamientos = [
+  {
+    titulo: "Higiene facial",
+    descripcion:
+      "Limpieza profunda para mejorar el estado de la piel, retirar impurezas y favorecer un aspecto más cuidado y luminoso.",
+    icono: Sparkles,
+    color: "from-primary-500 to-primary-700",
+    items: ["Limpieza y renovación", "Piel más fresca"],
+  },
+  {
+    titulo: "Tratamientos faciales personalizados",
+    descripcion:
+      "Sesiones adaptadas al estado de tu piel y al objetivo que quieras trabajar, desde hidratación hasta luminosidad.",
+    icono: Heart,
+    color: "from-accent-300 to-accent-500",
+    items: ["Adaptado a tu piel", "Objetivo concreto"],
+  },
+  {
+    titulo: "Tratamientos corporales",
+    descripcion:
+      "Cuidados orientados a mejorar textura, bienestar y aspecto general de distintas zonas del cuerpo.",
+    icono: Waves,
+    color: "from-ink-500 to-ink-700",
+    items: ["Trabajo corporal", "Sesiones personalizadas"],
+  },
+  {
+    titulo: "Acné, textura y manchas",
+    descripcion:
+      "Abordamos necesidades frecuentes de la piel con un protocolo cuidado y progresivo según tu caso.",
+    icono: Shield,
+    color: "from-primary-400 to-primary-600",
+    items: ["Mejora del aspecto", "Seguimiento del proceso"],
+  },
+  {
+    titulo: "Luminosidad y cuidado antiedad",
+    descripcion:
+      "Tratamientos enfocados en revitalizar la piel, mejorar su aspecto y potenciar una imagen más cuidada.",
+    icono: Sun,
+    color: "from-accent-400 to-accent-600",
+    items: ["Piel más luminosa", "Cuidado continuado"],
+  },
+  {
+    titulo: "Sesiones de mantenimiento",
+    descripcion:
+      "Programas de continuidad para cuidar resultados, mantener tu piel atendida y adaptar el tratamiento cuando haga falta.",
+    icono: Sparkles,
+    color: "from-ink-600 to-ink-800",
+    items: ["Constancia", "Plan ajustado a ti"],
+  },
+];
+---
+
+<section id="tratamientos" class="bg-gray-50 py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-primary-600 font-semibold tracking-wide uppercase text-sm">
+        Tipos de tratamientos de estética
+      </h2>
+      <p class="mt-2 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+        Te ayudamos a cuidar tu piel con el tratamiento que mejor encaja contigo
+      </p>
+      <p class="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
+        Ofrecemos distintas sesiones de estética para responder a necesidades
+        faciales y corporales con una atención personalizada y cuidada.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        tratamientos.map((tratamiento) => (
+          <article class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <div
+              class={`flex h-48 items-center justify-center bg-gradient-to-br ${tratamiento.color}`}
+            >
+              <tratamiento.icono
+                class="h-20 w-20 text-white/80"
+                stroke-width={1.5}
+                aria-hidden="true"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-xl font-heading font-bold text-gray-900">
+                {tratamiento.titulo}
+              </p>
+              <p class="mt-3 text-gray-600">{tratamiento.descripcion}</p>
+              <ul class="mt-5 space-y-2">
+                {tratamiento.items.map((item) => (
+                  <li class="flex items-center text-sm text-gray-600">
+                    <Check
+                      class="mr-2 h-4 w-4 text-primary-500"
+                      aria-hidden="true"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contacto"
+                class="mt-5 inline-flex items-center font-semibold text-primary-600 transition hover:text-primary-700"
+              >
+                Pedir cita
+                <ChevronRight class="ml-1 h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

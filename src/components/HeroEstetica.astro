@@ -1,0 +1,31 @@
+---
+import Hero from "./Hero.astro";
+import imagenEstetica from "../assets/images/centro de estetica en sanlucar de barramenda.webp";
+---
+
+<Hero
+  variant="blue"
+  badge="Esteticista en Sanlúcar de Barrameda"
+  badgeTag="h1"
+  badgeColor="green"
+  accentColor="primary"
+  title="Cuida tu piel y tu bienestar con tratamientos adaptados a ti"
+  titleTag="p"
+  highlight="tratamientos adaptados a ti"
+  subtitle="En Health & Motion te ayudamos a mejorar el aspecto y cuidado de tu piel con sesiones de estética personalizadas, pensadas para que te sientas mejor, te veas mejor y disfrutes de tu momento."
+  subtitleHtml="En Health & Motion te ayudamos a mejorar el aspecto y cuidado de tu piel con una <strong>esteticista en Sanlúcar de Barrameda</strong> y sesiones personalizadas, pensadas para que te sientas mejor, te veas mejor y disfrutes de tu momento."
+  image={imagenEstetica}
+  imageAlt="Centro de estética en Health and Motion"
+  imageBadgeTitle="Cuidado profesional"
+  imageBadgeSubtitle="Facial y corporal"
+  ctaText="Pedir Cita por WhatsApp"
+  ctaHref="https://wa.me/34722664982?text=%C2%A1Hola%20Health%26Motion%21%20Vengo%20de%20la%20parte%20de%20est%C3%A9tica%20de%20vuestra%20web%20y%20me%20gustar%C3%ADa%20pedir%20una%20cita%20%3A%29"
+  secondaryCta="Ver tratamientos"
+  secondaryCtaHref="#tratamientos"
+  stats={[]}
+  features={[
+    { text: "Tratamientos faciales y corporales", checked: true },
+    { text: "Sesiones adaptadas a tu piel", checked: true },
+    { text: "Atención cercana y cuidada", checked: true },
+  ]}
+/>

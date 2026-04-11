@@ -1,0 +1,64 @@
+---
+const preguntas = [
+  {
+    pregunta: "¿Cómo sé qué tratamiento de estética necesito?",
+    respuesta:
+      "Si no tienes claro qué sesión encaja mejor contigo, no pasa nada. Valoramos tu piel, tu objetivo y el resultado que buscas para orientarte sobre el tratamiento más adecuado desde la primera toma de contacto.",
+  },
+  {
+    pregunta: "¿Trabajáis tratamientos faciales y corporales?",
+    respuesta:
+      "Sí. Ofrecemos sesiones tanto faciales como corporales, siempre adaptando el tratamiento a la zona, al estado de la piel y al objetivo concreto que quieras mejorar.",
+  },
+  {
+    pregunta: "¿Cuántas sesiones voy a necesitar?",
+    respuesta:
+      "Depende del tratamiento y del punto de partida. Hay casos en los que una sesión puede aportar mejora, y otros en los que conviene hacer seguimiento o continuidad para consolidar resultados.",
+  },
+  {
+    pregunta: "¿Puedo tratar acné, manchas o textura de la piel?",
+    respuesta:
+      "Sí. Son consultas frecuentes dentro del servicio de estética. Valoramos tu caso para proponerte una sesión o un protocolo adaptado a lo que necesita tu piel en ese momento.",
+  },
+  {
+    pregunta: "¿La primera cita sirve también para asesoramiento?",
+    respuesta:
+      "Sí. Si tienes dudas sobre qué hacerte, la primera cita también sirve para orientarte, explicarte opciones y ayudarte a decidir qué tratamiento puede venirte mejor.",
+  },
+];
+---
+
+<section id="preguntas-frecuentes" class="bg-white py-24">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block rounded-full bg-accent-100 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-accent-700">
+        FAQ
+      </span>
+      <h2 class="mt-6 text-4xl font-heading font-bold text-gray-900 sm:text-5xl">
+        Preguntas frecuentes sobre estética
+      </h2>
+      <p class="mt-4 text-lg text-gray-600">
+        Respondemos algunas dudas habituales antes de reservar tu sesión.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {preguntas.map((item, index) => (
+        <details
+          class="group rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm"
+          open={index === 0}
+        >
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+            <span class="text-lg font-semibold text-gray-900">
+              {item.pregunta}
+            </span>
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-100 text-accent-700 transition-transform duration-300 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+          <p class="mt-4 pr-10 text-gray-600">{item.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
