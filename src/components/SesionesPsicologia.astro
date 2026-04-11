@@ -1,0 +1,122 @@
+---
+import {
+  Apple,
+  Brain,
+  Check,
+  ChevronRight,
+  HeartHandshake,
+  Laptop,
+  Users,
+} from "@lucide/astro";
+
+const sesiones = [
+  {
+    titulo: "Terapia individual",
+    descripcion:
+      "Sesiones para trabajar ansiedad, estrés, autoestima, bloqueos emocionales o etapas de cambio personal.",
+    icono: Brain,
+    color: "from-primary-500 to-primary-700",
+    items: ["Objetivos personalizados", "Acompañamiento cercano"],
+  },
+  {
+    titulo: "Terapia de pareja",
+    descripcion:
+      "Un espacio para mejorar la comunicación, gestionar conflictos y recuperar el entendimiento dentro de la relación.",
+    icono: Users,
+    color: "from-accent-300 to-accent-500",
+    items: ["Comunicación saludable", "Trabajo conjunto"],
+  },
+  {
+    titulo: "Duelo y pérdida",
+    descripcion:
+      "Acompañamiento psicológico para transitar procesos de pérdida con más comprensión, sostén y herramientas emocionales.",
+    icono: HeartHandshake,
+    color: "from-ink-500 to-ink-700",
+    items: ["Proceso respetuoso", "Espacio seguro"],
+  },
+  {
+    titulo: "Relación con la comida",
+    descripcion:
+      "Abordaje psicológico de la alimentación emocional, la culpa con la comida y hábitos que afectan a tu bienestar.",
+    icono: Apple,
+    color: "from-primary-400 to-primary-600",
+    items: ["Trabajo emocional", "Coordinación con nutrición si la necesitas"],
+  },
+  {
+    titulo: "Estrés y regulación emocional",
+    descripcion:
+      "Herramientas para manejar la sobrecarga mental, la rumiación, la irritabilidad y la sensación de no poder con todo.",
+    icono: Brain,
+    color: "from-accent-400 to-accent-600",
+    items: ["Más claridad mental", "Recursos prácticos"],
+  },
+  {
+    titulo: "Psicología online",
+    descripcion:
+      "Sesiones por videollamada para que puedas cuidar tu salud mental con mayor flexibilidad y sin desplazarte.",
+    icono: Laptop,
+    color: "from-ink-600 to-ink-800",
+    items: ["Mayor comodidad", "Misma atención profesional"],
+  },
+];
+---
+
+<section id="sesiones" class="bg-gray-50 py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-primary-600 font-semibold tracking-wide uppercase text-sm">
+        Tipos de sesiones de psicología
+      </h2>
+      <p class="mt-2 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+        Te ayudamos desde el enfoque que mejor encaja contigo
+      </p>
+      <p class="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
+        Ofrecemos distintas modalidades de terapia para adaptarnos a tu
+        momento, a lo que necesitas trabajar y a la forma en la que prefieres
+        realizar las sesiones.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        sesiones.map((sesion) => (
+          <article class="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <div
+              class={`flex h-48 items-center justify-center bg-gradient-to-br ${sesion.color}`}
+            >
+              <sesion.icono
+                class="h-20 w-20 text-white/80"
+                stroke-width={1.5}
+                aria-hidden="true"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-xl font-heading font-bold text-gray-900">
+                {sesion.titulo}
+              </p>
+              <p class="mt-3 text-gray-600">{sesion.descripcion}</p>
+              <ul class="mt-5 space-y-2">
+                {sesion.items.map((item) => (
+                  <li class="flex items-center text-sm text-gray-600">
+                    <Check
+                      class="mr-2 h-4 w-4 text-primary-500"
+                      aria-hidden="true"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contacto"
+                class="mt-5 inline-flex items-center font-semibold text-primary-600 transition hover:text-primary-700"
+              >
+                Pedir cita
+                <ChevronRight class="ml-1 h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

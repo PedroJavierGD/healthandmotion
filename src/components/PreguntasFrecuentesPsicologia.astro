@@ -1,0 +1,64 @@
+---
+const preguntas = [
+  {
+    pregunta: "¿Cómo sé si necesito ir a psicología?",
+    respuesta:
+      "Si llevas tiempo sintiéndote desbordado, con ansiedad, tristeza, conflictos de pareja, dificultades para gestionar emociones o una situación que te supera, pedir ayuda psicológica puede ayudarte a comprender mejor lo que te ocurre y a empezar a manejarlo de otra manera.",
+  },
+  {
+    pregunta: "¿Cómo es la primera sesión?",
+    respuesta:
+      "La primera sesión sirve para conocerte, entender tu situación y saber qué necesitas trabajar. A partir de ahí, te orientaremos sobre el enfoque más adecuado, la frecuencia recomendada y cómo podríamos enfocar el proceso.",
+  },
+  {
+    pregunta: "¿Ofrecéis terapia de pareja?",
+    respuesta:
+      "Sí. Las sesiones de pareja están orientadas a mejorar la comunicación, abordar conflictos recurrentes, recuperar acuerdos y trabajar la relación desde una mirada profesional y neutral.",
+  },
+  {
+    pregunta: "¿Puedo hacer las sesiones de forma online?",
+    respuesta:
+      "Sí. También ofrecemos sesiones online para que puedas seguir tu proceso terapéutico si te resulta más cómodo, estás fuera o tienes menos disponibilidad para desplazarte al centro.",
+  },
+  {
+    pregunta: "¿Todo lo que hable con la psicóloga es confidencial?",
+    respuesta:
+      "Sí. La confidencialidad es una base esencial del proceso terapéutico. Queremos que tengas la tranquilidad de poder hablar con libertad en un entorno seguro y profesional.",
+  },
+];
+---
+
+<section id="preguntas-frecuentes" class="bg-white py-24">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block rounded-full bg-accent-100 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-accent-700">
+        FAQ
+      </span>
+      <h2 class="mt-6 text-4xl font-heading font-bold text-gray-900 sm:text-5xl">
+        Preguntas frecuentes sobre psicología
+      </h2>
+      <p class="mt-4 text-lg text-gray-600">
+        Respondemos algunas dudas habituales antes de reservar tu sesión.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {preguntas.map((item, index) => (
+        <details
+          class="group rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm"
+          open={index === 0}
+        >
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+            <span class="text-lg font-semibold text-gray-900">
+              {item.pregunta}
+            </span>
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-100 text-accent-700 transition-transform duration-300 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+          <p class="mt-4 pr-10 text-gray-600">{item.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

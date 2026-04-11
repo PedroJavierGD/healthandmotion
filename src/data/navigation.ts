@@ -12,7 +12,7 @@ export const serviceNavItems: NavChildItem[] = [
   { label: "Fisioterapia", href: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda" },
   { label: "Entrenamiento personal", href: "/entrenamiento-personal-en-sanlucar" },
   { label: "Nutrición", href: "/#servicios" },
-  { label: "Psicología", href: "/#servicios" },
+  { label: "Psicología", href: "/psicologa-en-sanlucar-de-barrameda" },
   { label: "Estética", href: "/#servicios" }
 ];
 

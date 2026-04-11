@@ -1,0 +1,31 @@
+---
+import Hero from "./Hero.astro";
+import imagenPsicologia from "../assets/images/psicologa en sanlucar de barrameda.webp";
+---
+
+<Hero
+  variant="blue"
+  badge="Psicóloga en Sanlúcar de Barrameda"
+  badgeTag="h1"
+  badgeColor="green"
+  accentColor="primary"
+  title="Un espacio seguro para entenderte, cuidarte y avanzar"
+  titleTag="p"
+  highlight="cuidarte y avanzar"
+  subtitle="Si sientes que necesitas apoyo emocional, terapia de pareja o acompañamiento para atravesar un momento difícil, en Health & Motion encontrarás una atención cercana, profesional y adaptada a ti."
+  subtitleHtml="Si sientes que necesitas apoyo emocional, terapia de pareja o acompañamiento para atravesar un momento difícil, en Health & Motion encontrarás una <strong>psicóloga en Sanlúcar de Barrameda</strong> con una atención cercana, profesional y adaptada a ti."
+  image={imagenPsicologia}
+  imageAlt="Psicóloga en consulta en Health and Motion"
+  imageBadgeTitle="Atención cercana"
+  imageBadgeSubtitle="Presencial y online"
+  ctaText="Pedir Cita por WhatsApp"
+  ctaHref="https://wa.me/34722664982?text=%C2%A1Hola%20Health%26Motion%21%20Vengo%20de%20la%20parte%20de%20psicolog%C3%ADa%20de%20vuestra%20web%20y%20me%20gustar%C3%ADa%20pedir%20una%20cita%20%3A%29"
+  secondaryCta="Ver sesiones"
+  secondaryCtaHref="#sesiones"
+  stats={[]}
+  features={[
+    { text: "Terapia individual y de pareja", checked: true },
+    { text: "Sesiones presenciales y online", checked: true },
+    { text: "Acompañamiento cercano y confidencial", checked: true },
+  ]}
+/>

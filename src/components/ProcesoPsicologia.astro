@@ -1,0 +1,72 @@
+---
+const pasos = [
+  {
+    numero: "1.",
+    titulo: "Primera toma de contacto",
+    descripcion:
+      "Escuchamos tu situación actual, qué te preocupa y qué te ha traído hasta aquí.",
+  },
+  {
+    numero: "2.",
+    titulo: "Valoramos tu caso",
+    descripcion:
+      "Analizamos contigo el contexto, los patrones que se repiten y las áreas que más te están afectando.",
+  },
+  {
+    numero: "3.",
+    titulo: "Definimos un plan terapéutico",
+    descripcion:
+      "Marcamos objetivos realistas y organizamos un proceso adaptado a tu ritmo y a tus necesidades.",
+  },
+  {
+    numero: "4.",
+    titulo: "Seguimiento y evolución",
+    descripcion:
+      "Revisamos avances, ajustamos el trabajo cuando hace falta y te damos herramientas útiles para tu día a día.",
+  },
+];
+---
+
+<section class="bg-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary-600">
+        Cómo trabajamos
+      </p>
+      <h2 class="mt-4 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+        Así es el proceso de las sesiones de psicología
+      </h2>
+      <p class="mt-4 text-lg text-gray-500">
+        Cada proceso terapéutico es diferente, pero seguimos una base clara para
+        que sepas qué esperar desde la primera sesión.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {
+        pasos.map((paso) => (
+          <article class="rounded-3xl border border-accent-100 bg-gradient-to-br from-white to-accent-50 p-7 shadow-[0_20px_50px_rgba(93,18,22,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(93,18,22,0.14)]">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-500 text-lg font-bold text-white">
+              {paso.numero}
+            </div>
+            <p class="text-xl font-heading font-bold text-gray-900">
+              {paso.titulo}
+            </p>
+            <p class="mt-3 text-sm leading-6 text-gray-500">
+              {paso.descripcion}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href="#contacto"
+        class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl"
+      >
+        Solicitar primera cita
+      </a>
+    </div>
+  </div>
+</section>

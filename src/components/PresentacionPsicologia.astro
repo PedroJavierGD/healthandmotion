@@ -1,0 +1,89 @@
+---
+import { Brain, HeartHandshake, Shield, Users } from "@lucide/astro";
+import imagenPsicologia from "../assets/images/psicologa en sanlucar de barrameda.webp";
+
+const pilares = [
+  {
+    titulo: "Escucha real",
+    descripcion:
+      "Un espacio donde poder expresar lo que te ocurre sin juicios y con total respeto.",
+    icono: HeartHandshake,
+  },
+  {
+    titulo: "Confidencialidad",
+    descripcion:
+      "Trabajamos desde la confianza y la privacidad para que te sientas seguro desde la primera sesión.",
+    icono: Shield,
+  },
+  {
+    titulo: "Objetivos claros",
+    descripcion:
+      "Definimos contigo qué necesitas y qué cambios quieres conseguir en tu día a día.",
+    icono: Brain,
+  },
+  {
+    titulo: "Acompañamiento cercano",
+    descripcion:
+      "Un proceso terapéutico humano, profesional y adaptado a tu momento personal.",
+    icono: Users,
+  },
+];
+---
+
+<section id="psicologa" class="bg-white py-24">
+  <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+    <div class="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-gray-50 shadow-xl">
+      <img
+        src={imagenPsicologia.src}
+        alt="Psicóloga de Health and Motion en Sanlúcar de Barrameda"
+        class="h-full w-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+        <div class="inline-flex rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-primary-700 shadow-sm">
+          Psicología para adultos y parejas
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-center">
+      <span class="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-primary-700">
+        Conoce a nuestra psicóloga
+      </span>
+      <h2 class="mt-6 text-4xl font-heading font-bold text-gray-900 sm:text-5xl">
+        Un acompañamiento psicológico
+        <span class="text-primary-600"> cercano, profesional y humano</span>
+      </h2>
+      <p class="mt-5 text-lg leading-8 text-gray-600">
+        Nuestro servicio de psicología está pensado para ayudarte a comprender
+        mejor lo que te ocurre, ordenar tus emociones y afrontar con más
+        herramientas los momentos que hoy te están costando.
+      </p>
+      <p class="mt-4 text-lg leading-8 text-gray-600">
+        Trabajamos desde una mirada individualizada, respetando tus tiempos y
+        adaptando cada sesión a tus necesidades. El objetivo no es solo hablar
+        de lo que te pasa, sino ayudarte a avanzar con claridad, calma y más
+        recursos personales.
+      </p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        {
+          pilares.map((pilar) => (
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-5 shadow-sm">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+                <pilar.icono class="h-6 w-6" aria-hidden="true" />
+              </div>
+              <p class="mt-4 text-lg font-semibold text-gray-900">
+                {pilar.titulo}
+              </p>
+              <p class="mt-2 text-sm leading-6 text-gray-600">
+                {pilar.descripcion}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
