@@ -1,11 +1,5 @@
 ---
-import {
-  ArrowRight,
-  CalendarDays,
-  Clock3,
-  NotebookPen,
-  Sparkles,
-} from "@lucide/astro";
+import { NotebookPen, Sparkles } from "@lucide/astro";
 
 import BlogCard from "../components/blog/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
@@ -14,8 +8,6 @@ import Footer from "../components/Footer.astro";
 import { getSortedBlogPosts } from "../data/blogPosts";
 
 const posts = getSortedBlogPosts();
-const latestPost = posts[0];
-const categorias = [...new Set(posts.map((post) => post.category))];
 ---
 
 <Layout
@@ -44,28 +36,6 @@ const categorias = [...new Set(posts.map((post) => post.category))];
           nutrición, psicología, estética y salud integral. Los verás ordenados
           del más reciente al más antiguo.
         </p>
-
-        <div class="mt-10 flex justify-center">
-          <a href={`/blog/${latestPost.slug}`} class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl">
-            Leer el último artículo
-            <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
-          </a>
-        </div>
-
-        <div class="mt-12 grid gap-4 sm:grid-cols-3">
-          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
-            <div class="text-3xl font-extrabold text-primary-700">{posts.length}</div>
-            <div class="mt-1 text-sm text-gray-500">Artículos publicados</div>
-          </div>
-          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
-            <div class="text-3xl font-extrabold text-primary-700">{categorias.length}</div>
-            <div class="mt-1 text-sm text-gray-500">Áreas tratadas</div>
-          </div>
-          <div class="rounded-2xl border border-white/80 bg-white/85 p-5 shadow-lg shadow-primary-100/40">
-            <div class="text-3xl font-extrabold text-primary-700">Actualizado</div>
-            <div class="mt-1 text-sm text-gray-500">Con los posts más recientes arriba</div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -85,20 +55,10 @@ const categorias = [...new Set(posts.map((post) => post.category))];
               directo al servicio relacionado para que puedas seguir profundizando.
             </p>
           </div>
-          <div class="flex flex-wrap gap-3 text-sm text-gray-500">
-            <span class="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2">
-              <CalendarDays class="h-4 w-4 text-primary-600" aria-hidden="true" />
-              Más reciente primero
-            </span>
-            <span class="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2">
-              <Clock3 class="h-4 w-4 text-primary-600" aria-hidden="true" />
-              Lectura rápida y útil
-            </span>
-          </div>
         </div>
 
         <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {posts.map((post) => <BlogCard post={post} />)}
+          {posts.map((post) => <BlogCard post={post} showServiceCta={false} />)}
         </div>
       </div>
     </section>
