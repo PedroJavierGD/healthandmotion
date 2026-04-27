@@ -1,0 +1,86 @@
+---
+const fotosLocales = import.meta.glob("../../assets/images/*Health&Motion.webp", {
+  eager: true,
+  import: "default",
+});
+
+const normalizarTexto = (texto) =>
+  texto
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase();
+
+const buscarFotoEquipo = (terminos) => {
+  const terminosNormalizados = terminos.map(normalizarTexto);
+
+  return Object.entries(fotosLocales).find(([ruta]) => {
+    const rutaNormalizada = normalizarTexto(ruta);
+    return terminosNormalizados.every((termino) =>
+      rutaNormalizada.includes(termino),
+    );
+  })?.[1];
+};
+
+const obtenerSrcFoto = (foto) =>
+  typeof foto === "string" ? foto : (foto?.src ?? "");
+
+const entrenadores = [
+  {
+    nombre: "Fabi",
+    puesto: "Entrenadora personal",
+    foto: buscarFotoEquipo(["fabi", "entrenador"]),
+  },
+  {
+    nombre: "Manu",
+    puesto: "Entrenador personal",
+    foto: buscarFotoEquipo(["manu", "entrenador"]),
+  },
+  {
+    nombre: "Andrea",
+    puesto: "Entrenadora personal",
+    foto: buscarFotoEquipo(["andrea", "entrenador"]),
+  },
+  {
+    nombre: "Carlos",
+    puesto: "Entrenador personal",
+    foto: buscarFotoEquipo(["carlos", "entrenador"]),
+  },
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-gray-900">
+        Nuestro equipo de entrenamiento personal en Sanlúcar
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        Detrás de cada sesión hay profesionales que te orientan, adaptan el
+        trabajo y te acompañan para que entrenar sea útil, seguro y sostenible.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        entrenadores.map((persona) => (
+          <article class="group text-center">
+            <div class="relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-50">
+              <img
+                src={obtenerSrcFoto(persona.foto)}
+                alt={persona.nombre}
+                class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <p class="mt-3 text-base font-semibold text-gray-900">
+              {persona.nombre}
+            </p>
+            <p class="mt-2 text-sm font-medium text-primary-700">
+              {persona.puesto}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

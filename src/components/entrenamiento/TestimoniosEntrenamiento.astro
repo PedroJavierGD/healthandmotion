@@ -1,0 +1,52 @@
+---
+const testimonios = [
+  {
+    nombre: "Iola Franco Hernández",
+    texto:
+      "He estado dos meses para fortalecer la espalda y la verdad que son unos profesionales. Manu eres genial, como todos tus compis.",
+  },
+  {
+    nombre: "Carmen Aroca",
+    texto:
+      "Fabi diseña entrenamientos personalizados, ajustando intensidad y ejercicios según mi estado. He ganado fuerza y confianza sin poner en riesgo mi salud.",
+  },
+  {
+    nombre: "Raquel González",
+    texto:
+      "Me explicaron la importancia del mantenimiento y he conseguido mantener a raya mis dolores de espalda. Son unos excepcionales profesionales.",
+  },
+];
+---
+
+<section id="testimonios-entrenamiento" class="py-20 bg-primary-50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="text-primary-600 font-semibold tracking-wide uppercase text-sm">
+        Personas que ya entrenan con nosotros
+      </h2>
+      <p class="mt-4 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+        Entrenamiento acompañado, cercano y adaptado
+      </p>
+      <p class="mt-4 text-lg text-gray-600">
+        Nuestros programas están pensados para que entrenes con seguridad,
+        seguimiento y una orientación real según tu situación.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {
+        testimonios.map((testimonio) => (
+          <article class="rounded-3xl border border-primary-100 bg-white p-7 shadow-[0_18px_45px_rgba(47,60,46,0.08)]">
+            <div class="text-lg font-bold text-primary-600" aria-hidden="true">
+              ★★★★★
+            </div>
+            <p class="mt-4 text-sm leading-7 text-gray-600">
+              “{testimonio.texto}”
+            </p>
+            <p class="mt-6 font-semibold text-gray-900">{testimonio.nombre}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
