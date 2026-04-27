@@ -45,6 +45,16 @@ const entrenadores = [
     puesto: "Entrenador personal",
     foto: buscarFotoEquipo(["carlos", "entrenador"]),
   },
+  {
+    nombre: "Pablo",
+    puesto: "Entrenador personal",
+    foto: buscarFotoEquipo(["pablo", "entrenador"]),
+  },
+  {
+    nombre: "Ángel",
+    puesto: "Entrenador personal",
+    foto: buscarFotoEquipo(["angel", "entrenador"]),
+  },
 ];
 ---
 
@@ -60,7 +70,7 @@ const entrenadores = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         entrenadores.map((persona) => (
           <article class="group text-center">
