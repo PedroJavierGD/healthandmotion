@@ -116,9 +116,9 @@ const imageSrc = typeof image === 'string' ? image : image?.src;
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           {showPrimaryCta && (
-            <Button href={ctaHref} variant="primary" size="lg">
+            <Button href={ctaHref} variant="primary" size="lg" class="min-w-[280px] gap-2">
               {ctaText}
-              <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
+              <ArrowRight class="h-5 w-5 shrink-0" aria-hidden="true" />
             </Button>
           )}
           {showSecondaryCta && (
