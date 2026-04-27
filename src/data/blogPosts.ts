@@ -1,8 +1,8 @@
-import imagenEstetica from "../assets/images/centro de estetica en sanlucar de barramenda.webp";
-import imagenEntrenamiento from "../assets/images/entrenamiento personal en sanlucar de barrameda.webp";
-import imagenNutricion from "../assets/images/nutricionista en sanlucar de barrameda.webp";
-import imagenPsicologia from "../assets/images/psicologa en sanlucar de barrameda.webp";
-import imagenFisioterapia from "../assets/images/tratamiento de fisioterapia en sanlucar de barrameda.webp";
+import imagenEstetica from "../assets/images/centro-estetica-sanlucar-barrameda.webp";
+import imagenEntrenamiento from "../assets/images/entrenamiento-personal-sanlucar-barrameda.webp";
+import imagenNutricion from "../assets/images/nutricionista-sanlucar-barrameda.webp";
+import imagenPsicologia from "../assets/images/psicologa-sanlucar-barrameda.webp";
+import imagenFisioterapia from "../assets/images/tratamiento-fisioterapia-sanlucar-barrameda.webp";
 
 export interface BlogSection {
   title: string;
