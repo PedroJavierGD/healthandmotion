@@ -1,70 +1,70 @@
 ---
-import { Heart, Shield, Sparkles, Users } from "@lucide/astro";
-import imagenEsteticista from "../assets/images/Eli - Esteticista en Health&Motion.webp";
+import { Brain, HeartHandshake, Shield, Users } from "@lucide/astro";
+import imagenPsicologia from "../../assets/images/psicologa en sanlucar de barrameda.webp";
 
 const pilares = [
   {
-    titulo: "Valoración personalizada",
+    titulo: "Escucha real",
     descripcion:
-      "Observamos tu piel, tus necesidades y tu objetivo antes de recomendar el tratamiento más adecuado.",
-    icono: Sparkles,
+      "Un espacio donde poder expresar lo que te ocurre sin juicios y con total respeto.",
+    icono: HeartHandshake,
   },
   {
-    titulo: "Cuidado profesional",
+    titulo: "Confidencialidad",
     descripcion:
-      "Trabajamos con un enfoque cuidadoso para ayudarte a mejorar el aspecto de tu piel de forma progresiva.",
+      "Trabajamos desde la confianza y la privacidad para que te sientas seguro desde la primera sesión.",
     icono: Shield,
   },
   {
-    titulo: "Bienestar y estética",
+    titulo: "Objetivos claros",
     descripcion:
-      "Buscamos que cada sesión te ayude a verte mejor y también a disfrutar de un momento para ti.",
-    icono: Heart,
+      "Definimos contigo qué necesitas y qué cambios quieres conseguir en tu día a día.",
+    icono: Brain,
   },
   {
-    titulo: "Atención cercana",
+    titulo: "Acompañamiento cercano",
     descripcion:
-      "Te acompañamos con un trato humano, resolviendo dudas y ajustando el trabajo según tu evolución.",
+      "Un proceso terapéutico humano, profesional y adaptado a tu momento personal.",
     icono: Users,
   },
 ];
 ---
 
-<section id="esteticista" class="bg-white py-24">
+<section id="psicologa" class="bg-white py-24">
   <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
     <div class="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-gray-50 shadow-xl">
       <img
-        src={imagenEsteticista.src}
-        alt="Esteticista de Health and Motion en Sanlúcar de Barrameda"
+        src={imagenPsicologia.src}
+        alt="Psicóloga de Health and Motion en Sanlúcar de Barrameda"
         class="h-full w-full object-cover"
         loading="lazy"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"></div>
       <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
         <div class="inline-flex rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-primary-700 shadow-sm">
-          Estética facial y corporal
+          Psicología para adultos y parejas
         </div>
       </div>
     </div>
 
     <div class="flex flex-col justify-center">
       <span class="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-primary-700">
-        Conoce a nuestra esteticista
+        Conoce a nuestra psicóloga
       </span>
       <h2 class="mt-6 text-4xl font-heading font-bold text-gray-900 sm:text-5xl">
-        Un servicio de estética
-        <span class="text-primary-600"> pensado para cuidar tu piel y tu confianza</span>
+        Un acompañamiento psicológico
+        <span class="text-primary-600"> cercano, profesional y humano</span>
       </h2>
       <p class="mt-5 text-lg leading-8 text-gray-600">
-        Nuestro servicio de estética está enfocado en ayudarte a mejorar el
-        aspecto de tu piel, cuidar tu rostro y tu cuerpo, y adaptar cada sesión
-        a lo que realmente necesitas en este momento.
+        Nuestro servicio de psicología está pensado para ayudarte a comprender
+        mejor lo que te ocurre, ordenar tus emociones y afrontar con más
+        herramientas los momentos que hoy te están costando.
       </p>
       <p class="mt-4 text-lg leading-8 text-gray-600">
-        No todas las pieles ni todos los objetivos son iguales. Por eso
-        trabajamos desde una atención personalizada, combinando valoración,
-        cuidado profesional y una experiencia agradable para que cada sesión
-        tenga sentido para ti.
+        Trabajamos desde una mirada individualizada, respetando tus tiempos y
+        adaptando cada sesión a tus necesidades. El objetivo no es solo hablar
+        de lo que te pasa, sino ayudarte a avanzar con claridad, calma y más
+        recursos personales.
       </p>
 
       <div class="mt-8 grid gap-4 sm:grid-cols-2">

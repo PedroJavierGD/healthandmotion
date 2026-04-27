@@ -125,9 +125,9 @@ export const ventajasEntrenamiento: VentajaEntrenamiento[] = [
     icon: "target",
   },
   {
-    titulo: "Más conversión",
+    titulo: "Información clara",
     texto:
-      "La página presenta precio, frecuencia y propuesta concreta para facilitar el contacto de quien ya está interesado.",
+      "Te explicamos precio, frecuencia y disponibilidad para que puedas decidir con todos los datos.",
     icon: "badge-check",
   },
 ];

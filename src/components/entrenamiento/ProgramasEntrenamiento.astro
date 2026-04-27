@@ -6,23 +6,23 @@ import ProgramaEntrenamientoCard from "./ProgramaEntrenamientoCard.astro";
 
 <section id="programas" class="bg-white py-20">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <div
-        class="inline-flex rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-700"
+    <div class="text-center mb-16">
+      <h2
+        class="text-primary-600 font-semibold tracking-wide uppercase text-sm"
       >
         Programas de entrenamiento
-      </div>
-      <h2 class="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl">
-        Cada necesidad tiene su propia sección dentro de la clínica
       </h2>
-      <p class="mt-4 text-lg text-gray-500">
+      <p class="mt-2 text-3xl sm:text-4xl font-heading font-bold text-gray-900">
+        Cada necesidad tiene su propia sección dentro de la clínica
+      </p>
+      <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-500">
         No ofrecemos un entrenamiento genérico. Organizamos grupos concretos
         para etapas y necesidades distintas, con el objetivo de mejorar salud,
         funcionalidad y adherencia.
       </p>
     </div>
 
-    <div class="mt-14 grid gap-8 lg:grid-cols-2">
+    <div class="grid gap-8 md:grid-cols-2">
       {
         programasEntrenamiento.map((programa) => (
           <ProgramaEntrenamientoCard programa={programa} />

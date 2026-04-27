@@ -1,6 +1,4 @@
 ---
-import { CircleHelp } from "@lucide/astro";
-
 import type { FaqEntrenamiento } from "../../data/entrenamientoPersonal";
 
 interface Props {
@@ -10,10 +8,12 @@ interface Props {
 const { item } = Astro.props;
 ---
 
-<details class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
-  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-gray-900">
-    <span>{item.pregunta}</span>
-    <CircleHelp class="h-5 w-5 shrink-0 text-primary-600" aria-hidden="true" />
+<details class="group rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+    <span class="text-lg font-semibold text-gray-900">{item.pregunta}</span>
+    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-100 text-accent-700 transition-transform duration-300 group-open:rotate-45">
+      +
+    </span>
   </summary>
-  <p class="mt-4 leading-7 text-gray-600">{item.respuesta}</p>
+  <p class="mt-4 pr-10 text-gray-600">{item.respuesta}</p>
 </details>
