@@ -30,6 +30,7 @@ interface Props {
   secondaryCta?: string;
   secondaryCtaHref?: string;
   secondaryCtaVariant?: ButtonProps['variant'];
+  showSecondaryCta?: boolean;
   stats?: { value: string; label: string }[];
   features?: { text: string; checked?: boolean }[];
   variant?: 'primary' | 'blue';
@@ -55,6 +56,7 @@ const {
   secondaryCta = "Ver Servicios",
   secondaryCtaHref = "#servicios",
   secondaryCtaVariant = 'secondary',
+  showSecondaryCta = true,
   stats = [
     { value: "5", label: "Especialidades" },
     { value: "+10", label: "Profesionales" },
@@ -119,9 +121,11 @@ const imageSrc = typeof image === 'string' ? image : image?.src;
               <ArrowRight class="ml-2 h-5 w-5" aria-hidden="true" />
             </Button>
           )}
-          <Button href={secondaryCtaHref} variant={secondaryCtaVariant} size="lg">
-            {secondaryCta}
-          </Button>
+          {showSecondaryCta && (
+            <Button href={secondaryCtaHref} variant={secondaryCtaVariant} size="lg">
+              {secondaryCta}
+            </Button>
+          )}
         </div>
 
         {stats.length > 0 && (
