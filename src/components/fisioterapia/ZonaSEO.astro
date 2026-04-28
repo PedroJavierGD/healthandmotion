@@ -1,5 +1,5 @@
 ---
-const fotosLocales = import.meta.glob("../assets/images/*.webp", {
+const fotosLocales = import.meta.glob("../../assets/images/*.webp", {
   eager: true,
   import: "default",
 });
@@ -8,6 +8,7 @@ const normalizarTexto = (texto) =>
   texto
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")
+    .replace(/[^a-zA-Z0-9]/g, "")
     .toLowerCase();
 
 const buscarFotoEquipo = (terminos) => {
