@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { item } = Astro.props;
+const parrafosRespuesta = item.respuesta.split("\n\n");
 ---
 
 <details class="group rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
@@ -15,5 +16,11 @@ const { item } = Astro.props;
       +
     </span>
   </summary>
-  <p class="mt-4 pr-10 text-gray-600">{item.respuesta}</p>
+  <div class="mt-4 pr-10 space-y-4 text-gray-600">
+    {
+      parrafosRespuesta.map((parrafo) => (
+        <p>{parrafo}</p>
+      ))
+    }
+  </div>
 </details>
