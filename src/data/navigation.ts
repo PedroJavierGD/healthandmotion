@@ -18,6 +18,5 @@ export const serviceNavItems: NavChildItem[] = [
 
 export const mainNavItems: NavItem[] = [
   ...serviceNavItems,
-  { label: "Equipo", href: "/#nosotros" },
   { label: "Blog", href: "/blog" }
 ];
