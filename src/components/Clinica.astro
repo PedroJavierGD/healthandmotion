@@ -1,23 +1,64 @@
 ---
+import foto1 from "../assets/images/home/foto-home-1-health-motion.webp";
+import foto2 from "../assets/images/home/foto-home-2-health-motion.webp";
+import foto3 from "../assets/images/home/foto-home-3-health-motion.webp";
+import foto4 from "../assets/images/home/foto-home-4-health-motion.webp";
+import foto5 from "../assets/images/home/foto-home-5-health-motion.webp";
+import foto6 from "../assets/images/home/foto-home-6-health-motion.webp";
+import foto7 from "../assets/images/home/foto-home-7-health-motion.webp";
+import foto8 from "../assets/images/home/foto-home-8-health-motion.webp";
+import foto9 from "../assets/images/home/foto-home-9-health-motion.webp";
+import fotoEntrenamiento from "../assets/images/home/centro-entrenamiento-personal-sanlucar.webp";
+
 const imagenes = [
   {
-    src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop",
-    alt: "Recepción de la clínica",
+    src: foto1.src,
+    alt: "Recepción de Health and Motion",
     clase: "md:col-span-2 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop",
-    alt: "Consulta médica",
+    src: foto2.src,
+    alt: "Instalaciones interiores de Health and Motion",
     clase: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop",
-    alt: "Tratamiento estético",
+    src: foto3.src,
+    alt: "Zona clínica de Health and Motion",
     clase: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=300&fit=crop",
-    alt: "Sala de fisioterapia",
+    src: foto4.src,
+    alt: "Espacio de atención en Health and Motion",
+    clase: "md:col-span-2",
+  },
+  {
+    src: foto5.src,
+    alt: "Detalle de las instalaciones de Health and Motion",
+    clase: "",
+  },
+  {
+    src: foto6.src,
+    alt: "Consulta de Health and Motion",
+    clase: "",
+  },
+  {
+    src: foto7.src,
+    alt: "Sala de tratamiento de Health and Motion",
+    clase: "md:col-span-2",
+  },
+  {
+    src: foto8.src,
+    alt: "Cabina y equipamiento de Health and Motion",
+    clase: "",
+  },
+  {
+    src: foto9.src,
+    alt: "Ambiente interior de Health and Motion",
+    clase: "",
+  },
+  {
+    src: fotoEntrenamiento.src,
+    alt: "Zona de entrenamiento personal en Health and Motion",
     clase: "md:col-span-2",
   },
 ];
@@ -42,7 +83,7 @@ const imagenes = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+    <div class="grid grid-cols-1 gap-4 auto-rows-[220px] md:grid-cols-4 md:auto-rows-[220px] lg:auto-rows-[240px]">
       {
         imagenes.map((img, index) => (
           <div
