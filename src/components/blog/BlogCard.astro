@@ -14,7 +14,9 @@ const coverSrc =
   typeof post.coverImage === "string" ? post.coverImage : post.coverImage.src;
 ---
 
-<article class="group overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+<article
+  class="group overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+>
   <a href={`/blog/${post.slug}`} class="block">
     <div class="relative h-64 overflow-hidden">
       <img
@@ -23,9 +25,14 @@ const coverSrc =
         class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
         loading="lazy"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"
+      >
+      </div>
       <div class="absolute left-5 top-5">
-        <span class="inline-flex rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary-700 shadow-sm">
+        <span
+          class="inline-flex rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary-700 shadow-sm"
+        >
           {post.category}
         </span>
       </div>
@@ -60,14 +67,16 @@ const coverSrc =
         Leer artículo
         <ArrowRight class="ml-2 h-4 w-4" aria-hidden="true" />
       </a>
-      {showServiceCta && (
-        <a
-          href={post.ctaHref}
-          class="inline-flex items-center justify-center rounded-xl border border-primary-200 bg-primary-50 px-5 py-3 font-semibold text-primary-700 transition hover:border-primary-300 hover:bg-primary-100"
-        >
-          Ver servicio
-        </a>
-      )}
+      {
+        showServiceCta && (
+          <a
+            href={post.ctaHref}
+            class="inline-flex items-center justify-center rounded-xl border border-primary-200 bg-primary-50 px-5 py-3 font-semibold text-primary-700 transition hover:border-primary-300 hover:bg-primary-100"
+          >
+            Ver servicio
+          </a>
+        )
+      }
     </div>
   </div>
 </article>

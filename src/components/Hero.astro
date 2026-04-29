@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, BadgeCheck, Check } from '@lucide/astro';
+import { ArrowRight, BadgeCheck, Check, ChevronRight } from '@lucide/astro';
 
 import Button from './ui/Button.astro';
 import Badge from './ui/Badge.astro';
@@ -10,7 +10,13 @@ interface HeroImage {
   src: string;
 }
 
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
 interface Props {
+  breadcrumbs?: BreadcrumbItem[];
   badge?: string;
   badgeColor?: 'primary' | 'blue' | 'green' | 'red' | 'yellow';
   badgeTag?: 'div' | 'p' | 'h1';
@@ -37,6 +43,7 @@ interface Props {
 }
 
 const { 
+  breadcrumbs = [],
   badge = "Centro Médico Multidisciplinar",
   badgeColor = 'primary',
   badgeTag = 'div',
@@ -93,6 +100,31 @@ const imageSrc = typeof image === 'string' ? image : image?.src;
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <div class="text-center lg:text-left">
+        {breadcrumbs.length > 0 && (
+          <nav
+            aria-label="Breadcrumb"
+            class="mb-5 flex flex-wrap items-center justify-center gap-2 text-sm text-gray-500 lg:justify-start"
+          >
+            {breadcrumbs.map((item, index) => (
+              <>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    class="transition hover:text-primary-600"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <span class="font-medium text-gray-700">{item.label}</span>
+                )}
+                {index < breadcrumbs.length - 1 && (
+                  <ChevronRight class="h-4 w-4 text-gray-400" aria-hidden="true" />
+                )}
+              </>
+            ))}
+          </nav>
+        )}
+
         <BadgeTag>
           <Badge color={badgeColor} pulse>
             {badge}
