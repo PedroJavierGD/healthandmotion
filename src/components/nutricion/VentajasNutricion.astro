@@ -1,63 +1,25 @@
 ---
-import { Apple, BadgeCheck, MonitorSmartphone, Users } from "@lucide/astro";
+import { ventajasNutricion } from "../../data/nutricion";
 
-const ventajas = [
-  {
-    titulo: "Plan nutricional a medida",
-    descripcion:
-      "No trabajamos con plantillas genéricas. Ajustamos la pauta a tus necesidades, gustos y objetivos.",
-    icono: Apple,
-  },
-  {
-    titulo: "Seguimiento cercano",
-    descripcion:
-      "Te acompañamos durante el proceso para ayudarte a mantener constancia y resolver bloqueos.",
-    icono: Users,
-  },
-  {
-    titulo: "Aprendes a comer mejor",
-    descripcion:
-      "No solo sigues una pauta: entiendes cómo organizar tu alimentación para sostener resultados.",
-    icono: BadgeCheck,
-  },
-  {
-    titulo: "Formato presencial u online",
-    descripcion:
-      "Puedes realizar el seguimiento en clínica o a distancia según lo que mejor te venga.",
-    icono: MonitorSmartphone,
-  },
-];
+import VentajaNutricionCard from "./VentajaNutricionCard.astro";
 ---
 
-<section class="bg-gray-50 py-20">
+<section id="ventajas" class="bg-gray-50 py-20">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center">
+    <div class="mb-16 text-center">
       <h2 class="text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
-        Ventajas de empezar tu proceso con nuestra nutricionista
+        ¿Por qué elegir nuestra nutricionista en Sanlúcar?
       </h2>
-      <p class="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
-        Te ayudamos a conseguir resultados de forma más ordenada, realista y
-        sostenible.
+      <p class="mx-auto mt-4 max-w-3xl text-lg text-gray-500">
+        Te ayudamos a conseguir resultados de forma ordenada, realista y
+        sostenible, con un plan adaptado a tu contexto y un seguimiento cercano.
       </p>
     </div>
 
-    <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       {
-        ventajas.map((ventaja) => (
-          <article class="rounded-3xl border border-primary-100 bg-white p-7 text-center shadow-[0_18px_45px_rgba(47,60,46,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(47,60,46,0.1)]">
-            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100">
-              <ventaja.icono
-                class="h-8 w-8 text-primary-600"
-                aria-hidden="true"
-              />
-            </div>
-            <p class="mt-5 text-lg font-semibold text-gray-900">
-              {ventaja.titulo}
-            </p>
-            <p class="mt-3 text-sm leading-6 text-gray-500">
-              {ventaja.descripcion}
-            </p>
-          </article>
+        ventajasNutricion.map((ventaja) => (
+          <VentajaNutricionCard ventaja={ventaja} />
         ))
       }
     </div>

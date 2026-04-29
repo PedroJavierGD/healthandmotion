@@ -1,0 +1,48 @@
+---
+import { Apple, Check, ChevronRight, Dumbbell, HeartPulse } from "@lucide/astro";
+
+import type { ConsultaNutricion } from "../../data/nutricion";
+
+interface Props {
+  consulta: ConsultaNutricion;
+}
+
+const { consulta } = Astro.props;
+
+const iconMap = {
+  apple: Apple,
+  dumbbell: Dumbbell,
+  "heart-pulse": HeartPulse,
+};
+
+const Icon = iconMap[consulta.icon];
+---
+
+<article class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+  <div
+    class={`flex h-48 items-center justify-center bg-gradient-to-br ${consulta.color}`}
+  >
+    <Icon class="h-20 w-20 text-white/80" stroke-width={1.5} aria-hidden="true" />
+  </div>
+  <div class="p-6">
+    <h3 class="mb-2 text-xl font-heading font-bold text-gray-900">
+      {consulta.titulo}
+    </h3>
+    <p class="mb-4 text-gray-500">{consulta.descripcion}</p>
+    <ul class="mb-4 space-y-2">
+      {consulta.items.map((item) => (
+        <li class="flex items-center text-sm text-gray-600">
+          <Check class="mr-2 h-4 w-4 text-primary-500" aria-hidden="true" />
+          {item}
+        </li>
+      ))}
+    </ul>
+    <a
+      href="#contacto"
+      class="inline-flex items-center font-semibold text-primary-600 hover:text-primary-700"
+    >
+      Pedir cita
+      <ChevronRight class="ml-1 h-4 w-4" aria-hidden="true" />
+    </a>
+  </div>
+</article>
