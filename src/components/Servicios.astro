@@ -16,6 +16,7 @@ import Card from "./ui/Card.astro";
 import Section from "./ui/Section.astro";
 import imagenFisioterapiaHome from "../assets/images/home/fisioterapia-ecografia-clinica.webp";
 import imagenEntrenamientoHome from "../assets/images/home/centro-entrenamiento-personal-sanlucar.webp";
+import imagenNutricionHome from "../assets/images/home/servicio-nutricionista-sanlucar.webp";
 import imagenEsteticaHome from "../assets/images/home/servicio-estetica-sanlucar.webp";
 
 const imagenesServicios = import.meta.glob("../assets/images/*.webp", {
@@ -59,11 +60,11 @@ const servicios = [
     enlace: "/entrenamiento-personal-en-sanlucar",
   },
   {
-    titulo: "Nutrición",
+    titulo: "Nutricionista",
     descripcion:
       "Asesoría alimentaria personalizada para mejorar tu salud y hábitos.",
     icono: Apple,
-    imagen: buscarImagenServicio(["nutricionista"]),
+    imagen: imagenNutricionHome,
     color: "from-primary-400 to-primary-600",
     items: ["Pérdida de peso", "Deportiva y digestiva"],
     enlace: "/nutricionista-en-sanlucar-de-barrameda",
