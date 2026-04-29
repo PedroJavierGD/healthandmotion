@@ -14,6 +14,7 @@ import Heading from "./ui/Heading.astro";
 import Badge from "./ui/Badge.astro";
 import Card from "./ui/Card.astro";
 import Section from "./ui/Section.astro";
+import imagenFisioterapiaHome from "../assets/images/home/Fisioterapia con ecografía en nuestra clínica ejecutada por nuestros fisioterapeutas.webp";
 import imagenEntrenamientoHome from "../assets/images/home/centro de entrenamiento personal en sanlucar de barrameda.webp";
 
 const imagenesServicios = import.meta.glob("../assets/images/*.webp", {
@@ -41,7 +42,7 @@ const servicios = [
     descripcion:
       "Recuperación de lesiones y tratamiento del dolor con técnicas avanzadas.",
     icono: HeartPulse,
-    imagen: buscarImagenServicio(["fisioterapia"]),
+    imagen: imagenFisioterapiaHome,
     color: "from-primary-400 to-primary-600",
     items: ["Readaptación deportiva", "Tratamiento del dolor"],
     enlace: "/clinica-de-fisioterapia-en-sanlucar-de-barrameda",
