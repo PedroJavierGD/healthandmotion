@@ -1,26 +1,52 @@
 ---
 const preguntas = [
   {
-    pregunta: "¿Cómo sé si necesito fisioterapia?",
-    respuesta: "Si tienes dolor, limitación de movimiento, molestias tras una lesión o estás en proceso de recuperación después de una operación, una valoración de fisioterapia puede ayudarte a identificar el problema y plantear el tratamiento adecuado."
+    pregunta: "¿Qué tipo de dolores puede tratar la fisioterapia?",
+    respuesta:
+      "La fisioterapia puede ayudarte con dolores musculares, articulares y lesiones que afectan a tu movilidad y calidad de vida.\n\nTratamos molestias frecuentes como dolor de espalda, cervicales, hombro, rodilla, cadera, ciática, sobrecargas musculares, contracturas, lesiones deportivas o molestias provocadas por malas posturas.\n\nCada caso se valora de forma individual para adaptar el tratamiento a tu situación y trabajar no solo sobre el dolor, sino también sobre la causa que lo provoca."
   },
   {
-    pregunta: "¿Cuánto dura una sesión de fisioterapia?",
-    respuesta: "La duración puede variar según el tratamiento, pero habitualmente trabajamos con sesiones de entre 45 y 60 minutos para poder valorar, tratar y hacer seguimiento con tiempo suficiente."
+    pregunta: "¿La fisioterapia me puede ayudar si tengo dolor de espalda?",
+    respuesta:
+      "Sí. El dolor de espalda es uno de los motivos más habituales para acudir a fisioterapia.\n\nPuede aparecer por muchas causas: malas posturas, estrés, falta de movilidad, debilidad muscular, sobrecargas, trabajo sedentario o esfuerzos repetidos.\n\nEn la sesión valoramos tu caso para entender de dónde viene el dolor y aplicar el tratamiento más adecuado. El objetivo es ayudarte a aliviar las molestias, mejorar tu movilidad y prevenir que el problema vuelva a repetirse."
   },
   {
-    pregunta: "¿Necesito venir con pruebas médicas o diagnóstico previo?",
-    respuesta: "No es imprescindible, aunque si ya tienes resonancias, radiografías, informes o pruebas anteriores, traerlas puede ayudarnos a entender mejor tu caso y personalizar el tratamiento desde la primera sesión."
+    pregunta: "¿La fisioterapia duele?",
+    respuesta:
+      "La fisioterapia no tiene por qué doler. Algunos tratamientos pueden generar cierta molestia puntual, especialmente si la zona está muy cargada o sensible, pero siempre trabajamos adaptándonos a tu tolerancia.\n\nAntes de empezar, te explicamos qué vamos a hacer y cómo puedes sentirte durante el tratamiento.\n\nNuestro objetivo no es hacerte pasar un mal rato, sino ayudarte a mejorar de forma segura, progresiva y controlada."
   },
   {
-    pregunta: "¿Cuántas sesiones voy a necesitar?",
-    respuesta: "Depende del tipo de lesión, del tiempo que lleve contigo y de tu respuesta al tratamiento. Tras la primera valoración te orientaremos sobre el número de sesiones recomendado y la frecuencia más adecuada."
+    pregunta: "¿Cuántas sesiones de fisioterapia necesito?",
+    respuesta:
+      "Depende del tipo de problema, del tiempo que lleves con dolor, de tu estado físico y de cómo responda tu cuerpo al tratamiento.\n\nHay molestias que pueden mejorar en pocas sesiones, mientras que otros casos necesitan un proceso más progresivo, especialmente si el dolor lleva mucho tiempo o hay una lesión más compleja.\n\nDespués de la primera valoración podremos orientarte mejor sobre el número de sesiones recomendado para tu caso."
   },
   {
-    pregunta: "¿Tratáis lesiones deportivas y dolor de espalda?",
-    respuesta: "Sí. Trabajamos tanto lesiones deportivas como dolor cervical, dorsal o lumbar, además de post-operatorios, problemas articulares y procesos de readaptación funcional."
+    pregunta: "¿Cuándo empezaré a notar mejoría?",
+    respuesta:
+      "Cada persona evoluciona de forma diferente, pero muchas personas notan alivio, más movilidad o menos tensión desde las primeras sesiones.\n\nAun así, la mejoría depende del origen del problema, del tiempo que lleves con molestias, de tu actividad diaria y de si sigues las recomendaciones pautadas.\n\nNuestro objetivo es que notes una mejora real, pero también que entiendas qué puedes hacer para mantenerla en el tiempo."
+  },
+  {
+    pregunta: "¿Qué diferencia hay entre aliviar el dolor y tratar el origen del problema?",
+    respuesta:
+      "Aliviar el dolor significa reducir la molestia que tienes en ese momento. Tratar el origen del problema implica ir un paso más allá: entender por qué aparece ese dolor y qué factores lo están manteniendo.\n\nMuchas molestias vuelven porque solo se trata el síntoma, pero no se corrige la causa.\n\nPor eso, en fisioterapia no buscamos solo que salgas mejor de la sesión, sino ayudarte a moverte mejor, ganar fuerza, recuperar movilidad y evitar que el problema se repita."
+  },
+  {
+    pregunta: "¿Hacéis una valoración antes de empezar el tratamiento?",
+    respuesta:
+      "Sí. Antes de comenzar cualquier tratamiento realizamos una valoración inicial para conocer tu caso, tus síntomas, tu historial y tus objetivos.\n\nEsta valoración nos permite entender qué puede estar provocando el dolor o la limitación, y elegir el tratamiento más adecuado para ti.\n\nNo trabajamos a ciegas ni aplicamos el mismo tratamiento a todo el mundo. Cada persona necesita un enfoque adaptado a su situación."
+  },
+  {
+    pregunta: "¿Qué diferencia hay entre fisioterapia y masaje?",
+    respuesta:
+      "Un masaje puede ayudar a relajar la musculatura o aliviar una sobrecarga puntual, pero la fisioterapia va más allá.\n\nEn fisioterapia se realiza una valoración, se identifica el posible origen del problema y se aplica un tratamiento adaptado a tu caso. Además, puede incluir terapia manual, ejercicio terapéutico, movilidad, educación y pautas para mejorar fuera de la consulta.\n\nEl objetivo no es solo aliviar una zona cargada, sino ayudarte a recuperarte mejor y prevenir futuras molestias."
+  },
+  {
+    pregunta: "¿Cómo puedo pedir una cita de fisioterapia?",
+    respuesta:
+      "Puedes pedir tu cita llamándonos, escribiéndonos por WhatsApp o rellenando el formulario de contacto de la web.\n\nEn esa primera toma de contacto te preguntaremos qué te ocurre, desde cuándo tienes molestias y qué necesitas mejorar.\n\nA partir de ahí, te orientaremos para reservar tu sesión y empezar con una valoración personalizada."
   }
 ];
+const obtenerParrafos = (texto) => texto.split("\n\n").filter(Boolean);
 ---
 
 <section id="preguntas-frecuentes" class="py-24 bg-white">
@@ -46,9 +72,11 @@ const preguntas = [
               +
             </span>
           </summary>
-          <p class="mt-4 pr-10 text-gray-600">
-            {item.respuesta}
-          </p>
+          <div class="mt-4 space-y-4 pr-10 text-gray-600">
+            {obtenerParrafos(item.respuesta).map((parrafo) => (
+              <p>{parrafo}</p>
+            ))}
+          </div>
         </details>
       ))}
     </div>
