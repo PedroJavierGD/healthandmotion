@@ -1,0 +1,62 @@
+---
+const testimonios = [
+  {
+    nombre: "Jose M. Jiménez",
+    iniciales: "JM",
+    texto: "Fantástico equipo!",
+  },
+  {
+    nombre: "Ajtorka Lopez",
+    iniciales: "AL",
+    texto:
+      "Llevo varios años yendo a este centro y siempre repito, buenos profesionales y trato muy amable con los pacientes",
+  },
+  {
+    nombre: "Carmen Aroca",
+    iniciales: "CA",
+    texto:
+      "Quiero compartir mi experiencia en Health & Motion, porque ha sido realmente positiva. Se nota que se implican de verdad en cada caso y que escuchan con atención las necesidades de cada paciente. Destaco no solo su profesionalidad, sino también la calidad humana.",
+  },
+  {
+    nombre: "Angela Hogenboom",
+    iniciales: "AH",
+    texto: "Súper profesional y muy buen trato.",
+  },
+];
+---
+
+<section id="testimonios-estetica" class="bg-primary-50 py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-16 text-center">
+      <span class="text-sm font-semibold uppercase tracking-wide text-primary-600">
+        Reseñas
+      </span>
+      <h2 class="mt-2 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+        Opiniones sobre Health & Motion
+      </h2>
+      <p class="mx-auto mt-4 max-w-3xl text-lg text-gray-500">
+        La experiencia de nuestros pacientes refleja una atención cercana,
+        profesional y cuidada desde el primer contacto.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {
+        testimonios.map((testimonio) => (
+          <article class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-md">
+            <div class="mb-4 flex items-center">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-200 text-lg font-bold text-primary-700">
+                {testimonio.iniciales}
+              </div>
+              <div class="ml-4">
+                <h3 class="font-semibold text-gray-900">{testimonio.nombre}</h3>
+              </div>
+            </div>
+            <p class="flex-1 text-gray-600">"{testimonio.texto}"</p>
+            <div class="mt-5 flex text-yellow-400">★★★★★</div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

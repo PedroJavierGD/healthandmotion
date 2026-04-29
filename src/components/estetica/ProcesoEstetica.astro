@@ -1,41 +1,18 @@
 ---
-const pasos = [
-  {
-    numero: "1.",
-    titulo: "Valoramos tu piel y tu objetivo",
-    descripcion:
-      "Analizamos qué necesitas mejorar y qué tratamiento puede ayudarte mejor según tu caso.",
-  },
-  {
-    numero: "2.",
-    titulo: "Te proponemos el tratamiento",
-    descripcion:
-      "Definimos una sesión o una pauta de trabajo adaptada al resultado que buscas.",
-  },
-  {
-    numero: "3.",
-    titulo: "Realizamos la sesión",
-    descripcion:
-      "Aplicamos el tratamiento de forma cuidada, respetando las necesidades de tu piel y tu comodidad.",
-  },
-  {
-    numero: "4.",
-    titulo: "Seguimiento y recomendaciones",
-    descripcion:
-      "Te orientamos sobre continuidad, mantenimiento y cuidados para potenciar resultados.",
-  },
-];
+import { pasosProcesoEstetica } from "../../data/estetica";
+
+import PasoEsteticaCard from "./PasoEsteticaCard.astro";
 ---
 
-<section class="bg-white py-20">
+<section id="proceso" class="bg-white py-20">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary-600">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-primary-600">
         Cómo trabajamos
-      </p>
-      <h2 class="mt-4 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
-        Así es el proceso de las sesiones de estética
       </h2>
+      <p class="mt-4 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+        Así es el proceso de las sesiones de estética
+      </p>
       <p class="mt-4 text-lg text-gray-500">
         Buscamos que cada tratamiento tenga sentido para tu piel, tu momento y
         el resultado que quieres conseguir.
@@ -44,29 +21,10 @@ const pasos = [
 
     <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
       {
-        pasos.map((paso) => (
-          <article class="rounded-3xl border border-accent-100 bg-gradient-to-br from-white to-accent-50 p-7 shadow-[0_20px_50px_rgba(93,18,22,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(93,18,22,0.14)]">
-            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-500 text-lg font-bold text-white">
-              {paso.numero}
-            </div>
-            <p class="text-xl font-heading font-bold text-gray-900">
-              {paso.titulo}
-            </p>
-            <p class="mt-3 text-sm leading-6 text-gray-500">
-              {paso.descripcion}
-            </p>
-          </article>
+        pasosProcesoEstetica.map((paso, index) => (
+          <PasoEsteticaCard paso={paso} index={index} />
         ))
       }
-    </div>
-
-    <div class="mt-12 text-center">
-      <a
-        href="#contacto"
-        class="inline-flex items-center justify-center rounded-xl bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl"
-      >
-        Solicitar primera cita
-      </a>
     </div>
   </div>
 </section>

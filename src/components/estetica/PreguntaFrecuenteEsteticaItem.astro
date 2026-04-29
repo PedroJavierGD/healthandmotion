@@ -1,0 +1,23 @@
+---
+import type { FaqEstetica } from "../../data/estetica";
+
+interface Props {
+  item: FaqEstetica;
+  open?: boolean;
+}
+
+const { item, open = false } = Astro.props;
+---
+
+<details
+  class="group rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm"
+  open={open}
+>
+  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+    <h3 class="text-lg font-semibold text-gray-900">{item.pregunta}</h3>
+    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-100 text-accent-700 transition-transform duration-300 group-open:rotate-45">
+      +
+    </span>
+  </summary>
+  <p class="mt-4 pr-10 text-gray-600">{item.respuesta}</p>
+</details>
