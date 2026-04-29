@@ -1,0 +1,361 @@
+---
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
+
+const testimonios = [
+  {
+    nombre: "Jose M. Jiménez",
+    estrellas: 5,
+    texto: "Fantástico equipo!",
+  },
+  {
+    nombre: "Ajtorka Lopez",
+    estrellas: 5,
+    texto:
+      "Llevo varios años yendo a este centro y siempre repito, buenos profesionales y trato muy amable con los pacientes",
+  },
+  {
+    nombre: "Raquel Gonzalez",
+    estrellas: 5,
+    texto:
+      "Vine hace muchos años por problemas de espalda y por primera vez en mi vida me explicaron el por qué de mis continuas contracturas y la necesidad de un mantenimiento. He conseguido mantener a raya mis dolores de espalda y he ganado en salud. Son unos excepcionales profesionales y siempre se los recomiendo a mi entorno.",
+  },
+  {
+    nombre: "Carmen Aroca",
+    estrellas: 5,
+    texto:
+      "Quiero compartir mi experiencia en Health & Motion, porque ha sido realmente positiva. Se nota que se implican de verdad en cada caso y que escuchan con atención las necesidades de cada paciente. Destaco no solo su profesionalidad, sino también la calidad humana: hacen que te sientas acompañada en todo el proceso.",
+  },
+  {
+    nombre: "Ana Maria Rodriguez",
+    estrellas: 5,
+    texto: "Excelente trato, profesionalidad,facil entrada para silla de ruedas",
+  },
+  {
+    nombre: "Angela Hogenboom",
+    estrellas: 5,
+    texto: "Súper profesional y muy buen trato.",
+  },
+];
+
+const clonesPorLado = 3;
+const testimoniosCarrusel = [
+  ...testimonios.slice(-clonesPorLado),
+  ...testimonios,
+  ...testimonios.slice(0, clonesPorLado),
+];
+
+const obtenerIniciales = (nombre) =>
+  nombre
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((parte) => parte[0]?.toUpperCase() ?? "")
+    .join("");
+---
+
+<section id="testimonios-nutricion" class="bg-primary-50 py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-16 text-center">
+      <span class="text-sm font-semibold uppercase tracking-wide text-primary-600">
+        Reseñas
+      </span>
+      <h2 class="mt-2 text-3xl font-heading font-bold text-gray-900 sm:text-4xl">
+        Lo que dicen quienes confían en Health & Motion
+      </h2>
+      <p class="mx-auto mt-4 max-w-3xl text-lg text-gray-500">
+        La experiencia de nuestros pacientes refleja una atención cercana,
+        profesional y centrada en entender cada caso antes de proponer el
+        siguiente paso.
+      </p>
+    </div>
+
+    <div class="relative">
+      <button
+        type="button"
+        class="carousel-button carousel-button-prev absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-lg transition hover:border-primary-200 hover:text-primary-700 lg:flex"
+        aria-label="Ver reseñas anteriores"
+        data-carousel-prev
+      >
+        <ChevronLeft class="h-5 w-5" aria-hidden="true" />
+      </button>
+
+      <div class="overflow-hidden" data-carousel-viewport>
+        <div class="carousel-track flex" data-carousel-track>
+          {
+            testimoniosCarrusel.map((testimonio) => (
+              <article class="carousel-slide shrink-0">
+                <div class="flex h-full flex-col rounded-2xl bg-white p-6 shadow-md">
+                  <div class="mb-4 flex items-center">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-200 text-lg font-bold text-primary-700">
+                      {obtenerIniciales(testimonio.nombre)}
+                    </div>
+                    <div class="ml-4">
+                      <p class="font-semibold text-gray-900">
+                        {testimonio.nombre}
+                      </p>
+                    </div>
+                  </div>
+                  <p
+                    class="review-text flex-1 whitespace-pre-line text-gray-600"
+                    data-review-text
+                  >
+                    "{testimonio.texto}"
+                  </p>
+                  <button
+                    type="button"
+                    class="review-toggle mt-3 hidden text-sm font-semibold text-primary-700 transition hover:text-primary-800"
+                    data-review-toggle
+                    aria-expanded="false"
+                  >
+                    Leer más
+                  </button>
+                  <div class="mt-5 flex text-yellow-400">
+                    {Array.from(
+                      { length: testimonio.estrellas },
+                      () => "★",
+                    ).join("")}
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="carousel-button carousel-button-next absolute right-0 top-1/2 z-10 hidden translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-lg transition hover:border-primary-200 hover:text-primary-700 lg:flex"
+        aria-label="Ver reseñas siguientes"
+        data-carousel-next
+      >
+        <ChevronRight class="h-5 w-5" aria-hidden="true" />
+      </button>
+
+      <div class="mt-8 flex items-center justify-center gap-4 lg:hidden">
+        <button
+          type="button"
+          class="carousel-button inline-flex items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:border-primary-200 hover:text-primary-700"
+          aria-label="Ver reseñas anteriores"
+          data-carousel-prev
+        >
+          <ChevronLeft class="h-5 w-5" aria-hidden="true" />
+        </button>
+
+        <button
+          type="button"
+          class="carousel-button inline-flex items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:border-primary-200 hover:text-primary-700"
+          aria-label="Ver reseñas siguientes"
+          data-carousel-next
+        >
+          <ChevronRight class="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script
+  is:inline
+  define:vars={{ clonesPorLado, totalTestimonios: testimonios.length }}
+>
+  (() => {
+    const section = document.querySelector("#testimonios-nutricion");
+    if (!section) return;
+
+    const track = section.querySelector("[data-carousel-track]");
+    const viewport = section.querySelector("[data-carousel-viewport]");
+    const prevButtons = section.querySelectorAll("[data-carousel-prev]");
+    const nextButtons = section.querySelectorAll("[data-carousel-next]");
+
+    if (!track || !viewport || !prevButtons.length || !nextButtons.length)
+      return;
+
+    const transitionMs = 500;
+    const autoplayMs = 2000;
+    let currentIndex = clonesPorLado;
+    let autoplayId;
+    let resumeTimeoutId;
+    let isTransitioning = false;
+    const reviewTexts = Array.from(
+      section.querySelectorAll("[data-review-text]"),
+    );
+    const reviewToggles = Array.from(
+      section.querySelectorAll("[data-review-toggle]"),
+    );
+
+    const getSlidesPerView = () => {
+      if (window.innerWidth >= 1280) return 3;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
+    };
+
+    const getGap = () => {
+      const styles = window.getComputedStyle(track);
+      return Number.parseFloat(styles.columnGap || styles.gap || "0");
+    };
+
+    const updatePosition = (withTransition = true) => {
+      const firstSlide = track.children[0];
+      if (!firstSlide) return;
+
+      const slideWidth = firstSlide.getBoundingClientRect().width;
+      const step = slideWidth + getGap();
+      track.style.transition = withTransition
+        ? `transform ${transitionMs}ms ease`
+        : "none";
+      track.style.transform = `translate3d(-${currentIndex * step}px, 0, 0)`;
+    };
+
+    const syncInfiniteLoop = () => {
+      if (currentIndex >= totalTestimonios + clonesPorLado) {
+        currentIndex = clonesPorLado;
+        updatePosition(false);
+      } else if (currentIndex < clonesPorLado) {
+        currentIndex = totalTestimonios + currentIndex;
+        updatePosition(false);
+      }
+    };
+
+    const moveTo = (direction) => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex += direction;
+      updatePosition(true);
+    };
+
+    const stopAutoplay = () => {
+      window.clearInterval(autoplayId);
+      window.clearTimeout(resumeTimeoutId);
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      autoplayId = window.setInterval(() => moveTo(1), autoplayMs);
+    };
+
+    const pauseAndResumeAutoplay = () => {
+      stopAutoplay();
+      resumeTimeoutId = window.setTimeout(
+        () => startAutoplay(),
+        autoplayMs * 2,
+      );
+    };
+
+    const syncReviewButtons = () => {
+      reviewTexts.forEach((text, index) => {
+        const button = reviewToggles[index];
+        if (!button) return;
+
+        const isExpanded = text.classList.contains("is-expanded");
+        if (isExpanded) {
+          button.classList.remove("hidden");
+          button.textContent = "Leer menos";
+          return;
+        }
+
+        const hasOverflow = text.scrollHeight > text.clientHeight + 1;
+        button.classList.toggle("hidden", !hasOverflow);
+        button.textContent = "Leer más";
+        button.setAttribute("aria-expanded", "false");
+      });
+    };
+
+    prevButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        moveTo(-1);
+        pauseAndResumeAutoplay();
+      });
+    });
+
+    nextButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        moveTo(1);
+        pauseAndResumeAutoplay();
+      });
+    });
+
+    reviewToggles.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const text = reviewTexts[index];
+        if (!text) return;
+
+        const willExpand = !text.classList.contains("is-expanded");
+        text.classList.toggle("is-expanded", willExpand);
+        button.textContent = willExpand ? "Leer menos" : "Leer más";
+        button.setAttribute("aria-expanded", String(willExpand));
+      });
+    });
+
+    track.addEventListener("transitionend", () => {
+      isTransitioning = false;
+      syncInfiniteLoop();
+    });
+
+    viewport.addEventListener("mouseenter", stopAutoplay);
+    viewport.addEventListener("mouseleave", startAutoplay);
+    viewport.addEventListener("focusin", stopAutoplay);
+    viewport.addEventListener("focusout", startAutoplay);
+
+    window.addEventListener("resize", () => {
+      section.style.setProperty(
+        "--slides-per-view",
+        String(getSlidesPerView()),
+      );
+      updatePosition(false);
+      syncReviewButtons();
+    });
+
+    section.style.setProperty("--slides-per-view", String(getSlidesPerView()));
+    updatePosition(false);
+    syncReviewButtons();
+    startAutoplay();
+  })();
+</script>
+
+<style>
+  #testimonios-nutricion {
+    --carousel-gap: 1.5rem;
+    --slides-per-view: 1;
+  }
+
+  #testimonios-nutricion .carousel-track {
+    gap: var(--carousel-gap);
+    will-change: transform;
+  }
+
+  #testimonios-nutricion .carousel-slide {
+    width: calc(
+      (100% - (var(--carousel-gap) * (var(--slides-per-view) - 1))) /
+        var(--slides-per-view)
+    );
+  }
+
+  #testimonios-nutricion .carousel-button {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  #testimonios-nutricion .review-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+  }
+
+  #testimonios-nutricion .review-text.is-expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  @media (min-width: 768px) {
+    #testimonios-nutricion {
+      --slides-per-view: 2;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    #testimonios-nutricion {
+      --slides-per-view: 3;
+    }
+  }
+</style>
