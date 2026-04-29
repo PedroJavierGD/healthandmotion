@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { item, open = false } = Astro.props;
+const parrafos = item.respuesta.split("\n\n").filter(Boolean);
 ---
 
 <details
@@ -19,5 +20,9 @@ const { item, open = false } = Astro.props;
       +
     </span>
   </summary>
-  <p class="mt-4 pr-10 text-gray-600">{item.respuesta}</p>
+  <div class="mt-4 space-y-4 pr-10 text-gray-600">
+    {parrafos.map((parrafo) => (
+      <p>{parrafo}</p>
+    ))}
+  </div>
 </details>
