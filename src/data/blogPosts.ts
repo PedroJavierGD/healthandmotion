@@ -1,4 +1,4 @@
-import imagenEstetica from "../assets/images/estetica/centro de estetica sanlucar de barrameda.webp";
+import imagenEstetica from "../assets/images/estetica/centro-estetica-sanlucar-barrameda.webp";
 import imagenEntrenamiento from "../assets/images/entrenamiento-personal-sanlucar-barrameda.webp";
 import imagenNutricion from "../assets/images/nutricionista-sanlucar-barrameda.webp";
 import imagenPsicologia from "../assets/images/psicologa-sanlucar-barrameda.webp";
